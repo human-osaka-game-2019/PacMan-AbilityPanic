@@ -123,6 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GhostAi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GhostStatus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
