@@ -338,3 +338,21 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# 新規追加分
+
+*.html
+*.css
+*.js
+
+# https://www21.atwiki.jp/ohden/pages/324.htmlに記載分
+*.sdf
+*.opensdf
+*.suo
+*.opt
+*.clw
+*.ncb
+*.aps
+*.mak
+*.log
+*.pubxml.user
