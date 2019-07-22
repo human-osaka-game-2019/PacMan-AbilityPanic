@@ -9,7 +9,7 @@
 * @enum GHOST_MODE_FLAG
 * @brief ゴーストのモードの種類
 */
-enum GHOST_MODE_FLAG
+enum GHOST_MODE
 {
 	NormalMode,	//!<通常モード
 	ScatterMode,//!<スキャッターモード
@@ -22,10 +22,15 @@ enum GHOST_MODE_FLAG
 class GHOST_BASE
 {
 public:
-	float	MovementSpeed;	//! ゴーストの移動速度
+	int		mode;			//! ゴーストの現在のモード
+	float	Speed;			//! ゴーストの移動速度
+	bool	Is_dead;		//! ゴーストの生存フラグ
+
+	// いるかわからないが取り敢えず書いておく
 	float	X, Y;			//! ゴーストのXY座標
 	float	Width, Height;	//! ゴーストの幅、高さ
-	bool	is_dead;		//! ゴーストの生存フラグ
+	
+	
 };
 
 #endif
