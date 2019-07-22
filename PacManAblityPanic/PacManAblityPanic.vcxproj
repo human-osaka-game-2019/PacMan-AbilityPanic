@@ -126,6 +126,7 @@
     <ClCompile Include="GhostAi.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GhostAi.h" />
     <ClInclude Include="GhostStatus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
