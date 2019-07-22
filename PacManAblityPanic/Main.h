@@ -5,4 +5,11 @@
 #define GAME_SCENE_ID (1)
 #define RESULT_SCENE_ID (2)
 
+enum SceneStep
+{
+	InitStep,			// 初期化
+	MainStep,			// メイン
+	EndStep,			// 終了
+};
+
 #endif // !
