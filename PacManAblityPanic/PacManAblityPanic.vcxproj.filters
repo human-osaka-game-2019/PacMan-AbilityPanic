@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Scenefile">
       <UniqueIdentifier>{647ea353-cd92-4a12-865c-bee1f524d01c}</UniqueIdentifier>
     </Filter>
@@ -15,6 +11,10 @@
     <Filter Include="MainFile">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +36,9 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Scenefile</Filter>
     </ClCompile>
+    <ClCompile Include="window.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -55,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Scenefile</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
