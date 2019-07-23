@@ -1,51 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="ソース ファイル">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Scenefile">
+      <UniqueIdentifier>{647ea353-cd92-4a12-865c-bee1f524d01c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GhostAiFile">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="MainFile">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GhostAi.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>GhostAiFile</Filter>
     </ClCompile>
     <ClCompile Include="TitleScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameScene.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Scenefile</Filter>
     </ClCompile>
     <ClCompile Include="ResultScene.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>Scenefile</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Scenefile</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>MainFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scenefile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GhostStatus.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GhostAi.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="Main.h">
+      <Filter>MainFile</Filter>
     </ClInclude>
     <ClInclude Include="TitleScene.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>Scenefile</Filter>
     </ClInclude>
     <ClInclude Include="ResultScene.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>Scenefile</Filter>
     </ClInclude>
-    <ClInclude Include="Main.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="GhostAi.h">
+      <Filter>GhostAiFile</Filter>
+    </ClInclude>
+    <ClInclude Include="GhostStatus.h">
+      <Filter>GhostAiFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scenefile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
