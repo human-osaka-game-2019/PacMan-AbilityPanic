@@ -7,8 +7,10 @@ void RED_GHOST::RedGhostUpdate () {
 	case NormalMode:
 		break;
 	case ScatterMode:
+		ScatterMoveing ();
 		break;
 	case IzikeMode:
+		IzikeMoveing ();
 		break;
 	}
 }
@@ -19,8 +21,10 @@ void PINK_GHOST::PinkGhostUpdate () {
 	case NormalMode:
 		break;
 	case ScatterMode:
+		ScatterMoveing ();
 		break;
 	case IzikeMode:
+		IzikeMoveing ();
 		break;
 	}
 }
@@ -31,8 +35,10 @@ void WATERY_GHOST::WateryGhostUpdate () {
 	case NormalMode:
 		break;
 	case ScatterMode:
+		ScatterMoveing ();
 		break;
 	case IzikeMode:
+		IzikeMoveing ();
 		break;
 	}
 }
@@ -43,8 +49,20 @@ void ORANGE_GHOST::OrangeGhostUpdate() {
 	case NormalMode:
 		break;
 	case ScatterMode:
+		ScatterMoveing ();
 		break;
 	case IzikeMode:
+		IzikeMoveing ();
 		break;
 	}
+}
+
+void ScatterMoveing ()
+{
+
+};
+
+void IzikeMoveing () 
+{
+
 }

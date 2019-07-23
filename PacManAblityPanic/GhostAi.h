@@ -55,6 +55,13 @@ public:
 	*/
 	void OrangeGhostUpdate ();
 };
-
+/**
+* @brief スキャッターモード時の処理
+*/
+void ScatterMoveing ();
+/**
+* @brief イジケモード時の処理
+*/
+void IzikeMoveing ();
 #endif
 
