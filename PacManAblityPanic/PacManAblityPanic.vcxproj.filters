@@ -45,6 +45,12 @@
     <ClCompile Include="SetScene.cpp">
       <Filter>Scenefile</Filter>
     </ClCompile>
+    <ClCompile Include="Device.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>MainFile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -73,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="SetScene.h">
       <Filter>Scenefile</Filter>
+    </ClInclude>
+    <ClInclude Include="Device.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="class.h">
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>MainFile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -38,6 +38,7 @@ void InitTitleScene()
 // 次のシーンに行くための条件記入
 void UpdateTitleScene()
 {
+
 	g_SceneStep = SceneStep::EndStep;
 }
 

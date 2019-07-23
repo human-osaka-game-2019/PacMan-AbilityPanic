@@ -7,6 +7,8 @@
 #define RESULT_SCENE_ID (3)
 #define OPTION_SCENE_ID (4)
 
+void UpdateScene();
+
 void DrawScene();
 
 enum SceneStep
