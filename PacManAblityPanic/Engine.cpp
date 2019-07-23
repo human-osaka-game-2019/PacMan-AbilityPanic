@@ -14,5 +14,19 @@ bool InitEngine(int width, int height, HINSTANCE hInst)
 
 void EndEngine()
 {
+	Pointa point;
 
+	// テクスチャの開放もする
+
+	if (point.pDinput != nullptr)
+	{
+		point.pDinput->Release();
+		point.pDinput = nullptr;
+	}
+
+	if (point.pkey != nullptr)
+	{
+		point.pkey->Release();
+		point.pkey = nullptr;
+	}
 }
