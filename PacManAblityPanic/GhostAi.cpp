@@ -5,6 +5,7 @@ void RED_GHOST::RedGhostUpdate () {
 	switch ( RED_GHOST::Mode)
 	{
 	case NormalMode:
+		RedNormalMoving ();
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -24,6 +25,7 @@ void PINK_GHOST::PinkGhostUpdate () {
 	switch (PINK_GHOST::Mode)
 	{
 	case NormalMode:
+		PinkNormalMoving ();
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -43,6 +45,7 @@ void WATERY_GHOST::WateryGhostUpdate () {
 	switch (WATERY_GHOST::Mode)
 	{
 	case NormalMode:
+		WateryNormalMoving ();
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -62,6 +65,7 @@ void ORANGE_GHOST::OrangeGhostUpdate() {
 	switch (ORANGE_GHOST::Mode)
 	{
 	case NormalMode:
+		OrangeNormalMoving ();
 		break;
 	case ScatterMode:
 		ScatterMoving ();
