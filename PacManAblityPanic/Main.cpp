@@ -1,16 +1,16 @@
-﻿
-
-#include <Windows.h>
+﻿#include <Windows.h>
 #include "window.h"
+#include "Engine.h"
+#include "Scene.h"
 
-int WINAPI WinMain(HINSTANCE hInst,
-	HINSTANCE hPrevInstance,
-	LPSTR     lpCmpLine,
-	INT       nCmdShow)
+int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
+	LPSTR lpCmpLine,INT nCmdShow)
 {
-	//	window生成
-	HWND wind_handle = Make_WndFull(hInst, 640, 480);
-
+	if (InitEngine(1920, 1080, hInst) == false)
+	{
+		return 0;
+	}
+	
 	while (true)
 	{
 		bool message_ret = false;
