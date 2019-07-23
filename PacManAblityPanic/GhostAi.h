@@ -11,6 +11,11 @@ class RED_GHOST : public GHOST_BASE
 {
 public:
 	/**
+	* @fn void RedNormalMoving ()
+	* @ brief ブリンキーのノーマルモード時の挙動
+	*/
+	void RedNormalMoving ();
+	/**
 	* @fn void RedGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
 	*/
@@ -23,6 +28,11 @@ public:
 class PINK_GHOST : public GHOST_BASE
 {
 public:
+	/**
+	* @fn void PinkNormalMoving ()
+	* @ brief ピンキーのノーマルモード時の挙動
+	*/
+	void PinkNormalMoving();
 	/**
 	* @fn void RedGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
@@ -37,6 +47,11 @@ class WATERY_GHOST : public GHOST_BASE
 {
 public:
 	/**
+	* @fn void WateryNormalMoving ()
+	* @ brief インキーのノーマルモード時の挙動
+	*/
+	void WateryNormalMoving();
+	/**
 	* @fn void WateryGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
 	*/
@@ -49,6 +64,11 @@ public:
 class ORANGE_GHOST : public GHOST_BASE
 {
 public:
+	/**
+	* @fn void OrangeNormalMoving ()
+	* @ brief クライドのノーマルモード時の挙動
+	*/
+	void OrangeNormalMoving();
 	/**
 	* @fn void OrangeGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数

@@ -15,6 +15,11 @@ void RED_GHOST::RedGhostUpdate () {
 	}
 }
 
+void RED_GHOST::RedNormalMoving()
+{
+
+};
+
 void PINK_GHOST::PinkGhostUpdate () {
 	switch (PINK_GHOST::Mode)
 	{
@@ -28,6 +33,11 @@ void PINK_GHOST::PinkGhostUpdate () {
 		break;
 	}
 }
+
+void PINK_GHOST::PinkNormalMoving()
+{
+
+};
 
 void WATERY_GHOST::WateryGhostUpdate () {
 	switch (WATERY_GHOST::Mode)
@@ -43,6 +53,11 @@ void WATERY_GHOST::WateryGhostUpdate () {
 	}
 }
 
+void WATERY_GHOST::WateryNormalMoving()
+{
+
+};
+
 void ORANGE_GHOST::OrangeGhostUpdate() {
 	switch (ORANGE_GHOST::Mode)
 	{
@@ -56,6 +71,11 @@ void ORANGE_GHOST::OrangeGhostUpdate() {
 		break;
 	}
 }
+
+void ORANGE_GHOST::OrangeNormalMoving()
+{
+
+};
 
 void ScatterMoving ()
 {
