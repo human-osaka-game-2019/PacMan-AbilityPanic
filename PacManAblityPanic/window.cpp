@@ -79,7 +79,7 @@ HWND Make_Wnd(HINSTANCE hInst, int width, int height)
 }
 
 // フルスクリーンモード用
-HWND Make_Full(HINSTANCE hInst, int width, int height)
+HWND Make_WndFull(HINSTANCE hInst, int width, int height)
 {
 	////////////////////////// ウィンドウ初期化 //////////////////////////////
 
