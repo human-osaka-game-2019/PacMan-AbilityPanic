@@ -1,5 +1,6 @@
 ﻿#include<stdio.h>
 #include"Main.h"
+#include"Scene.h"
 
 extern int g_SceneStep;
 
