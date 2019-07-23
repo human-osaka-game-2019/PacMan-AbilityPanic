@@ -10,7 +10,7 @@
 
 int g_SceneStep = 0;
 
-void main()
+void DrawScene()
 {
 	int current_scene_id = TITLE_SCENE_ID;
 
@@ -29,6 +29,8 @@ void main()
 		case RESULT_SCENE_ID:
 			result_id = ResultSceneMain();
 			break;
+		case OPTION_SCENE_ID:
+			result_id = 
 		}
 
 

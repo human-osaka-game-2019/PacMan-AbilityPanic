@@ -39,6 +39,9 @@
     <ClCompile Include="window.cpp">
       <Filter>lib</Filter>
     </ClCompile>
+    <ClCompile Include="Option.cpp">
+      <Filter>Scenefile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="window.h">
       <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.h">
+      <Filter>Scenefile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

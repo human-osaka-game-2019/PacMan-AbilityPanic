@@ -128,12 +128,14 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Option.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GhostAi.h" />
     <ClInclude Include="GhostStatus.h" />
+    <ClInclude Include="Option.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Main.h" />

@@ -5,5 +5,6 @@
 
 LRESULT CALLBACK wndProc(HWND, UINT, WPARAM, LPARAM);
 HWND Make_Wnd(HINSTANCE, int, int);
-HWND Make_Full(HINSTANCE, int, int);
+HWND Make_WndFull(HINSTANCE, int, int);
+
 #endif
