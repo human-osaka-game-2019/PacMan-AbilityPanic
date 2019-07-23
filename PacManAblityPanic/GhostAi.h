@@ -58,10 +58,10 @@ public:
 /**
 * @brief スキャッターモード時の処理
 */
-void ScatterMoveing ();
+void ScatterMoving ();
 /**
 * @brief イジケモード時の処理
 */
-void IzikeMoveing ();
+void IzikeMoving ();
 #endif
 
