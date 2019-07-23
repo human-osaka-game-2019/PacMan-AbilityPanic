@@ -7,23 +7,23 @@ void InitGameScene();
 void UpdateGameScene();
 int FinisGameScene();
 
+// 描画設定等
 void InitGameScene()
 {
-	printf("ゲームシーンの初期化 \n");
-
-	g_SceneStep = 1;
+	g_SceneStep = SceneStep::MainStep;
 }
 
+// 次のシーンに行くための条件記入
+// ゲーム設定記入
 void UpdateGameScene()
 {
-	printf("ゲームシーンの本編 \n");
 
-	g_SceneStep = 2;
+	g_SceneStep = SceneStep::EndStep;
 }
 
+// 次に飛ぶシーン先の設定
 int FinisGameScene()
 {
-	printf("ゲームシーンの終了 \n");
 
 	// 次のシーンの遷移先IDを返す
 	return RESULT_SCENE_ID;
@@ -34,16 +34,16 @@ int GameSceneMain()
 	switch (g_SceneStep)
 	{
 		// 初期化
-	case 0:
+	case SceneStep::InitStep :
 		InitGameScene();
 		break;
 
 		// 本編
-	case 1:
+	case SceneStep::MainStep:
 		UpdateGameScene();
 		break;
 		// 終了
-	case 2:
+	case SceneStep::EndStep:
 		return FinisGameScene();
 	}
 	return GAME_SCENE_ID;

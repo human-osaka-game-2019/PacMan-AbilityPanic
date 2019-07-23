@@ -7,24 +7,21 @@ void InitResultScene();
 void UpdateResultScene();
 int FinisResultScene();
 
+// 描画設定等
 void InitResultScene()
 {
-	printf("リザルトシーンの初期化 \n");
-
-	g_SceneStep = 1;
+	g_SceneStep = SceneStep::MainStep;
 }
 
+// 次のシーンに行くための条件記入
 void UpdateResultScene()
 {
-	printf("リザルトシーンの本編 \n");
-
-	g_SceneStep = 2;
+	g_SceneStep = SceneStep::EndStep;
 }
 
+// 次に飛ぶシーン先の設定
 int FinisResultScene()
 {
-	printf("リザルトシーンの終了 \n");
-
 	// 次のシーンの遷移先IDを返す
 	return TITLE_SCENE_ID;
 }
@@ -34,16 +31,16 @@ int ResultSceneMain()
 	switch (g_SceneStep)
 	{
 		// 初期化
-	case 0:
+	case SceneStep::InitStep:
 		InitResultScene();
 		break;
 
 		// 本編
-	case 1:
+	case SceneStep::MainStep:
 		UpdateResultScene();
 		break;
 		// 終了
-	case 2:
+	case SceneStep::EndStep:
 		return FinisResultScene();
 	}
 	return RESULT_SCENE_ID;
