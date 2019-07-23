@@ -30,19 +30,19 @@ int TitleSceneMain()
 }
 
 // 描画設定等
-void InitTitleScene()
+void OptionScene()
 {
 	g_SceneStep = SceneStep::MainStep;
 }
 
 // 次のシーンに行くための条件記入
-void UpdateTitleScene()
+void UpdateOptionScene()
 {
 	g_SceneStep = SceneStep::EndStep;
 }
 
 // 次に飛ぶシーン先の設定
-int FinisTitleScene()
+int FinisOptionScene()
 {
 	// 次のシーンの遷移先IDを返す
 	return TITLE_SCENE_ID;
