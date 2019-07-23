@@ -10,7 +10,7 @@
 
 int g_SceneStep = 0;
 
-void DrawScene()
+void UpdateScene()
 {
 	int current_scene_id = TITLE_SCENE_ID;
 
@@ -35,8 +35,6 @@ void DrawScene()
 		case OPTION_SCENE_ID:
 			result_id = OptionSceneMain();
 		}
-
-
 
 		if (current_scene_id != result_id)
 		{
