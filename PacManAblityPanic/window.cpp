@@ -1,4 +1,9 @@
-﻿#include "window.h"
+﻿#include<d3dx9.h>
+#include<tchar.h>
+#include<dinput.h>
+
+#include "window.h"
+#include "class.h"
 
 ////// ウィンドウプロシージャー //////
 
@@ -121,3 +126,4 @@ HWND Make_WndFull(HINSTANCE hInst, int width, int height)
 
 	return hInsT;
 }
+
