@@ -23,6 +23,9 @@ void DrawScene()
 		case TITLE_SCENE_ID:
 			result_id = TitleSceneMain();
 			break;
+		case SET_SCENE_ID:
+			result_id = SetSceneMain();
+			break;
 		case GAME_SCENE_ID:
 			result_id = GameSceneMain();
 			break;
@@ -30,7 +33,7 @@ void DrawScene()
 			result_id = ResultSceneMain();
 			break;
 		case OPTION_SCENE_ID:
-			result_id = 
+			result_id = OptionSceneMain();
 		}
 
 
