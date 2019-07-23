@@ -22,7 +22,7 @@ enum GHOST_MODE
 class GHOST_BASE
 {
 public:
-	int		mode;			//! ゴーストの現在のモード
+	int		Mode;			//! ゴーストの現在のモード
 	float	Speed;			//! ゴーストの移動速度
 	bool	Is_dead;		//! ゴーストの生存フラグ
 
