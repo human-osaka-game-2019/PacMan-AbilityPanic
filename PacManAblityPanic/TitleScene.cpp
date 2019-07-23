@@ -16,7 +16,6 @@ int TitleSceneMain()
 	case SceneStep::InitStep:
 		InitTitleScene();
 		break;
-
 		// 本編
 	case SceneStep::MainStep:
 		UpdateTitleScene();
