@@ -5,8 +5,11 @@
 #include "Main.h"
 #include "Scene.h"
 #include "TitleScene.h"
+#include "SetScene.h"
+#include "Option.h"
 #include "GameScene.h"
 #include "ResultScene.h"
+
 
 int g_SceneStep = 0;
 
