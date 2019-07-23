@@ -38,7 +38,6 @@ int GameSceneMain()
 	case SceneStep::InitStep :
 		InitGameScene();
 		break;
-
 		// 本編
 	case SceneStep::MainStep:
 		UpdateGameScene();

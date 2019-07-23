@@ -42,6 +42,9 @@
     <ClCompile Include="Option.cpp">
       <Filter>Scenefile</Filter>
     </ClCompile>
+    <ClCompile Include="SetScene.cpp">
+      <Filter>Scenefile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -66,6 +69,9 @@
       <Filter>lib</Filter>
     </ClInclude>
     <ClInclude Include="Option.h">
+      <Filter>Scenefile</Filter>
+    </ClInclude>
+    <ClInclude Include="SetScene.h">
       <Filter>Scenefile</Filter>
     </ClInclude>
   </ItemGroup>
