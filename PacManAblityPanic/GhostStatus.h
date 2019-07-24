@@ -5,6 +5,16 @@
 #ifndef GHOST_STATUS_H_
 #define GHOST_STATUS_H_
 
+
+struct TERRITORY {
+	float X;				//! 縄張りのX軸
+	float Y;				//! 縄張りのY軸
+	const float XSize = 0;	//! 各ゴーストの縄張りのサイズ（X軸）
+	const float YSize = 0;	//! 各ゴーストの縄張りのサイズ（Y軸）
+};
+
+
+
 /**
 * @enum GHOST_MODE_FLAG
 * @brief ゴーストのモードの種類

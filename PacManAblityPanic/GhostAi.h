@@ -5,8 +5,7 @@
 #ifndef GHOST_AI_H_
 #define GHOST_AI_H_
 
-const float XSize = 0; //! 各ゴーストの縄張りのサイズ（X軸）
-const float YSize = 0; //! 各ゴーストの縄張りのサイズ（Y軸）
+TERRITORY GHOST_TERRITORY[4];
 
 /**
 * @brief ブリンキー（赤いゴースト）のAI作成用クラス
