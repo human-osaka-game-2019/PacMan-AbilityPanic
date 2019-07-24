@@ -3,4 +3,6 @@
 
 int TitleSceneMain();
 
+void DrawTitleScene();
+
 #endif // !

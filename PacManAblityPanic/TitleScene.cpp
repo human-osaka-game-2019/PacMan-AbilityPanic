@@ -4,6 +4,7 @@
 
 extern int g_SceneStep;
 
+void DrawTitleScene();
 void InitTitleScene();
 void UpdateTitleScene();
 int FinisTitleScene();
@@ -26,6 +27,11 @@ int TitleSceneMain()
 		break;
 	}
 	return TITLE_SCENE_ID;
+}
+
+void DrawTitleScene()
+{
+
 }
 
 // 描画設定等
