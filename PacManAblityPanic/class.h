@@ -32,11 +32,12 @@ class Pointa
 public:
 	
 	LPDIRECT3D9 pDirect3d;
-	LPDIRECT3DDEVICE9 pDevice;
+	LPDIRECT3DDEVICE9 pDevice = NULL;
 	LPDIRECTINPUT8 pDinput;
 	LPDIRECTINPUTDEVICE8 pkey;
 	
 };
+
 
 // テクスチャデータ
 struct TEXTUREDATA
@@ -69,5 +70,8 @@ enum SceneStep
 	MainStep,			//!< メイン
 	EndStep,			//!< 終了
 };
+
+//共通のインスタンス
+extern Pointa point;
 
 #endif // !1

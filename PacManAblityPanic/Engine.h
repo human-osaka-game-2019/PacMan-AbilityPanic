@@ -3,6 +3,8 @@
 
 #include "class.h"
 
+//Pointa Point;
+
 bool InitEngine(int width, int height, HINSTANCE hInst);
 
 void EndEngine();

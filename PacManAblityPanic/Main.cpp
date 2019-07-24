@@ -20,19 +20,16 @@ int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
 		{
 			if (msg.message == WM_QUIT)
 			{
+				TranslateMessage(&msg);
+				DispatchMessage(&msg);
 				break;
 			}
 			else
 			{
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
+			UpdateScene();
 			}
 		}
-		else
-		{
-			// シーンの更新
-			UpdateScene();
-		}
+		
 	}
 
 	// エンジン終了

@@ -3,16 +3,20 @@
 #include "Device.h"
 
 // ポインタ宣言をまとめたクラス
-Pointa point;
+//Pointa Point;
 
 bool InitEngine(int width, int height, HINSTANCE hInst)
 {
 	//	window生成
 	HWND wind_handle = Make_WndFull(hInst,width,height);
 
-	BuildDxDevice(wind_handle);
+	if (FAILED(BuildDxDevice(wind_handle,&point))) 
+	{
 
 	return false;
+
+	}
+	return true;
 }
 
 void EndEngine()
@@ -20,13 +24,12 @@ void EndEngine()
 	// テクスチャの開放もする
 
 	if (point.pDinput != nullptr)
-	{
+	{	
 		point.pDinput->Release();
 		point.pDinput = nullptr;
-	}
-
+	}	
 	if (point.pkey != nullptr)
-	{
+	{	
 		point.pkey->Release();
 		point.pkey = nullptr;
 	}
@@ -35,7 +38,7 @@ void EndEngine()
 bool DrawStart()
 {
 	point.pDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 0.0f, 0);
-
+	
 	point.pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
 	point.pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	point.pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);

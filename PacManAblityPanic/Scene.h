@@ -1,6 +1,7 @@
 ﻿#ifndef SCENE_H_
 #define SCENE_H_
 
+#include "class.h"
 #define TITLE_SCENE_ID (0)
 #define SET_SCENE_ID (1)
 #define OPTION_SCENE_ID (2)
@@ -16,6 +17,6 @@
 
 void UpdateScene();
 
-void DrawScene();
+void DrawScene(Pointa point);
 
 #endif // !

@@ -13,6 +13,7 @@
 #include "GameScene.h"
 #include "ResultScene.h"
 
+
 /*
 Sceneの流れ
 Title -> Set -> Option -> Set -> Game -> Result -> Set
@@ -74,7 +75,7 @@ void UpdateScene()
 
 		}
 
-		DrawScene();
+		DrawScene(point);
 
 		if (current_scene_id != result_id)
 		{
@@ -84,7 +85,7 @@ void UpdateScene()
 	}
 }
 
-void DrawScene()
+void DrawScene(Pointa point)
 {
 	if (DrawStart() == false)
 	{

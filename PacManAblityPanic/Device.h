@@ -3,7 +3,7 @@
 
 #include "class.h"
 
-HRESULT BuildDxDevice(HWND hInst);
+HRESULT BuildDxDevice(HWND hInst, Pointa* point);
 
 void UpdateKeyStatus();
 
