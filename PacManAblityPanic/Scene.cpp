@@ -12,8 +12,8 @@
 
 /*
 Sceneの流れ
-Title -> Set -> Option -> Set -> Game -> Result
- or Game -> Re
+Title -> Set -> Option -> Set -> Game -> Result -> Set
+
 */
 
 int g_SceneStep = 0;

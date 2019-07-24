@@ -8,7 +8,7 @@ void InitTitleScene();
 void UpdateTitleScene();
 int FinisTitleScene();
 
-int TitleSceneMain()
+int OptionSceneMain()
 {
 	switch (g_SceneStep)
 	{
@@ -26,10 +26,16 @@ int TitleSceneMain()
 		return FinisTitleScene();
 		break;
 	}
-	return TITLE_SCENE_ID;
+	return OPTION_SCENE_ID;
 }
 
 // 描画設定等
+void DrawOptionClearScene()
+{
+
+}
+
+// テクスチャ読み込み
 void OptionScene()
 {
 	g_SceneStep = SceneStep::MainStep;
@@ -45,6 +51,6 @@ void UpdateOptionScene()
 int FinisOptionScene()
 {
 	// 次のシーンの遷移先IDを返す
-	return TITLE_SCENE_ID;
+	return SET_SCENE_ID;
 }
 

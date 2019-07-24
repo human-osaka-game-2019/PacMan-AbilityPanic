@@ -3,4 +3,6 @@
 
 int ResultSceneMain();
 
+void DrawResultScene();
+
 #endif // !

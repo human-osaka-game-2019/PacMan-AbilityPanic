@@ -3,4 +3,6 @@
 
 int OptionSceneMain();
 
-#endif // !
+void DrawOptionClearScene();
+
+#endif

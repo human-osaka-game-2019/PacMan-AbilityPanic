@@ -4,11 +4,36 @@
 
 extern int g_SceneStep;
 
+void DrawGameClearScene();
 void InitGameScene();
 void UpdateGameScene();
 int FinisGameScene();
 
+int GameSceneMain()
+{
+	switch (g_SceneStep)
+	{
+		// 初期化
+	case SceneStep::InitStep :
+		InitGameScene();
+		break;
+		// 本編
+	case SceneStep::MainStep:
+		UpdateGameScene();
+		break;
+		// 終了
+	case SceneStep::EndStep:
+		return FinisGameScene();
+	}
+	return GAME_SCENE_ID;
+}
+
 // 描画設定等
+void DrawGameClearScene()
+{
+}
+
+// テクスチャ読み込み
 void InitGameScene()
 {
 	g_SceneStep = SceneStep::MainStep;
@@ -30,21 +55,3 @@ int FinisGameScene()
 	return RESULT_SCENE_ID;
 }
 
-int GameSceneMain()
-{
-	switch (g_SceneStep)
-	{
-		// 初期化
-	case SceneStep::InitStep :
-		InitGameScene();
-		break;
-		// 本編
-	case SceneStep::MainStep:
-		UpdateGameScene();
-		break;
-		// 終了
-	case SceneStep::EndStep:
-		return FinisGameScene();
-	}
-	return GAME_SCENE_ID;
-}
