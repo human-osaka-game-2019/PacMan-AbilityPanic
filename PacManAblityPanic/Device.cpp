@@ -1,6 +1,8 @@
 ﻿#include "class.h" 
 
 Pointa point;
+HRESULT InitDinput(HWND);
+HRESULT InitD3d(HWND);
 
 HRESULT BuildDxDevice(HWND hInst)
 {
