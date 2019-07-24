@@ -3,6 +3,6 @@
 
 int OptionSceneMain();
 
-void DrawOptionClearScene();
+void DrawOptionScene();
 
 #endif
