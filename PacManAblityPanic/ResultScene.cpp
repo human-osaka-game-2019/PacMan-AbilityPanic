@@ -24,7 +24,7 @@ void UpdateResultScene()
 int FinisResultScene()
 {
 	// 次のシーンの遷移先IDを返す
-	return TITLE_SCENE_ID;
+	return SET_SCENE_ID;
 }
 
 int ResultSceneMain()
