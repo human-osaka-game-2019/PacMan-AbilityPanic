@@ -7,25 +7,7 @@ extern int g_SceneStep;
 void InitResultScene();
 void UpdateResultScene();
 int FinisResultScene();
-
-// 描画設定等
-void InitResultScene()
-{
-	g_SceneStep = SceneStep::MainStep;
-}
-
-// 次のシーンに行くための条件記入
-void UpdateResultScene()
-{
-	g_SceneStep = SceneStep::EndStep;
-}
-
-// 次に飛ぶシーン先の設定
-int FinisResultScene()
-{
-	// 次のシーンの遷移先IDを返す
-	return SET_SCENE_ID;
-}
+void DrawResultScene();
 
 int ResultSceneMain()
 {
@@ -46,3 +28,30 @@ int ResultSceneMain()
 	}
 	return RESULT_SCENE_ID;
 }
+
+// 描画設定等
+void DrawResultScene()
+{
+
+}
+
+
+void InitResultScene()
+{
+	g_SceneStep = SceneStep::MainStep;
+}
+
+// 次のシーンに行くための条件記入
+void UpdateResultScene()
+{
+	g_SceneStep = SceneStep::EndStep;
+}
+
+// 次に飛ぶシーン先の設定
+int FinisResultScene()
+{
+	// 次のシーンの遷移先IDを返す
+	return SET_SCENE_ID;
+}
+
+
