@@ -35,6 +35,7 @@ public:
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECTINPUT8 pDinput;
 	LPDIRECTINPUTDEVICE8 pkey;
+	
 };
 
 // テクスチャデータ

@@ -50,15 +50,16 @@ bool LoadTexture(char* file_name, MAPCHIP_TEXTURE_ID mapchipnumber)
 }
 
 void Draw(FLOAT x, FLOAT y, FLOAT z ,FLOAT rhw,DWORD color , FLOAT tu , FLOAT tv,
-	FLOAT width, FLOAT height, FLOAT w_tu , FLOAT h_tv, INT teexture)
+	FLOAT width, FLOAT height, FLOAT w_tu , FLOAT h_tv, INT texture)
 {
 	CUSTOMVERTEX cv[] = {
 		{x,y,z,rhw,color,tu,tv},
-		{x,y,z,rhw,color,tu,tv},
-		{x,y,z,rhw,color,tu,tv},
-		{x,y,z,rhw,color,tu,tv}
+		{x + width ,y,z,rhw,color,tu,tv},
+		{x + width,y + height,z,rhw,color,tu,tv},
+		{x,y + height,z,rhw,color,tu,tv}
 	};
 
-
+	D.pDevice->SetTexture(0, g_TextureList[texture].m_pTexture);
+	D.pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, cv, sizeof(CUSTOMVERTEX));
 
 }
