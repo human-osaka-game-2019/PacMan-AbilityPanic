@@ -7,6 +7,8 @@
 #include<tchar.h>
 #include<dinput.h>
 
+#define TEXTUREMAX (20);
+
 typedef struct
 {
 	float	// 頂点座標
@@ -28,11 +30,19 @@ typedef struct
 class Pointa
 {
 public:
-	LPDIRECT3DTEXTURE9 pTexture;
+	
 	LPDIRECT3D9 pDirect3d;
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECTINPUT8 pDinput;
 	LPDIRECTINPUTDEVICE8 pkey;
+};
+
+// テクスチャデータ
+struct TextureData
+{
+	LPDIRECT3DTEXTURE9 m_pTexture;  // テクスチャ情報
+	float m_Width;					// テクスチャの幅
+	float m_Height;					// テクスチャの高さ
 };
 
 // テクスチャ //
