@@ -2,6 +2,9 @@
 #include <windows.h>
 #include <d3d9.h>
 
+#include "Engine.h"
+#include "class.h"
+
 #include "Main.h"
 #include "Scene.h"
 #include "TitleScene.h"
@@ -16,6 +19,24 @@ Title -> Set -> Option -> Set -> Game -> Result -> Set
 
 */
 
+static SceneId g_CurrentSceneId = SceneId::TitleScene;		// 動作中シーンID
+static SceneStep g_CurrentSceneStep = SceneStep::InitStep;	// 動作中シーンのステップ
+
+SceneId GetCurrentSceneId()
+{
+	return g_CurrentSceneId;
+}
+
+SceneStep GetCurrentSceneStep()
+{
+	return g_CurrentSceneStep;
+}
+
+void ChangeSceneStep(SceneStep next_step)
+{
+	g_CurrentSceneStep = next_step;
+}
+
 int g_SceneStep = 0;
 
 void UpdateScene()
@@ -28,21 +49,30 @@ void UpdateScene()
 
 		switch (current_scene_id)
 		{
+			// タイトルシーン
 		case TITLE_SCENE_ID:
 			result_id = TitleSceneMain();
 			break;
+			// 難易度設定シーン
 		case SET_SCENE_ID:
 			result_id = SetSceneMain();
 			break;
+			// 設定、ヘルプシーン
+		case OPTION_SCENE_ID:
+			result_id = OptionSceneMain();
+			break;
+			// メインゲームシーン
 		case GAME_SCENE_ID:
 			result_id = GameSceneMain();
 			break;
+			// リザルトシーン
 		case RESULT_SCENE_ID:
 			result_id = ResultSceneMain();
 			break;
-		case OPTION_SCENE_ID:
-			result_id = OptionSceneMain();
+
 		}
+
+		DrawScene();
 
 		if (current_scene_id != result_id)
 		{
@@ -66,17 +96,17 @@ void DrawScene()
 		case SceneId::TitleScene:
 			DrawTitleScene();
 			break;
-		case 0:
+		case SceneId::SetScene:
+			DrawSetScene();
+			break;
+		case SceneId::OptionScene:
+			DrawOptionScene();
+			break;
+		case SceneId::GameScene:
 			DrawGameScene();
 			break;
-		case 1:
-			DrawGameClearScene();
-			break;
-		case 2:
-			DrawGameOverScene();
-			break;
-		case 3:
-			DrawHelpScene();
+		case SceneId::ResultScene:
+			DrawResultScene();
 			break;
 		}
 	}
