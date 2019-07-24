@@ -49,10 +49,15 @@ bool LoadTexture(char* file_name, MAPCHIP_TEXTURE_ID mapchipnumber)
 	return true;
 }
 
-void Draw(FLOAT x, FLOAT y, FLOAT z ,DWORD color , FLOAT tu , FLOAT tv,
+void Draw(FLOAT x, FLOAT y, FLOAT z ,FLOAT rhw,DWORD color , FLOAT tu , FLOAT tv,
 	FLOAT width, FLOAT height, FLOAT w_tu , FLOAT h_tv, INT teexture)
 {
-	CUSTOMVERTEX cv[] = {0};
+	CUSTOMVERTEX cv[] = {
+		{x,y,z,rhw,color,tu,tv},
+		{x,y,z,rhw,color,tu,tv},
+		{x,y,z,rhw,color,tu,tv},
+		{x,y,z,rhw,color,tu,tv}
+	};
 
 
 
