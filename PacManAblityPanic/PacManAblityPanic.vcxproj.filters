@@ -95,5 +95,8 @@
     <ClInclude Include="MapLoader.h">
       <Filter>lib</Filter>
     </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Scenefile</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -156,6 +156,7 @@
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="GhostAi.h" />
     <ClInclude Include="GhostStatus.h" />
     <ClInclude Include="class.h" />
