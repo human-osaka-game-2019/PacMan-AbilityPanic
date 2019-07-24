@@ -2,11 +2,11 @@
 #include"Main.h"
 #include"Scene.h"
 #include"MapLoader.h"
-
+#include"class.h"
 
 extern int g_SceneStep;
 MapchipLoading map;
-void DrawGameClearScene();
+void DrawGameScene();
 void InitGameScene();
 void UpdateGameScene();
 int FinisGameScene();
@@ -39,7 +39,7 @@ int GameSceneMain()
 }
 
 // 描画設定等
-void DrawGameClearScene()
+void DrawGameScene()
 {
 }
 

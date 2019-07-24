@@ -3,6 +3,6 @@
 
 int GameSceneMain();
 
-void DrawGameClearScene();
+void DrawGameScene();
 
 #endif
