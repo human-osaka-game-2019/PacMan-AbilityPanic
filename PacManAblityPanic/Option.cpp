@@ -1,9 +1,9 @@
 ﻿#include<stdio.h>
 #include"Main.h"
 #include"Scene.h"
+#include"class.h"
 
 extern int g_SceneStep;
-
 void InitTitleScene();
 void UpdateTitleScene();
 int FinisTitleScene();
@@ -30,7 +30,7 @@ int OptionSceneMain()
 }
 
 // 描画設定等
-void DrawOptionClearScene()
+void DrawOptionScene()
 {
 
 }
