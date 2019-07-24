@@ -33,9 +33,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>MainFile</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scenefile</Filter>
-    </ClCompile>
     <ClCompile Include="window.cpp">
       <Filter>lib</Filter>
     </ClCompile>
@@ -49,6 +46,9 @@
       <Filter>lib</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
+      <Filter>MainFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
       <Filter>MainFile</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,9 +68,6 @@
     <ClInclude Include="GhostStatus.h">
       <Filter>GhostAiFile</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Scenefile</Filter>
-    </ClInclude>
     <ClInclude Include="window.h">
       <Filter>lib</Filter>
     </ClInclude>
@@ -87,6 +84,9 @@
       <Filter>lib</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
+      <Filter>MainFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
       <Filter>MainFile</Filter>
     </ClInclude>
   </ItemGroup>
