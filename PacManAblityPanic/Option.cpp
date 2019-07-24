@@ -36,7 +36,7 @@ void DrawOptionScene()
 }
 
 // テクスチャ読み込み
-void OptionScene()
+void InitOptionScene()
 {
 	g_SceneStep = SceneStep::MainStep;
 }

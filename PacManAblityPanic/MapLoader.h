@@ -1,8 +1,6 @@
 ﻿#ifndef MAPCHIP
 #define MAPCHIP
 
-
-
 class MapchipLoading {
 public:
 	int** mapchip(const char* filename, int Hrow, int Hcol, int** data);
