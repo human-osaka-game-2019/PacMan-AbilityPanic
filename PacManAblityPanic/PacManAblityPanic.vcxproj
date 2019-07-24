@@ -145,6 +145,7 @@
     <ClCompile Include="GhostAi.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="MapLoader.cpp" />
     <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Option.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="class.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="MapLoader.h" />
     <ClInclude Include="SetScene.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="window.h" />

@@ -51,6 +51,9 @@
     <ClCompile Include="Scene.cpp">
       <Filter>MainFile</Filter>
     </ClCompile>
+    <ClCompile Include="MapLoader.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>MainFile</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLoader.h">
+      <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

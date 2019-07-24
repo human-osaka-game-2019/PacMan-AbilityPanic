@@ -1,13 +1,17 @@
 ﻿#include<stdio.h>
 #include"Main.h"
 #include"Scene.h"
+#include"MapLoader.h"
+
 
 extern int g_SceneStep;
-
+MapchipLoading map;
 void DrawGameClearScene();
 void InitGameScene();
 void UpdateGameScene();
 int FinisGameScene();
+static int mapdata[23][19];
+static int* pMap[23];
 
 int GameSceneMain()
 {
@@ -15,6 +19,12 @@ int GameSceneMain()
 	{
 		// 初期化
 	case SceneStep::InitStep :
+		
+		for (int i = 0; i < 23; i++)
+		{
+			pMap[i] = mapdata[i];
+		}
+		map.mapchip("Test_CSV.csv", 22, 19, pMap);
 		InitGameScene();
 		break;
 		// 本編
