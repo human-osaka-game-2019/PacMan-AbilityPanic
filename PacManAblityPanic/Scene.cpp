@@ -10,6 +10,11 @@
 #include "GameScene.h"
 #include "ResultScene.h"
 
+/*
+Sceneの流れ
+Title -> Set -> Option -> Set -> Game -> Result
+ or Game -> Re
+*/
 
 int g_SceneStep = 0;
 
