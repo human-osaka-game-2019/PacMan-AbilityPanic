@@ -7,4 +7,6 @@ bool InitEngine(int width, int height, HINSTANCE hInst);
 
 void EndEngine();
 
+bool DrawStart();
+
 #endif // !1
