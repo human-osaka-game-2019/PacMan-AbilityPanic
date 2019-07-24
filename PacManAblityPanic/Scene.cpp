@@ -19,6 +19,8 @@ Title -> Set -> Option -> Set -> Game -> Result -> Set
 
 */
 
+Pointa point;
+
 static SceneId g_CurrentSceneId = SceneId::TitleScene;		// 動作中シーンID
 static SceneStep g_CurrentSceneStep = SceneStep::InitStep;	// 動作中シーンのステップ
 
@@ -84,7 +86,6 @@ void UpdateScene()
 
 void DrawScene()
 {
-	LPDIRECT3DDEVICE9 pDinput;
 	if (DrawStart() == false)
 	{
 		return;
@@ -112,6 +113,6 @@ void DrawScene()
 	}
 
 
-	pDinput->EndScene();
-	pDinput->Present(NULL, NULL, NULL, NULL);
+	point.pDevice->EndScene();
+	point.pDevice->Present(NULL, NULL, NULL, NULL);
 }
