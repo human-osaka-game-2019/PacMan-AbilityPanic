@@ -12,12 +12,6 @@
 // 頂点情報
 
 
-enum TEXTURE_ID
-{
-	Non = -1,		// 無し
-	MapChip,		// マップチップ
-	MaxTextureId	// 最大数
-};
 
 
 void UpdateScene();

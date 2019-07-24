@@ -38,11 +38,18 @@ public:
 };
 
 // テクスチャデータ
-struct TextureData
+struct TEXTUREDATA
 {
 	LPDIRECT3DTEXTURE9 m_pTexture;  // テクスチャ情報
 	float m_Width;					// テクスチャの幅
 	float m_Height;					// テクスチャの高さ
+};
+
+enum MAPCHIP_TEXTURE_ID
+{
+	Non = -1,		// 無し
+	MapChip,		// マップチップ
+	MaxTextureId	// 最大数
 };
 
 // テクスチャ //
