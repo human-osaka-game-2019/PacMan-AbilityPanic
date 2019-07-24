@@ -4,6 +4,13 @@ Pointa point;
 HRESULT InitDinput(HWND);
 HRESULT InitD3d(HWND);
 
+// キーボード //
+static const int MAX_KEY_NUMBER = 256;
+// 入力キーを入れる値
+BYTE KeyState[MAX_KEY_NUMBER];
+// 256の配列を持つ
+const int MASK_NUM = 0x80;
+
 HRESULT BuildDxDevice(HWND hInst)
 {
 	//// InitD3d が初期化されているかどうか ////
