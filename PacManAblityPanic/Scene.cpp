@@ -44,32 +44,32 @@ int g_SceneStep = 0;
 
 void UpdateScene()
 {
-	int current_scene_id = TITLE_SCENE_ID;
+	int current_scene_id = SceneId::TitleScene;
 
 	while (true)
 	{
-		int result_id = current_scene_id;
+		SceneId result_id = g_CurrentSceneId;
 
 		switch (current_scene_id)
 		{
 			// タイトルシーン
-		case TITLE_SCENE_ID:
+		case SceneId::TitleScene:
 			result_id = TitleSceneMain();
 			break;
 			// 難易度設定シーン
-		case SET_SCENE_ID:
+		case SceneId::SetScene:
 			result_id = SetSceneMain();
 			break;
 			// 設定、ヘルプシーン
-		case OPTION_SCENE_ID:
+		case SceneId::OptionScene:
 			result_id = OptionSceneMain();
 			break;
 			// メインゲームシーン
-		case GAME_SCENE_ID:
+		case SceneId::GameScene:
 			result_id = GameSceneMain();
 			break;
 			// リザルトシーン
-		case RESULT_SCENE_ID:
+		case SceneId::ResultScene:
 			result_id = ResultSceneMain();
 			break;
 

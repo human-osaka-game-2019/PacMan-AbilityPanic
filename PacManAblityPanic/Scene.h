@@ -2,11 +2,6 @@
 #define SCENE_H_
 
 #include "class.h"
-#define TITLE_SCENE_ID (0)
-#define SET_SCENE_ID (1)
-#define OPTION_SCENE_ID (2)
-#define GAME_SCENE_ID (3)
-#define RESULT_SCENE_ID (4)
 
 
 

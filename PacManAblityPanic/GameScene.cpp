@@ -9,11 +9,11 @@ MapchipLoading map;
 void DrawGameScene();
 void InitGameScene();
 void UpdateGameScene();
-int FinisGameScene();
+SceneId FinisGameScene();
 static int mapdata[23][19];
 static int* pMap[23];
 
-int GameSceneMain()
+SceneId GameSceneMain()
 {
 	switch (g_SceneStep)
 	{
@@ -35,7 +35,7 @@ int GameSceneMain()
 	case SceneStep::EndStep:
 		return FinisGameScene();
 	}
-	return GAME_SCENE_ID;
+	return SceneId::GameScene;
 }
 
 // 描画設定等
@@ -58,10 +58,10 @@ void UpdateGameScene()
 }
 
 // 次に飛ぶシーン先の設定
-int FinisGameScene()
+SceneId FinisGameScene()
 {
 
 	// 次のシーンの遷移先IDを返す
-	return RESULT_SCENE_ID;
+	return SceneId::ResultScene;
 }
 

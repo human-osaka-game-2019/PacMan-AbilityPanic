@@ -51,6 +51,6 @@ void UpdateTitleScene()
 SceneId FinisTitleScene()
 {
 	// 次のシーンの遷移先IDを返す
-	return SceneId::GameScene;
+	return SceneId::SetScene;
 }
 

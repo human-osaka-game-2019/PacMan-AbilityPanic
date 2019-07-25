@@ -7,10 +7,10 @@ extern int g_SceneStep;
 
 void InitResultScene();
 void UpdateResultScene();
-int FinisResultScene();
+SceneId FinisResultScene();
 void DrawResultScene();
 
-int ResultSceneMain()
+SceneId ResultSceneMain()
 {
 	switch (g_SceneStep)
 	{
@@ -27,7 +27,7 @@ int ResultSceneMain()
 	case SceneStep::EndStep:
 		return FinisResultScene();
 	}
-	return RESULT_SCENE_ID;
+	return SceneId::ResultScene;
 }
 
 // 描画設定等
@@ -49,10 +49,10 @@ void UpdateResultScene()
 }
 
 // 次に飛ぶシーン先の設定
-int FinisResultScene()
+SceneId FinisResultScene()
 {
 	// 次のシーンの遷移先IDを返す
-	return SET_SCENE_ID;
+	return SceneId::SetScene;
 }
 
 

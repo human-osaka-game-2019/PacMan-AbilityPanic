@@ -2,7 +2,7 @@
 #define _GAMESCENE_H_
 
 
-int GameSceneMain();
+SceneId GameSceneMain();
 
 void DrawGameScene();
 
