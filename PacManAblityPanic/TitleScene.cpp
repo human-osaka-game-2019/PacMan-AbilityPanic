@@ -40,7 +40,7 @@ void DrawTitleScene()
 // 描画設定等
 void InitTitleScene()
 {
-	LoadTexture("TitleScene.png",SceneId::TitleScene, TitleTextureList::MsinTitleTexture,1920,1080);
+	LoadTexture("Texture/TitleScene.png",SceneId::TitleScene, TitleTextureList::MsinTitleTexture,1920,1080);
 
 	ChangeSceneStep(SceneStep::MainStep);
 }
@@ -48,7 +48,10 @@ void InitTitleScene()
 // 次のシーンに行くための条件記入
 void UpdateTitleScene()
 {
-	ChangeSceneStep(SceneStep::EndStep);
+	if (GetKeyState(DIK_9))
+	{
+		ChangeSceneStep(SceneStep::EndStep);
+	}
 }
 
 // 次に飛ぶシーン先の設定
