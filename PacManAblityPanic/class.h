@@ -47,13 +47,21 @@ struct TEXTUREDATA
 	float m_Height;					// テクスチャの高さ
 };
 
+// マップチップでの画像数
 enum MAPCHIP_TEXTURE_ID
 {
 	Non = -1,		// 無し
-	MapChip,		// マップチップ
+	MapChip,		// マップチップ	
+	TitleSceneTex,
+	SetSceneTex,
+	OptionSceneTex,
+	GameSceneTex,
+	ResultSceneTex,
+	MaxTex,
 	MaxTextureId	// 最大数
 };
 
+// SceneId の数
 enum SceneId
 {
 	TitleScene,			//!< タイトルシーン
@@ -61,9 +69,10 @@ enum SceneId
 	OptionScene,        //!< ヘルプ(遊戯説明画面)シーン
 	GameScene,			//!< ゲーム本編シーン
 	ResultScene,		//!< リザルトシーン
-	SceneIdMax			//!< シーンID最大
+	SceneIdMax,			//!< シーンID最大
 };
 
+// Step 数
 enum SceneStep
 {
 	InitStep,			//!< 初期化
@@ -71,6 +80,40 @@ enum SceneStep
 	EndStep,			//!< 終了
 };
 
+enum TitleTextureList
+{
+	MsinTitleTexture,
+	MaxTexture,
+
+};
+
+enum SetTextureList
+{
+	MsinSetTexture,
+	MaxTexture,
+
+};
+
+enum OptionTextureList
+{
+	MsinOptionTexture,
+	MaxTexture,
+
+};
+
+enum GameTextureList
+{
+	MsinGameTexture,
+	MaxTexture,
+
+};
+
+enum ResultTextureList
+{
+	MsinResultTexture,
+	MaxTexture,
+
+};
 //共通のインスタンス
 extern Pointa point;
 
