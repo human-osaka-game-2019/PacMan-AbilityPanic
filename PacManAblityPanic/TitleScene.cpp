@@ -7,9 +7,9 @@ extern int g_SceneStep;
 void DrawTitleScene();
 void InitTitleScene();
 void UpdateTitleScene();
-int FinisTitleScene();
+SceneId FinisTitleScene();
 
-int TitleSceneMain()
+SceneId TitleSceneMain()
 {
 	switch (g_SceneStep)
 	{
@@ -26,7 +26,7 @@ int TitleSceneMain()
 		return FinisTitleScene();
 		break;
 	}
-	return TITLE_SCENE_ID;
+	return SceneId::TitleScene;
 }
 
 void DrawTitleScene()
@@ -48,9 +48,9 @@ void UpdateTitleScene()
 }
 
 // 次に飛ぶシーン先の設定
-int FinisTitleScene()
+SceneId FinisTitleScene()
 {
 	// 次のシーンの遷移先IDを返す
-	return GAME_SCENE_ID;
+	return SceneId::GameScene;
 }
 

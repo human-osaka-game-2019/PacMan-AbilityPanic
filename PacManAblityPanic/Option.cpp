@@ -6,9 +6,9 @@
 extern int g_SceneStep;
 void InitTitleScene();
 void UpdateTitleScene();
-int FinisTitleScene();
+SceneId FinisTitleScene();
 
-int OptionSceneMain()
+SceneId OptionSceneMain()
 {
 	switch (g_SceneStep)
 	{
@@ -26,7 +26,7 @@ int OptionSceneMain()
 		return FinisTitleScene();
 		break;
 	}
-	return OPTION_SCENE_ID;
+	return SceneId::OptionScene;
 }
 
 // 描画設定等
@@ -48,9 +48,9 @@ void UpdateOptionScene()
 }
 
 // 次に飛ぶシーン先の設定
-int FinisOptionScene()
+SceneId FinisOptionScene()
 {
 	// 次のシーンの遷移先IDを返す
-	return SET_SCENE_ID;
+	return SceneId::SetScene;
 }
 
