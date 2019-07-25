@@ -2,6 +2,9 @@
 #include"Main.h"
 #include"Scene.h"
 #include"class.h"
+#include"DrawTexture.h"
+
+
 
 void DrawTitleScene();
 void InitTitleScene();
@@ -30,12 +33,15 @@ SceneId TitleSceneMain()
 
 void DrawTitleScene()
 {
+	DrawTexture(0.0f,0.0f,1920,1080,GetTexture(SceneId::TitleScene, TitleTextureList::MsinTitleTexture));
 
 }
 
 // 描画設定等
 void InitTitleScene()
 {
+	LoadTexture("TitleScene.png",SceneId::TitleScene, TitleTextureList::MsinTitleTexture,1920,1080);
+
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
