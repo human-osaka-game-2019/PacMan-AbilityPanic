@@ -3,8 +3,6 @@
 #include"Scene.h"
 #include "class.h"
 
-extern int g_SceneStep;
-
 void InitResultScene();
 void UpdateResultScene();
 SceneId FinisResultScene();
@@ -12,7 +10,7 @@ void DrawResultScene();
 
 SceneId ResultSceneMain()
 {
-	switch (g_SceneStep)
+	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
@@ -39,13 +37,13 @@ void DrawResultScene()
 
 void InitResultScene()
 {
-	g_SceneStep = SceneStep::MainStep;
+	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 void UpdateResultScene()
 {
-	g_SceneStep = SceneStep::EndStep;
+	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次に飛ぶシーン先の設定

@@ -3,12 +3,11 @@
 
 #include "class.h"
 
+SceneId GetCurrentSceneId();
 
+SceneStep GetCurrentSceneStep();
 
-// 頂点情報
-
-
-
+void ChangeSceneStep(SceneStep next_step);
 
 void UpdateScene();
 

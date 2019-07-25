@@ -3,14 +3,13 @@
 #include"Scene.h"
 #include"class.h"
 
-extern int g_SceneStep;
 void InitTitleScene();
 void UpdateTitleScene();
 SceneId FinisTitleScene();
 
 SceneId OptionSceneMain()
 {
-	switch (g_SceneStep)
+	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
@@ -38,13 +37,13 @@ void DrawOptionScene()
 // テクスチャ読み込み
 void InitOptionScene()
 {
-	g_SceneStep = SceneStep::MainStep;
+	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 void UpdateOptionScene()
 {
-	g_SceneStep = SceneStep::EndStep;
+	ChangeSceneStep(SceneStep::EndStep);
 }
 
 // 次に飛ぶシーン先の設定

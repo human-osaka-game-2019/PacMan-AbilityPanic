@@ -40,8 +40,6 @@ void ChangeSceneStep(SceneStep next_step)
 	g_CurrentSceneStep = next_step;
 }
 
-int g_SceneStep = 0;
-
 void UpdateScene()
 {
 	int current_scene_id = SceneId::TitleScene;
@@ -50,7 +48,7 @@ void UpdateScene()
 	{
 		SceneId result_id = g_CurrentSceneId;
 
-		switch (current_scene_id)
+		switch (g_CurrentSceneId)
 		{
 			// タイトルシーン
 		case SceneId::TitleScene:
@@ -77,10 +75,10 @@ void UpdateScene()
 
 		DrawScene(point);
 
-		if (current_scene_id != result_id)
+		if (result_id != g_CurrentSceneId)
 		{
-			current_scene_id = result_id;
-			g_SceneStep = SceneStep::InitStep;
+			g_CurrentSceneId = result_id;
+			ChangeSceneStep(SceneStep::InitStep);
 		}
 	}
 }

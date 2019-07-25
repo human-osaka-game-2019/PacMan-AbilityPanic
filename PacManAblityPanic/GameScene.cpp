@@ -15,7 +15,7 @@ static int* pMap[23];
 
 SceneId GameSceneMain()
 {
-	switch (g_SceneStep)
+	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep :
@@ -46,15 +46,14 @@ void DrawGameScene()
 // テクスチャ読み込み
 void InitGameScene()
 {
-	g_SceneStep = SceneStep::MainStep;
+	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 // ゲーム設定記入
 void UpdateGameScene()
 {
-
-	g_SceneStep = SceneStep::EndStep;
+	ChangeSceneStep(SceneStep::EndStep);
 }
 
 // 次に飛ぶシーン先の設定

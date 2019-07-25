@@ -11,7 +11,7 @@ SceneId FinisTitleScene();
 
 SceneId TitleSceneMain()
 {
-	switch (g_SceneStep)
+	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
@@ -37,14 +37,13 @@ void DrawTitleScene()
 // 描画設定等
 void InitTitleScene()
 {
-	g_SceneStep = SceneStep::MainStep;
+	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 void UpdateTitleScene()
 {
-
-	g_SceneStep = SceneStep::EndStep;
+	ChangeSceneStep(SceneStep::EndStep);
 }
 
 // 次に飛ぶシーン先の設定
