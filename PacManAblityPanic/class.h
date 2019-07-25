@@ -52,12 +52,6 @@ enum MAPCHIP_TEXTURE_ID
 {
 	Non = -1,		// 無し
 	MapChip,		// マップチップ	
-	TitleSceneTex,
-	SetSceneTex,
-	OptionSceneTex,
-	GameSceneTex,
-	ResultSceneTex,
-	MaxTex,
 	MaxTextureId	// 最大数
 };
 
@@ -83,35 +77,35 @@ enum SceneStep
 enum TitleTextureList
 {
 	MsinTitleTexture,
-	MaxTexture,
+	MaxTitleTexture,
 
 };
 
 enum SetTextureList
 {
 	MsinSetTexture,
-	MaxTexture,
+	MaxSetTexture,
 
 };
 
 enum OptionTextureList
 {
 	MsinOptionTexture,
-	MaxTexture,
+	MaxOptionTexture,
 
 };
 
 enum GameTextureList
 {
 	MsinGameTexture,
-	MaxTexture,
+	MaxGameTexture,
 
 };
 
 enum ResultTextureList
 {
 	MsinResultTexture,
-	MaxTexture,
+	MaxResultTexture,
 
 };
 //共通のインスタンス
