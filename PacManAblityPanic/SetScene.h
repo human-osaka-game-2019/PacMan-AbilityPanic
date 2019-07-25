@@ -1,7 +1,7 @@
 ﻿#ifndef _SETSCENE_H_ 
 #define _SETSCNEN_H_
 
-int SetSceneMain();
+SceneId SetSceneMain();
 
 void DrawSetScene();
 
