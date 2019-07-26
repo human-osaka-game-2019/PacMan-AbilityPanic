@@ -4,18 +4,22 @@
 #include"class.h"
 #include"DrawTexture.h"
 
-void DrawTitleScene();
-void InitTitleScene();
+void DrawTitleScene(Pointa* point);
+void InitTitleScene(Pointa* point);
 void UpdateTitleScene();
 SceneId FinisTitleScene();
 
-SceneId TitleSceneMain()
+const int MAX_TEXTURE = 10;
+TEXTUREDATA texture;
+LPDIRECT3DTEXTURE9 pTexture;
+
+SceneId TitleSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
-		InitTitleScene();
+		InitTitleScene(point);
 		break;
 		// 本編
 	case SceneStep::MainStep:
@@ -29,16 +33,17 @@ SceneId TitleSceneMain()
 	return SceneId::TitleScene;
 }
 
-void DrawTitleScene()
+void DrawTitleScene(Pointa* point)
 {
-	DrawTexture(0.0f,0.0f,1920,1080,GetTexture(SceneId::TitleScene, TitleTextureList::MsinTitleTexture));
+	
+	Draw(0, 0, 0, 1, 0x00000000, 0.0f, 0.0f, 200, 200, 1.0f, 1.0f, &pTexture, 0, point);
 
 }
 
 // 描画設定等
-void InitTitleScene()
+void InitTitleScene(Pointa* point)
 {
-	LoadTexture("Texture/TitleScene.png",SceneId::TitleScene, TitleTextureList::MsinTitleTexture,1920,1080);
+	LoadTexture("test.png", &pTexture , 0, point );
 
 	ChangeSceneStep(SceneStep::MainStep);
 }

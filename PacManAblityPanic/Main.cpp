@@ -2,11 +2,15 @@
 #include "window.h"
 #include "Engine.h"
 #include "Scene.h"
+#include "class.h"
+
 
 int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
 	LPSTR lpCmpLine,INT nCmdShow)
 {
-	if (InitEngine(1920, 1080, hInst) == false)
+Pointa point;
+	
+	if (InitEngine(1920, 1080, hInst, &point) == false)
 	{
 		return 0;
 	}
@@ -26,14 +30,15 @@ int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
 			}
 			else
 			{
-			UpdateScene();
+
+			UpdateScene(&point);
 			}
 		}
 		
 	}
 
 	// エンジン終了
-	EndEngine();
+	EndEngine(point);
 
 	return 0;
 }

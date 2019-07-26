@@ -5,10 +5,10 @@
 
 //Pointa Point;
 
-bool InitEngine(int width, int height, HINSTANCE hInst);
+bool InitEngine(int width, int height, HINSTANCE hInst, Pointa* point);
 
-void EndEngine();
+void EndEngine(Pointa point);
 
-bool DrawStart();
+bool DrawStart(Pointa* point);
 
 #endif // !1

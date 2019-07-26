@@ -1,16 +1,22 @@
 ﻿#include "class.h"
 #include "window.h"
 #include "Device.h"
+#include "Engine.h"
 
 // ポインタ宣言をまとめたクラス
 //Pointa Point;
 
-bool InitEngine(int width, int height, HINSTANCE hInst)
+bool InitEngine(int width, int height, HINSTANCE hInst, Pointa *point)
 {
 	//	window生成
-	HWND wind_handle = Make_WndFull(hInst,width,height);
-
-	if (FAILED(BuildDxDevice(wind_handle,&point))) 
+	//HWND wind_handle = Make_WndFull(hInst,width,height);
+	HWND hWnd = NULL;
+	static CHAR szAppName[] = "Pac_Man";
+	FLOAT wnd_width = 1920;
+	FLOAT wnd_height = 1080;
+	OutputWindow(&hWnd, &hInst, szAppName, &wnd_width, &wnd_height);
+	
+	if (FAILED(BuildDxDevice(hWnd,point))) 
 	{
 
 	return false;
@@ -19,7 +25,7 @@ bool InitEngine(int width, int height, HINSTANCE hInst)
 	return true;
 }
 
-void EndEngine()
+void EndEngine(Pointa point)
 {
 	// テクスチャの開放もする
 
@@ -35,15 +41,15 @@ void EndEngine()
 	}
 }
 
-bool DrawStart()
+bool DrawStart(Pointa* point)
 {
-	point.pDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 0, 0), 0.0f, 0);
+	point->pDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0x00, 0x00, 0x00), 1.0f, 0);
 	
-	point.pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
-	point.pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-	point.pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+	point->pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, true);
+	point->pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+	point->pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
-	if (D3D_OK == point.pDevice->BeginScene())
+	if (D3D_OK  (point->pDevice->BeginScene()))
 	{
 		return true;
 	}
@@ -51,7 +57,7 @@ bool DrawStart()
 	return false;
 }
 
-void UpdateInput()
+void UpdateInput(Pointa point)
 {
 	// ここにキーボードの設定を書く
 }

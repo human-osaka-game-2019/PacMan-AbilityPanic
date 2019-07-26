@@ -4,9 +4,9 @@
 #include"class.h"
 
 void DrawSetScene();
-void InitTitleScene();
-void UpdateTitleScene();
-SceneId FinisTitleScene();
+void InitSetScene();
+void UpdateSetScene();
+SceneId FinisSetScene();
 
 SceneId SetSceneMain()
 {
@@ -14,15 +14,15 @@ SceneId SetSceneMain()
 	{
 		// 初期化
 	case SceneStep::InitStep:
-		InitTitleScene();
+		InitSetScene();
 		break;
 		// 本編
 	case SceneStep::MainStep:
-		UpdateTitleScene();
+		UpdateSetScene();
 		break;
 		// 終了
 	case SceneStep::EndStep:
-		return FinisTitleScene();
+		return FinisSetScene();
 		break;
 	}
 	return SceneId::SetScene;

@@ -1,13 +1,12 @@
 ﻿#ifndef DRAWTEXTURE
 #define DRAWTEXTURE
 
-bool LoadTexture(const char* file_name, int SceneId , int mapchipnumber,int TextureWidth ,int TextureHeight);
+//const int MAX_TEXTURE = 10;
+//TEXTUREDATA texture[MAX_TEXTURE];
 
-void DrawTexture(float x, float y,float width, float height,TEXTUREDATA* texture);
+void Draw(float x, float y, float z, float rhw, DWORD color, float tu, float tv, float width, float height, float tu_width, float tv_height, LPDIRECT3DTEXTURE9* texture, int texture_number, Pointa* point);
 
-void DrawTextureEx(float x, float y, float tu, float tv, float width, float height, TEXTUREDATA* texture);
-
-TEXTUREDATA* GetTexture(int SceneId, int SelectTexture);
+void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* texture, int texture_number, Pointa* point);
 
 #endif // !1
 

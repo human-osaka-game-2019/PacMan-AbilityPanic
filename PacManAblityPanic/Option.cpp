@@ -3,9 +3,9 @@
 #include"Scene.h"
 #include"class.h"
 
-void InitTitleScene();
-void UpdateTitleScene();
-SceneId FinisTitleScene();
+void InitOptionScene();
+void UpdateOptionScene();
+SceneId FinisOptionScene();
 
 SceneId OptionSceneMain()
 {
@@ -13,16 +13,16 @@ SceneId OptionSceneMain()
 	{
 		// 初期化
 	case SceneStep::InitStep:
-		InitTitleScene();
+		InitOptionScene();
 		break;
 
 		// 本編
 	case SceneStep::MainStep:
-		UpdateTitleScene();
+		UpdateOptionScene();
 		break;
 		// 終了
 	case SceneStep::EndStep:
-		return FinisTitleScene();
+		return FinisOptionScene();
 		break;
 	}
 	return SceneId::OptionScene;

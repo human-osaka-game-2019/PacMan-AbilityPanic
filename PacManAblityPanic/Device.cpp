@@ -26,7 +26,7 @@ HRESULT BuildDxDevice(HWND hInst,Pointa* point)
 	}
 
 	//D3Dのポインタ変数にDirect3DCreate9関数(Direct3Dを作る関数)で作成したものを代入
-	point->pDirect3d = Direct3DCreate9(D3D_SDK_VERSION);
+	//point->pDirect3d = Direct3DCreate9(D3D_SDK_VERSION);
 
 	//// Direct3DCreate9 が ////
 	if (point->pDirect3d == NULL)
@@ -36,7 +36,7 @@ HRESULT BuildDxDevice(HWND hInst,Pointa* point)
 	return S_OK;
 }
 
-HRESULT InitD3d(HWND hInst, Pointa* point)
+HRESULT InitD3d(HWND hInst, Pointa *point)
 {
 	if (NULL == (point->pDirect3d = Direct3DCreate9(D3D_SDK_VERSION)))
 	{
@@ -101,7 +101,7 @@ HRESULT InitDinput(HWND hInst,Pointa* point)
 }
 
 ////// キーステータス更新関数 //////
-void UpdateKeyStatus()
+void UpdateKeyStatus(Pointa point)
 {
 	HRESULT hr = point.pkey->Acquire();
 

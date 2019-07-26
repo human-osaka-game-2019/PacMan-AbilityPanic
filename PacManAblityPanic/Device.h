@@ -1,7 +1,7 @@
 ﻿#ifndef DEVICE_H
 #define DEVICE_H
 
-#include "class.h"
+//#include "class.h"
 
 HRESULT BuildDxDevice(HWND hInst, Pointa* point);
 

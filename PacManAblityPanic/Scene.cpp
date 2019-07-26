@@ -12,6 +12,7 @@
 #include "Option.h"
 #include "GameScene.h"
 #include "ResultScene.h"
+#include "Scene.h"
 
 
 /*
@@ -20,7 +21,7 @@ Title -> Set -> Option -> Set -> Game -> Result -> Set
 
 */
 
-Pointa point;
+//Pointa point;
 
 static SceneId g_CurrentSceneId = SceneId::TitleScene;		// 動作中シーンID
 static SceneStep g_CurrentSceneStep = SceneStep::InitStep;	// 動作中シーンのステップ
@@ -40,7 +41,7 @@ void ChangeSceneStep(SceneStep next_step)
 	g_CurrentSceneStep = next_step;
 }
 
-void UpdateScene()
+void UpdateScene(Pointa *point)
 {
 	int current_scene_id = SceneId::TitleScene;
 
@@ -52,7 +53,7 @@ void UpdateScene()
 		{
 			// タイトルシーン
 		case SceneId::TitleScene:
-			result_id = TitleSceneMain();
+			result_id = TitleSceneMain(point);
 			break;
 			// 難易度設定シーン
 		case SceneId::SetScene:
@@ -83,9 +84,9 @@ void UpdateScene()
 	}
 }
 
-void DrawScene(Pointa point)
+void DrawScene(Pointa* point)
 {
-	if (DrawStart() == false)
+	if (DrawStart(point) == false)
 	{
 		return;
 	}
@@ -94,7 +95,7 @@ void DrawScene(Pointa point)
 		switch (g_CurrentSceneId)
 		{
 		case SceneId::TitleScene:
-			DrawTitleScene();
+			DrawTitleScene(point);
 			break;
 		case SceneId::SetScene:
 			DrawSetScene();
@@ -112,6 +113,6 @@ void DrawScene(Pointa point)
 	}
 
 
-	point.pDevice->EndScene();
-	point.pDevice->Present(NULL, NULL, NULL, NULL);
+	point->pDevice->EndScene();
+	point->pDevice->Present(NULL, NULL, NULL, NULL);
 }

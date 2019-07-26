@@ -4,6 +4,7 @@
 #include"MapLoader.h"
 #include"class.h"
 
+
 extern int g_SceneStep;
 MapchipLoading map;
 void DrawGameScene();

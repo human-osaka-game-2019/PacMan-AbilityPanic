@@ -109,9 +109,31 @@ HWND Make_WndFull(HINSTANCE hInst, int width, int height)
 	RegisterClassEx(&wndclass);
 	HWND hInsT = CreateWindow(szAppName, szAppName, WS_VISIBLE | WS_POPUP, 0, 0, width, height, NULL, NULL, hInst, NULL);
 
-	ShowWindow(hInsT, SW_SHOW);
-	UpdateWindow(hInsT);
+	//ShowWindow(hInsT, SW_SHOW);
+	//UpdateWindow(hInsT);
 
 	return hInsT;
+}
+
+HWND OutputWindow(HWND* hWnd, HINSTANCE* hInstance, const TCHAR* API_NAME, FLOAT* wnd_width, FLOAT* wnd_height)
+{
+	// Wndclassの初期化
+	WNDCLASS Wndclass;
+	Wndclass.style = CS_HREDRAW | CS_VREDRAW;											// ウィンドウスタイル
+	Wndclass.lpfnWndProc = wndProc;																// ウィンドウプロシージャ
+	Wndclass.cbClsExtra = 0;																				// メモリ確保
+	Wndclass.cbWndExtra = 0;																			// メモリ確保
+	Wndclass.hInstance = *hInstance;																// ハンドルインスタンス
+	Wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);									// アイコン
+	Wndclass.hCursor = LoadCursor(NULL, IDC_ARROW);										// カーソル
+	Wndclass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);			// 背景のブラシ,色
+	Wndclass.lpszMenuName = NULL;																// メニュー画面の名前
+	Wndclass.lpszClassName = API_NAME;															// アプリケーションの名前
+
+	// ウィンドウクラスの登録
+	RegisterClass(&Wndclass);
+
+	// ウィンドウハンドルにcreatewindow関数で作った情報を代入
+	return *hWnd = CreateWindow(API_NAME, API_NAME, WS_VISIBLE | WS_POPUP, 0, 0, *wnd_width, *wnd_height, NULL, NULL, *hInstance, NULL);
 }
 
