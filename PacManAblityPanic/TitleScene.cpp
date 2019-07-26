@@ -36,14 +36,14 @@ SceneId TitleSceneMain(Pointa* point)
 void DrawTitleScene(Pointa* point)
 {
 	
-	Draw(0, 0, 0, 1, 0x00000000, 0.0f, 0.0f, 200, 200, 1.0f, 1.0f, &pTexture, 0, point);
+	Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 1.0f, 1.0f, &pTexture, 0, *point);
 
 }
 
 // 描画設定等
 void InitTitleScene(Pointa* point)
 {
-	LoadTexture("test.png", &pTexture , 0, point );
+	LoadTexture("test.png", &pTexture , 0, *point );
 
 	ChangeSceneStep(SceneStep::MainStep);
 }

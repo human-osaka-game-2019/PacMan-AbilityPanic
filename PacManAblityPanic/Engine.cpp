@@ -49,7 +49,7 @@ bool DrawStart(Pointa* point)
 	point->pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	point->pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 
-	if (D3D_OK  (point->pDevice->BeginScene()))
+	if (D3D_OK  == point->pDevice->BeginScene())
 	{
 		return true;
 	}
