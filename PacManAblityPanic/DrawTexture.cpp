@@ -22,6 +22,22 @@ void Draw(float x ,float y,float z,float rhw ,DWORD color ,float tu ,float tv,fl
 
 }
 
+void DrawEx(float x, float y,float width, float height,LPDIRECT3DTEXTURE9* Texture, Pointa point)
+{
+
+	CUSTOMVERTEX customvertex[4] = {
+	{x        ,y         ,  0, 1.0f, 0xffffffff,  0.0f, 0.0f},
+	{x + width,y         ,  0, 1.0f, 0xffffffff,  1.0f, 0.0f},
+	{x + width,y + height,  0, 1.0f, 0xffffffff,  1.0f, 1.0f},
+	{x        ,y + height,  0, 1.0f, 0xffffffff,  0.0f, 1.0f},
+	};
+
+	point.pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
+	point.pDevice->SetTexture(0, *Texture);
+	point.pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, customvertex, sizeof(CUSTOMVERTEX));
+
+}
+
 void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture_number,Pointa point) {
 	D3DXCreateTextureFromFileEx(point.pDevice, file_name, 1920, 1080, 0, 0, D3DFMT_UNKNOWN,
 		D3DPOOL_DEFAULT, D3DX_FILTER_NONE, D3DX_DEFAULT,
