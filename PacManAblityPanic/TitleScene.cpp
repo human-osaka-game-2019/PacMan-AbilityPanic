@@ -4,8 +4,6 @@
 #include"class.h"
 #include"DrawTexture.h"
 
-
-
 void DrawTitleScene();
 void InitTitleScene();
 void UpdateTitleScene();

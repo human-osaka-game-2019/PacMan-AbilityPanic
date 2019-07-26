@@ -5,4 +5,4 @@ SceneId SetSceneMain();
 
 void DrawSetScene();
 
-#endif // !
+#endif

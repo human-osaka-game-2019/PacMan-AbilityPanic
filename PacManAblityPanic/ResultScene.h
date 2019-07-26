@@ -5,4 +5,4 @@ SceneId ResultSceneMain();
 
 void DrawResultScene();
 
-#endif // !
+#endif 
