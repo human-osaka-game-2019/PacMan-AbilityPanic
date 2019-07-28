@@ -38,6 +38,11 @@ public:
 	
 };
 
+class Count
+{
+public:
+	int count = 0;
+};
 
 // テクスチャデータ
 struct TEXTUREDATA
