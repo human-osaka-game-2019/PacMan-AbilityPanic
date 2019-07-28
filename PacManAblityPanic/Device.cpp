@@ -101,13 +101,13 @@ HRESULT InitDinput(HWND hInst,Pointa* point)
 }
 
 ////// キーステータス更新関数 //////
-void UpdateKeyStatus(Pointa point)
+void UpdateKeyStatus(Pointa* point)
 {
-	HRESULT hr = point.pkey->Acquire();
+	HRESULT hr = point->pkey->Acquire();
 
 	if ((hr == DI_OK) || (hr == S_FALSE))
 	{
-		point.pkey->GetDeviceState(sizeof(KeyState), &KeyState);
+		point->pkey->GetDeviceState(sizeof(KeyState), &KeyState);
 	}
 
 }

@@ -5,7 +5,7 @@
 
 HRESULT BuildDxDevice(HWND hInst, Pointa* point);
 
-void UpdateKeyStatus();
+void UpdateKeyStatus(Pointa* point);
 
 bool GetKeyStatus(int KeyNumber);
 
