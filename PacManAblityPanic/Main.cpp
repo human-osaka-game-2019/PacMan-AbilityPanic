@@ -9,7 +9,7 @@ int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
 	LPSTR lpCmpLine,INT nCmdShow)
 {
 Pointa point;
-	
+Count cn;
 	if (InitEngine(1920, 1080, hInst, &point) == false)
 	{
 		return 0;
