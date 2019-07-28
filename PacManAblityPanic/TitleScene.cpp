@@ -30,6 +30,7 @@ SceneId TitleSceneMain(Pointa* point)
 		return FinisTitleScene();
 		break;
 	}
+
 	return SceneId::TitleScene;
 }
 
@@ -51,9 +52,11 @@ void InitTitleScene(Pointa* point)
 // 次のシーンに行くための条件記入
 void UpdateTitleScene()
 {
-	if (GetKeyState(DIK_9))
+	ChangeSceneStep(SceneStep::EndStep);
+	
+	if (GetKeyState(DIK_UP))
 	{
-		ChangeSceneStep(SceneStep::EndStep);
+		
 	}
 }
 
