@@ -45,6 +45,8 @@ void UpdateScene(Pointa *point)
 {
 	int current_scene_id = SceneId::TitleScene;
 
+	UpdateInput(point);
+
 	while (true)
 	{
 		SceneId result_id = g_CurrentSceneId;
