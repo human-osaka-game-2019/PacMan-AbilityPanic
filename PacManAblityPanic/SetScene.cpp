@@ -2,19 +2,20 @@
 #include"Main.h"
 #include"Scene.h"
 #include"class.h"
+#include"DrawTexture.h"
 
-void DrawSetScene();
-void InitSetScene();
+void DrawSetScene(Pointa* point);
+void InitSetScene(Pointa* point);
 void UpdateSetScene();
 SceneId FinisSetScene();
 
-SceneId SetSceneMain()
+SceneId SetSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
-		InitSetScene();
+		InitSetScene(point);
 		break;
 		// 本編
 	case SceneStep::MainStep:
@@ -29,14 +30,16 @@ SceneId SetSceneMain()
 }
 
 // 描画設定等
-void DrawSetScene()
+void DrawSetScene(Pointa* point)
 {
-
+	DrawEx(0, 0, 1920, 1080, &pTexture, *point);
+	
 }
 
 
-void InitSetScene()
+void InitSetScene(Pointa * point)
 {
+	LoadTexture("test.png", &pTexture, 0, *point);
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
