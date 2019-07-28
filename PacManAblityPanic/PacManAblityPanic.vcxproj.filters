@@ -45,9 +45,6 @@
     <ClCompile Include="Device.cpp">
       <Filter>lib</Filter>
     </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>MainFile</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>MainFile</Filter>
     </ClCompile>
@@ -55,7 +52,10 @@
       <Filter>lib</Filter>
     </ClCompile>
     <ClCompile Include="DrawTexture.cpp">
-      <Filter>MainFile</Filter>
+      <Filter>lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>lib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +89,6 @@
     <ClInclude Include="class.h">
       <Filter>lib</Filter>
     </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>MainFile</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>MainFile</Filter>
     </ClInclude>
@@ -102,7 +99,10 @@
       <Filter>Scenefile</Filter>
     </ClInclude>
     <ClInclude Include="DrawTexture.h">
-      <Filter>MainFile</Filter>
+      <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
