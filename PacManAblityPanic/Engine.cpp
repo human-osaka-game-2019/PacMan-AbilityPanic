@@ -57,7 +57,7 @@ bool DrawStart(Pointa* point)
 	return false;
 }
 
-void UpdateInput(Pointa point)
+void UpdateInput(Pointa* point)
 {
-	// ここにキーボードの設定を書く
+	UpdateKeyStatus(point);
 }

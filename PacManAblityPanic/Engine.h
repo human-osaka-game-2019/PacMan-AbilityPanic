@@ -11,4 +11,6 @@ void EndEngine(Pointa point);
 
 bool DrawStart(Pointa* point);
 
+void UpdateInput(Pointa* point);
+
 #endif // !1
