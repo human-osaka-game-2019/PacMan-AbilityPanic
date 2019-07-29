@@ -1,8 +1,8 @@
 ﻿#ifndef _SETSCENE_H_ 
 #define _SETSCNEN_H_
 
-SceneId SetSceneMain();
+SceneId SetSceneMain(Pointa* point);
 
-void DrawSetScene();
+void DrawSetScene(Pointa* point);
 
 #endif

@@ -59,7 +59,7 @@ void UpdateScene(Pointa *point)
 			break;
 			// 難易度設定シーン
 		case SceneId::SetScene:
-			result_id = SetSceneMain();
+			result_id = SetSceneMain(point);
 			break;
 			// 設定、ヘルプシーン
 		case SceneId::OptionScene:
@@ -100,7 +100,7 @@ void DrawScene(Pointa* point)
 			DrawTitleScene(point);
 			break;
 		case SceneId::SetScene:
-			DrawSetScene();
+			DrawSetScene(point);
 			break;
 		case SceneId::OptionScene:
 			DrawOptionScene();
