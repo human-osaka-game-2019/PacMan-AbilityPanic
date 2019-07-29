@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include "MapLoader.h"
+#include "DrawTexture.h"
 
 int** MapchipLoading::mapchip(const char* filename, int Hrow, int Hcol, int** data) {
 
@@ -35,13 +36,21 @@ int** MapchipLoading::mapchip(const char* filename, int Hrow, int Hcol, int** da
 	return data;
 }
 
-int MapchipLoading::textureprint(int** F, int s, int d)
+int MapchipLoading::textureprint(int** map, int s, int d)
 {
 	for (int i = 0; i < s; i++) {
-		printf("\n");
+		
 		for (int j = 0; j < d; j++)
 		{
-			printf("%2d", F[i][j]);
+			
+			int chip_id = map[i][j];
+			if (chip_id == 0)
+			{
+				continue;
+			}
+
+			int width_num ;
+
 		}
 	}
 

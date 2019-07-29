@@ -26,6 +26,7 @@ SceneId GameSceneMain()
 			pMap[i] = mapdata[i];
 		}
 		map.mapchip("Test_CSV.csv", 22, 19, pMap);
+		map.textureprint(pMap,22,19);
 		InitGameScene();
 		break;
 		// 本編

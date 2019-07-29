@@ -49,8 +49,8 @@ struct TEXTUREDATA
 {
 
 	LPDIRECT3DTEXTURE9 m_pTexture;  // テクスチャ情報
-	//float m_Width;					// テクスチャの幅
-	//float m_Height;					// テクスチャの高さ
+	float m_Width;					// テクスチャの幅
+	float m_Height;					// テクスチャの高さ
 
 };
 

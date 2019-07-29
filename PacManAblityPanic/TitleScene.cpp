@@ -11,7 +11,7 @@ void UpdateTitleScene();
 SceneId FinisTitleScene();
 
 const int MAX_TEXTURE = 10;
-TEXTUREDATA texture;
+//TEXTUREDATA texture;
 LPDIRECT3DTEXTURE9 pTexture;
 
 SceneId TitleSceneMain(Pointa* point)
@@ -40,7 +40,8 @@ SceneId TitleSceneMain(Pointa* point)
 void DrawTitleScene(Pointa* point)
 {
 	
-	//Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &pTexture, 0, *point);
+	Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &pTexture, 0, *point);
+
 	DrawEx(0, 0, 1920, 1080, &pTexture, *point);
 
 }

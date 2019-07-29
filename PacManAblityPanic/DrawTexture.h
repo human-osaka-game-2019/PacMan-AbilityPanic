@@ -10,5 +10,6 @@ void DrawEx(float x, float y,float width, float height, LPDIRECT3DTEXTURE9* Text
 
 void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* texture, int texture_number, Pointa point);
 
+VOID DrawMapChip(D3DXVECTOR2 draw_pos, D3DXVECTOR2 texture_pos, D3DXVECTOR2 sprite_size, Pointa point, TEXTUREDATA* Texture);
 #endif // !1
 
