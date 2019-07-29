@@ -113,11 +113,15 @@ void UpdateKeyStatus(Pointa* point)
 }
 
 ////// キー入力関数 //////
-bool GetKeyStatus(int KeyNumber)
+bool GetKeyStatus(int KeyNumber)	
 {
+
 	if (KeyState[KeyNumber] & MASK_NUM)
 	{
+
 		return true;// 入力されたら true を返す
+
 	}
 	return false;// 入力されていなければ false を返す
+
 }

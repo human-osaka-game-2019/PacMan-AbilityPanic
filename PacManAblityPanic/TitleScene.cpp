@@ -3,6 +3,7 @@
 #include"Scene.h"
 #include"class.h"
 #include"DrawTexture.h"
+#include "Device.h"
 
 void DrawTitleScene(Pointa* point);
 void InitTitleScene(Pointa* point);
@@ -23,7 +24,9 @@ SceneId TitleSceneMain(Pointa* point)
 		break;
 		// 本編
 	case SceneStep::MainStep:
-		UpdateTitleScene();
+		
+			UpdateTitleScene();
+		
 		break;
 		// 終了
 	case SceneStep::EndStep:
@@ -37,23 +40,26 @@ SceneId TitleSceneMain(Pointa* point)
 void DrawTitleScene(Pointa* point)
 {
 	
-	// Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 1.0f, 1.0f, &pTexture, 0, *point);
+	//Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &pTexture, 0, *point);
 	DrawEx(0, 0, 1920, 1080, &pTexture, *point);
+
 }
 
 // 描画設定等
 void InitTitleScene(Pointa* point)
 {
+
 	LoadTexture("test.png", &pTexture , 0, *point );
 
 	ChangeSceneStep(SceneStep::MainStep);
+
 }
 
 // 次のシーンに行くための条件記入
 void UpdateTitleScene()
 {
-	if (GetKeyState(DIK_UP))
-	{
+
+	if (GetKeyStatus(DIK_UP)){
 		ChangeSceneStep(SceneStep::EndStep);
 	}
 }

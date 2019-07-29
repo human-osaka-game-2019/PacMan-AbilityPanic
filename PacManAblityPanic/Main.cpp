@@ -32,6 +32,7 @@ Count cn;
 			{
 
 			UpdateScene(&point);
+
 			}
 		}
 		
