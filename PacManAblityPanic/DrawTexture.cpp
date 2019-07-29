@@ -1,9 +1,10 @@
-﻿#include "class.h"
+﻿
 #include <d3d9.h>
 #include <d3dx9.h>
-#include "DrawTexture.h"
 #include <D3dx9tex.h>
 
+#include "DrawTexture.h"
+#include "class.h"
 const int D3DFVF_CUSTOMVERTEX(D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1);
 
 //struct TEXTUREDATA
@@ -54,8 +55,8 @@ void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture
 		D3DPOOL_DEFAULT, D3DX_FILTER_NONE, D3DX_DEFAULT,
 		0xff000000, NULL, NULL, Texture);
 }
-
-VOID DrawMapChip(D3DXVECTOR2 draw_pos, D3DXVECTOR2 texture_pos, D3DXVECTOR2 sprite_size, Pointa point, TEXTUREDATA *Texture)
+/*
+void DrawMapChip(D3DXVECTOR2 draw_pos, D3DXVECTOR2 texture_pos, D3DXVECTOR2 sprite_size, Pointa point, TEXTUREDATA *Texture)
 {
 	D3DXVECTOR2 uv = D3DXVECTOR2(texture_pos.x / Texture->m_Width , texture_pos.y / Texture->m_Height);
 	D3DXVECTOR2 uv_size = D3DXVECTOR2(sprite_size.x / Texture->m_Width, sprite_size.y / Texture->m_Height);
@@ -72,3 +73,4 @@ VOID DrawMapChip(D3DXVECTOR2 draw_pos, D3DXVECTOR2 texture_pos, D3DXVECTOR2 spri
 	point.pDevice->SetTexture(0, Texture->m_pTexture);
 	point.pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, sprite, sizeof(CUSTOMVERTEX));
 }
+*/
