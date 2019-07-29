@@ -52,11 +52,9 @@ void InitTitleScene(Pointa* point)
 // 次のシーンに行くための条件記入
 void UpdateTitleScene()
 {
-	ChangeSceneStep(SceneStep::EndStep);
-	
 	if (GetKeyState(DIK_UP))
 	{
-		
+		ChangeSceneStep(SceneStep::EndStep);
 	}
 }
 
