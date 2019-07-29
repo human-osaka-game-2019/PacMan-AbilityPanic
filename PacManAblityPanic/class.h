@@ -27,6 +27,16 @@ typedef struct
 		tv;	// 高さ
 } CUSTOMVERTEX, * P_CUSTOMVERTEX;
 
+enum TextureList
+{
+	TitleSceneTexture,
+	SetSceneTexture,
+	OptionSceneTexture,
+	GameSceneTexture,
+	ResultSceneTexture,
+	MaxTexture
+};
+
 class Pointa
 {
 public:
@@ -35,6 +45,7 @@ public:
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECTINPUT8 pDinput;
 	LPDIRECTINPUTDEVICE8 pkey;
+	LPDIRECT3DTEXTURE9 pTexture[TextureList::MaxTexture];
 	
 };
 
@@ -115,6 +126,8 @@ enum ResultTextureList
 	MaxResultTexture,
 
 };
+
+
 //共通のインスタンス
 extern Pointa point;
 
