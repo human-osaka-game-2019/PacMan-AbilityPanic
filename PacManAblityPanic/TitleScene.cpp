@@ -3,16 +3,16 @@
 #include"Scene.h"
 #include"class.h"
 #include"DrawTexture.h"
-#include "Device.h"
+#include"Device.h"
 
 void DrawTitleScene(Pointa* point);
 void InitTitleScene(Pointa* point);
 void UpdateTitleScene();
 SceneId FinisTitleScene();
 
-const int MAX_TEXTURE = 10;
-//TEXTUREDATA texture;
-LPDIRECT3DTEXTURE9 pTexture;
+//const int MAX_TEXTURE = 15;
+////TEXTUREDATA texture;
+//LPDIRECT3DTEXTURE9 pTexture[MAX_TEXTURE];
 
 SceneId TitleSceneMain(Pointa* point)
 {
@@ -40,9 +40,9 @@ SceneId TitleSceneMain(Pointa* point)
 void DrawTitleScene(Pointa* point)
 {
 	
-	Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &pTexture, 0, *point);
+	// Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &point->pTexture[0], 0, *point);
 
-	DrawEx(0, 0, 1920, 1080, &pTexture, *point);
+	DrawEx(0, 0, 1920, 1080, &point->pTexture[TextureList::TitleSceneTexture], *point);
 
 }
 
@@ -50,7 +50,7 @@ void DrawTitleScene(Pointa* point)
 void InitTitleScene(Pointa* point)
 {
 
-	LoadTexture("test.png", &pTexture , 0, *point );
+	LoadTexture("TitleScene.png", &point->pTexture[TextureList::TitleSceneTexture] , 0, *point );
 
 	ChangeSceneStep(SceneStep::MainStep);
 
@@ -60,7 +60,8 @@ void InitTitleScene(Pointa* point)
 void UpdateTitleScene()
 {
 
-	if (GetKeyStatus(DIK_UP)){
+	if (GetKeyStatus(DIK_RETURN))
+	{
 		ChangeSceneStep(SceneStep::EndStep);
 	}
 }
