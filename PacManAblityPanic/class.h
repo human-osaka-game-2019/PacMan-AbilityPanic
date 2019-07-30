@@ -41,6 +41,7 @@ class Pointa
 {
 public:
 	
+
 	LPDIRECT3D9 pDirect3d;
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECTINPUT8 pDinput;
@@ -71,6 +72,13 @@ enum MAPCHIP_TEXTURE_ID
 	Non = -1,		// 無し
 	MapChip,		// マップチップ	
 	MaxTextureId	// 最大数
+};
+
+class Variable
+{
+public:
+	int SceneSelect;
+
 };
 
 // SceneId の数
