@@ -1,8 +1,8 @@
 ﻿#ifndef _RESULTSCENE_H_ 
 #define _RESULTSCNEN_H_
 
-SceneId ResultSceneMain();
+SceneId ResultSceneMain(Pointa* point);
 
-void DrawResultScene();
+void DrawResultScene(Pointa* point);
 
 #endif 

@@ -1,20 +1,22 @@
 ﻿#include<stdio.h>
 #include"Main.h"
 #include"Scene.h"
-#include "class.h"
+#include"class.h"
+#include"DrawTexture.h"
+#include"Device.h"
 
-void InitResultScene();
+void InitResultScene(Pointa* point);
 void UpdateResultScene();
 SceneId FinisResultScene();
-void DrawResultScene();
+void DrawResultScene(Pointa* point);
 
-SceneId ResultSceneMain()
+SceneId ResultSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
-		InitResultScene();
+		InitResultScene(point);
 		break;
 
 		// 本編
@@ -29,21 +31,26 @@ SceneId ResultSceneMain()
 }
 
 // 描画設定等
-void DrawResultScene()
+void DrawResultScene(Pointa* point)
 {
-
+	DrawEx(0, 0, 1920, 1080, &point->pTexture[TextureList::GameSceneTexture], *point);
 }
 
 
-void InitResultScene()
+void InitResultScene(Pointa* point)
 {
+	LoadTexture("Texture/ResultScene.png", &point->pTexture[TextureList::GameSceneTexture], 0, *point);
+
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 void UpdateResultScene()
 {
-	ChangeSceneStep(SceneStep::MainStep);
+	if (GetKeyStatus(DIK_RETURN))
+	{
+		ChangeSceneStep(SceneStep::EndStep);
+	}
 }
 
 // 次に飛ぶシーン先の設定
