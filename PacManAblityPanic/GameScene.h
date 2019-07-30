@@ -2,8 +2,8 @@
 #define _GAMESCENE_H_
 
 
-SceneId GameSceneMain();
+SceneId GameSceneMain(Pointa* point);
 
-void DrawGameScene();
+void DrawGameScene(Pointa* point);
 
 #endif
