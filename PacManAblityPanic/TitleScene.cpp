@@ -14,6 +14,7 @@ SceneId FinisTitleScene();
 ////TEXTUREDATA texture;
 //LPDIRECT3DTEXTURE9 pTexture[MAX_TEXTURE];
 
+
 SceneId TitleSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
@@ -50,7 +51,7 @@ void DrawTitleScene(Pointa* point)
 void InitTitleScene(Pointa* point)
 {
 
-	LoadTexture("TitleScene.png", &point->pTexture[TextureList::TitleSceneTexture] , 0, *point );
+	LoadTexture("Texture/TitleScene.png", &point->pTexture[TextureList::TitleSceneTexture] , 0, *point );
 
 	ChangeSceneStep(SceneStep::MainStep);
 
@@ -62,6 +63,7 @@ void UpdateTitleScene()
 
 	if (GetKeyStatus(DIK_RETURN))
 	{
+		
 		ChangeSceneStep(SceneStep::EndStep);
 	}
 }
