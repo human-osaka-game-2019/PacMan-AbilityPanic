@@ -63,15 +63,15 @@ void UpdateScene(Pointa *point)
 			break;
 			// 設定、ヘルプシーン
 		case SceneId::OptionScene:
-			result_id = OptionSceneMain();
+			result_id = OptionSceneMain(point);
 			break;
 			// メインゲームシーン
 		case SceneId::GameScene:
-			result_id = GameSceneMain();
+			result_id = GameSceneMain(point);
 			break;
 			// リザルトシーン
 		case SceneId::ResultScene:
-			result_id = ResultSceneMain();
+			result_id = ResultSceneMain(point);
 			break;
 
 		}
@@ -103,13 +103,13 @@ void DrawScene(Pointa* point)
 			DrawSetScene(point);
 			break;
 		case SceneId::OptionScene:
-			DrawOptionScene();
+			DrawOptionScene(point);
 			break;
 		case SceneId::GameScene:
-			DrawGameScene();
+			DrawGameScene(point);
 			break;
 		case SceneId::ResultScene:
-			DrawResultScene();
+			DrawResultScene(point);
 			break;
 		}
 	}
