@@ -51,10 +51,16 @@ void DrawEx(float x, float y,float width, float height,LPDIRECT3DTEXTURE9* Textu
 }
 
 void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture_number,Pointa point) {
-	D3DXCreateTextureFromFileEx(point.pDevice, file_name, 1920, 1080, 0, 0, D3DFMT_UNKNOWN,
+	HRESULT result = D3DXCreateTextureFromFileEx(point.pDevice, file_name, 1920, 1080, 0, 0, D3DFMT_UNKNOWN,
 		D3DPOOL_DEFAULT, D3DX_FILTER_NONE, D3DX_DEFAULT,
 		0xff000000, NULL, NULL, Texture);
+
+	if ((_D3DXERR)result == D3DXERR_INVALIDDATA)
+	{
+		OutputDebugString(TEXT("\nテクスチャファイルが見つかりません\n"));
+	}
 }
+
 /*
 void DrawMapChip(D3DXVECTOR2 draw_pos, D3DXVECTOR2 texture_pos, D3DXVECTOR2 sprite_size, Pointa point, TEXTUREDATA *Texture)
 {
