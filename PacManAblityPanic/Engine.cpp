@@ -29,11 +29,11 @@ void EndEngine(Pointa point)
 {
 	// テクスチャの開放もする
 	
-	for (int a = 0; a < TextureList::MaxTexture; a++)
+	/*for (int a = 0; a < TextureList::MaxTexture; a++)
 	{
 		point.pTexture[a]->Release();
 		point.pTexture[a] = nullptr;
-	}
+	}*/
 
 	if (point.pDinput != nullptr)
 	{	
