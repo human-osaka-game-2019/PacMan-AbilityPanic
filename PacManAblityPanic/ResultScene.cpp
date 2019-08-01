@@ -10,6 +10,8 @@ void UpdateResultScene();
 SceneId FinisResultScene();
 void DrawResultScene(Pointa* point);
 
+TEXTUREDATA ResultTextureData;
+
 SceneId ResultSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
@@ -33,13 +35,13 @@ SceneId ResultSceneMain(Pointa* point)
 // 描画設定等
 void DrawResultScene(Pointa* point)
 {
-	DrawEx(0, 0, 1920, 1080, &point->pTexture[TextureList::GameSceneTexture], *point);
+	DrawEx(0, 0, 1920, 1080, &ResultTextureData.m_pTexture[ResultTextureList::MainResultTexture], *point);
 }
 
 
 void InitResultScene(Pointa* point)
 {
-	LoadTexture("Texture/ResultScene.png", &point->pTexture[TextureList::GameSceneTexture], 0, *point);
+	LoadTexture("Texture/ResultScene.png", &ResultTextureData.m_pTexture[ResultTextureList::MainResultTexture], 0, point);
 
 	ChangeSceneStep(SceneStep::MainStep);
 }
@@ -56,6 +58,11 @@ void UpdateResultScene()
 // 次に飛ぶシーン先の設定
 SceneId FinisResultScene()
 {
+	for (int a = 0; a < ResultTextureList::MaxResultTexture; a++)
+	{
+		ResultTextureData.m_pTexture[a]->Release();
+		ResultTextureData.m_pTexture[a] = nullptr;
+	}
 	// 次のシーンの遷移先IDを返す
 	return SceneId::SetScene;
 }

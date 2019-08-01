@@ -41,7 +41,7 @@ void ChangeSceneStep(SceneStep next_step)
 	g_CurrentSceneStep = next_step;
 }
 
-void UpdateScene(Pointa *point)
+void UpdateScene(Pointa *point, MapChipData MapData)
 {
 	int current_scene_id = SceneId::TitleScene;
 
@@ -76,7 +76,7 @@ void UpdateScene(Pointa *point)
 
 		}
 
-		DrawScene(point);
+		DrawScene(point,MapData);
 
 		if (result_id != g_CurrentSceneId)
 		{
@@ -86,7 +86,7 @@ void UpdateScene(Pointa *point)
 	}
 }
 
-void DrawScene(Pointa* point)
+void DrawScene(Pointa* point, MapChipData MapData)
 {
 	if (DrawStart(point) == false)
 	{
@@ -106,7 +106,7 @@ void DrawScene(Pointa* point)
 			DrawOptionScene(point);
 			break;
 		case SceneId::GameScene:
-			DrawGameScene(point);
+			DrawGameScene(point,MapData);
 			break;
 		case SceneId::ResultScene:
 			DrawResultScene(point);

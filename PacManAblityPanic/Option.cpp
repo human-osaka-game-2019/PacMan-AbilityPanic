@@ -9,6 +9,8 @@ void InitOptionScene(Pointa* point);
 void UpdateOptionScene();
 SceneId FinisOptionScene();
 
+TEXTUREDATA OptionTextureData;
+
 SceneId OptionSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
@@ -33,13 +35,13 @@ SceneId OptionSceneMain(Pointa* point)
 // 描画設定等
 void DrawOptionScene(Pointa* point)
 {
-	DrawEx(0, 0, 1920, 1080, &point->pTexture[TextureList::OptionSceneTexture], *point);
+	DrawEx(0, 0, 1920, 1080, &OptionTextureData.m_pTexture[OptionTextureList::MainOptionTexture], *point);
 }
 
 // テクスチャ読み込み
 void InitOptionScene(Pointa* point)
 {
-	LoadTexture("Texture/OptionScene.png", &point->pTexture[TextureList::OptionSceneTexture], 0, *point);
+	LoadTexture("Texture/OptionScene.png", &OptionTextureData.m_pTexture[SetTextureList::BackTexture], 0, point);
 
 	ChangeSceneStep(SceneStep::MainStep);
 }
@@ -57,6 +59,11 @@ void UpdateOptionScene()
 // 次に飛ぶシーン先の設定
 SceneId FinisOptionScene()
 {
+	for (int a = 0; a < OptionTextureList::MaxOptionTexture; a++)
+	{
+		OptionTextureData.m_pTexture[a]->Release();
+		OptionTextureData.m_pTexture[a] = nullptr;
+	}
 	// 次のシーンの遷移先IDを返す
 	return SceneId::SetScene;
 }

@@ -10,10 +10,7 @@ void InitTitleScene(Pointa* point);
 void UpdateTitleScene();
 SceneId FinisTitleScene();
 
-//const int MAX_TEXTURE = 15;
-////TEXTUREDATA texture;
-//LPDIRECT3DTEXTURE9 pTexture[MAX_TEXTURE];
-
+TEXTUREDATA TitleTextureData;
 
 SceneId TitleSceneMain(Pointa* point)
 {
@@ -43,7 +40,7 @@ void DrawTitleScene(Pointa* point)
 	
 	// Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &point->pTexture[0], 0, *point);
 
-	DrawEx(0, 0, 1920, 1080, &point->pTexture[TextureList::TitleSceneTexture], *point);
+	DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], *point);
 
 }
 
@@ -51,7 +48,7 @@ void DrawTitleScene(Pointa* point)
 void InitTitleScene(Pointa* point)
 {
 
-	LoadTexture("Texture/TitleScene.png", &point->pTexture[TextureList::TitleSceneTexture] , 0, *point );
+	LoadTexture("Texture/TitleScene.png", &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], 0, point );
 
 	ChangeSceneStep(SceneStep::MainStep);
 
@@ -71,7 +68,13 @@ void UpdateTitleScene()
 // 次に飛ぶシーン先の設定
 SceneId FinisTitleScene()
 {
-	// 次のシーンの遷移先IDを返す
+	for (int a = 0; a < TitleTextureList::MaxTitleTexture; a++)
+	{
+		TitleTextureData.m_pTexture[a]->Release();
+		TitleTextureData.m_pTexture[a] = nullptr;
+	}
+
+// 次のシーンの遷移先IDを返す
 	return SceneId::SetScene;
 }
 

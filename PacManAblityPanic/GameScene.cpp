@@ -7,27 +7,20 @@
 // #include"MapLoader.h"
 
 extern int g_SceneStep;
-void DrawGameScene(Pointa* point);
+void DrawGameScene(Pointa* point, MapChipData MapData);
 void InitGameScene(Pointa*point);
 void UpdateGameScene();
 SceneId FinisGameScene();
 
-// static int mapdata[23][19];
-// static int* pMap[23];
-// MapchipLoading map;
+
+TEXTUREDATA GameTextureData;
+
 SceneId GameSceneMain(Pointa* point)
 {
 	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep :
-	/*	
-		for (int i = 0; i < 23; i++)
-		{
-			pMap[i] = mapdata[i];
-		}
-		map.mapchip("Test_CSV.csv", 22, 19, pMap);
-		map.textureprint(pMap,22,19);*/
 		InitGameScene(point);
 		break;
 		// 本編
@@ -42,15 +35,19 @@ SceneId GameSceneMain(Pointa* point)
 }
 
 // 描画設定等
-void DrawGameScene(Pointa* point)
+void DrawGameScene(Pointa* point, MapChipData MapData)
 {
-	DrawEx(0, 0, 1920, 1080, &point->pTexture[TextureList::GameSceneTexture], *point);
+
+	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture]);
+	//DrawEx(0, 0, 1920, 1080, &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], *point);
+	
 }
 
 // テクスチャ読み込み
 void InitGameScene(Pointa* point)
 {
-	LoadTexture("Texture/GameScene.png", &point->pTexture[TextureList::GameSceneTexture], 0, *point);
+	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
+	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
 
 	ChangeSceneStep(SceneStep::MainStep);
 }
@@ -69,7 +66,13 @@ void UpdateGameScene()
 // 次に飛ぶシーン先の設定
 SceneId FinisGameScene()
 {
+	for (int a = 0; a < GameTextureList::MaxGameTexture; a++)
+	{
+		GameTextureData.m_pTexture[a]->Release();
+		GameTextureData.m_pTexture[a] = nullptr;
+	}
 	// 次のシーンの遷移先IDを返す
 	return SceneId::ResultScene;
+
 }
 
