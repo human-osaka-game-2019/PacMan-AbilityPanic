@@ -7,7 +7,7 @@
 #include<tchar.h>
 #include<dinput.h>
 
-#define TEXTUREMAX (20);
+const int TEXTUREMAX (5);
 
 typedef struct
 {
@@ -27,15 +27,17 @@ typedef struct
 		tv;	// 高さ
 } CUSTOMVERTEX, * P_CUSTOMVERTEX;
 
-enum TextureList
-{
-	TitleSceneTexture,
-	SetSceneTexture,
-	OptionSceneTexture,
-	GameSceneTexture,
-	ResultSceneTexture,
-	MaxTexture
-};
+//enum TextureList
+//{
+//	TitleSceneTexture,
+//	SetSceneBackTexture,
+//	SelectGametexture,
+//	OptionSceneTexture,
+//	GameSceneTexture,
+//	MapChipTexture,
+//	ResultSceneTexture,
+//	MaxTexture
+//};
 
 class Pointa
 {
@@ -46,7 +48,7 @@ public:
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECTINPUT8 pDinput;
 	LPDIRECTINPUTDEVICE8 pkey;
-	LPDIRECT3DTEXTURE9 pTexture[TextureList::MaxTexture];
+	
 	
 };
 
@@ -60,7 +62,7 @@ public:
 struct TEXTUREDATA
 {
 
-	LPDIRECT3DTEXTURE9 m_pTexture;  // テクスチャ情報
+	LPDIRECT3DTEXTURE9 m_pTexture[TEXTUREMAX];  // テクスチャ情報
 	float m_Width;					// テクスチャの幅
 	float m_Height;					// テクスチャの高さ
 
@@ -102,35 +104,37 @@ enum SceneStep
 
 enum TitleTextureList
 {
-	MsinTitleTexture,
+	MainTitleTexture,
 	MaxTitleTexture,
 
 };
 
 enum SetTextureList
 {
-	MsinSetTexture,
+	BackTexture,
+	levelselectTexture,
 	MaxSetTexture,
 
 };
 
 enum OptionTextureList
 {
-	MsinOptionTexture,
+	MainOptionTexture,
 	MaxOptionTexture,
 
 };
 
 enum GameTextureList
 {
-	MsinGameTexture,
+	MainGameTexture,
+	MapChipTexture,
 	MaxGameTexture,
 
 };
 
 enum ResultTextureList
 {
-	MsinResultTexture,
+	MainResultTexture,
 	MaxResultTexture,
 
 };
@@ -139,4 +143,35 @@ enum ResultTextureList
 //共通のインスタンス
 extern Pointa point;
 
+class MapChipData
+{
+public:
+	int Map_HeigjtNumber = 22;
+	int Map_WidhtNumber = 19;
+	int MapChipHeight = 40;
+	int MapChipWidht = 40;
+	float Texture_Height = 512;
+	float Texture_Widht = 512;
+	float x;
+	float y;
+	float chip_x;
+	float chip_y;
+	/*void draw_point(int a, int b);
+	void draw_chip(int a, int b);*/
+};
+
+//void MapChipData::draw_point(int a, int b)
+//{
+//	x = a;
+//	y = b;
+//};
+//
+//void MapChipData::draw_chip(int a, int b)
+//{
+//	chip_x = a;
+//	chip_y = b;
+//};
+
+
+extern MapChipData MapData;
 #endif // !1
