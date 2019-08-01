@@ -20,8 +20,8 @@ SceneStep GetCurrentSceneStep();
 */
 void ChangeSceneStep(SceneStep next_step);
 
-void UpdateScene(Pointa* point);
+void UpdateScene(Pointa* point, MapChipData MapData);
 
-void DrawScene(Pointa* point);
+void DrawScene(Pointa* point, MapChipData MapData);
 
 #endif // !

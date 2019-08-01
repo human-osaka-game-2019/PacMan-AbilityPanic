@@ -4,6 +4,6 @@
 
 SceneId GameSceneMain(Pointa* point);
 
-void DrawGameScene(Pointa* point);
+void DrawGameScene(Pointa* point,MapChipData Mapdata);
 
 #endif

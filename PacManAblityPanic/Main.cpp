@@ -9,7 +9,8 @@ int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
 	LPSTR lpCmpLine,INT nCmdShow)
 {
 Pointa point;
-Count cn;
+MapChipData MapData;
+// MapChipData MapData;
 	if (InitEngine(1920, 1080, hInst, &point) == false)
 	{
 		return 0;
@@ -31,7 +32,7 @@ Count cn;
 			else
 			{
 
-			UpdateScene(&point);
+			UpdateScene(&point,MapData);
 
 			}
 		}
