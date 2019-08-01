@@ -5,6 +5,7 @@
 
 #include "DrawTexture.h"
 #include "class.h"
+
 const int D3DFVF_CUSTOMVERTEX(D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1);
 
 //struct TEXTUREDATA
@@ -16,16 +17,16 @@ const int D3DFVF_CUSTOMVERTEX(D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1);
 //
 //};
 //
-//TEXTUREDATA Texture;
+//TEXTUREDATA pTexture;
 
-void Draw(float x ,float y,float z,float rhw ,DWORD color ,float tu ,float tv,float width,float height,float tu_width,float tv_height, LPDIRECT3DTEXTURE9* Texture,int texture_number,Pointa point)
+void Draw(float x ,float y,float width,float height,float tu ,float tv , float tu_width,float tv_height, LPDIRECT3DTEXTURE9* Texture,Pointa point)
 {
 	
 	CUSTOMVERTEX customvertex[4] = {
-	{x        ,y         ,z,rhw,color,tu           ,tv            },
-	{x + width,y         ,z,rhw,color,tu + tu_width,tv            },
-	{x + width,y + height,z,rhw,color,tu + tu_width,tv + tv_height},
-	{x        ,y + height,z,rhw,color,tu           ,tv + tv_height},
+	{x        ,y         ,0,1,0xffffffff,tu           ,tv            },
+	{x + width,y         ,0,1,0xffffffff,tu + tu_width,tv            },
+	{x + width,y + height,0,1,0xffffffff,tu + tu_width,tv + tv_height},
+	{x        ,y + height,0,1,0xffffffff,tu           ,tv + tv_height},
 	};
 
 	point.pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
@@ -34,7 +35,8 @@ void Draw(float x ,float y,float z,float rhw ,DWORD color ,float tu ,float tv,fl
 
 }
 
-void DrawEx(float x, float y,float width, float height,LPDIRECT3DTEXTURE9* Texture, Pointa point)
+
+void DrawEx(float x, float y,float width, float height, LPDIRECT3DTEXTURE9* Texture ,Pointa point)
 {
 
 	CUSTOMVERTEX customvertex[4] = {
@@ -50,8 +52,8 @@ void DrawEx(float x, float y,float width, float height,LPDIRECT3DTEXTURE9* Textu
 
 }
 
-void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture_number,Pointa point) {
-	HRESULT result = D3DXCreateTextureFromFileEx(point.pDevice, file_name, 1920, 1080, 0, 0, D3DFMT_UNKNOWN,
+void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture_number,Pointa* point) {
+	HRESULT result = D3DXCreateTextureFromFileEx(point->pDevice, file_name, 1920, 1080, 0, 0, D3DFMT_UNKNOWN,
 		D3DPOOL_DEFAULT, D3DX_FILTER_NONE, D3DX_DEFAULT,
 		0xff000000, NULL, NULL, Texture);
 
@@ -61,22 +63,87 @@ void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture
 	}
 }
 
-/*
-void DrawMapChip(D3DXVECTOR2 draw_pos, D3DXVECTOR2 texture_pos, D3DXVECTOR2 sprite_size, Pointa point, TEXTUREDATA *Texture)
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+#define MAP_SIZE_WIDTH (19)	
+#define MAP_SIZE_HEIGHT (22)
+
+int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
 {
-	D3DXVECTOR2 uv = D3DXVECTOR2(texture_pos.x / Texture->m_Width , texture_pos.y / Texture->m_Height);
-	D3DXVECTOR2 uv_size = D3DXVECTOR2(sprite_size.x / Texture->m_Width, sprite_size.y / Texture->m_Height);
+	{  5, 23, 23, 23, 23, 23, 23, 23, 23, 34, 23, 23, 23, 23, 23, 23, 23, 23,  4},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{ 18, 12, 19, 21, 12, 19, 26, 21, 12, 18, 12, 19, 26, 21, 12, 19, 21, 12, 18},
+	{ 18, 12, 22, 20, 12, 22, 25, 20, 12, 14, 12, 22, 25, 20, 12, 22, 20, 12, 18},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{ 18, 12, 17, 15, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 17, 15, 12, 18},
+	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
+	{ 18, 12, 19, 21, 12, 33, 23, 15,  0, 14,  0, 17, 23, 32, 12, 19, 21, 12, 18},
+	{ 18, 12, 24, 27, 12, 18,  0,  0,  0, 77,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+	{ 18, 12, 22, 20, 12, 14,  0,  6,  2,  1,  3,  9,  0, 14, 12, 22, 20, 12, 18},
+	{ 18, 12, 12, 12, 12,  0,  0, 11, 65, 41, 89, 11,  0,  0, 12, 12, 12, 12, 18},
+	{ 18, 12, 19, 21, 12, 16,  0,  8, 10, 10, 10,  7,  0, 16, 12, 19, 21, 12, 18},
+	{ 18, 12, 24, 27, 12, 18,  0,  0,  0,  0,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+	{ 18, 12, 22, 20, 12, 14,  0, 17, 23, 34, 23, 15,  0, 14, 12, 22, 20, 12, 18},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{ 18, 12, 17,  4, 12, 17, 23, 15, 12, 14, 12, 17, 23, 15, 12,  5, 15, 12, 18},
+	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 40, 12, 12, 12, 12, 12, 18, 12, 12, 18},
+	{ 33, 15, 12, 14, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 14, 12, 17, 32},
+	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
+	{ 18, 12, 17, 23, 23, 28, 23, 15, 12, 14, 12, 17, 23, 28, 23, 23, 15, 12, 18},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{  8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  7},
+};
+
+
+
+void DrawMap(MapChipData MapData,Pointa* point, LPDIRECT3DTEXTURE9* Texture)
+{
+	float cv = MapData.chip_x / MapData.Texture_Height;
+	float cu = MapData.chip_y / MapData.Texture_Widht;
+	float cv_size = MapData.MapChipWidht  / MapData.Texture_Height;
+	float cu_size = MapData.MapChipHeight / MapData.Texture_Widht;
 
 	CUSTOMVERTEX sprite[] =
-	{
-		{ draw_pos.x, draw_pos.y, 0.0f, 1.0f, uv.x, uv.y },
-		{ draw_pos.x + sprite_size.x, draw_pos.y, 0.0f, 1.0f, uv.x + uv_size.x, uv.y },
-		{ draw_pos.x + sprite_size.x, draw_pos.y + sprite_size.y, 0.0f, 1.0f, uv.x + uv_size.x, uv.y + uv_size.y },
-		{ draw_pos.x, draw_pos.y + sprite_size.y, 0.0f, 1.0f, uv.x, uv.y + uv_size.y },
+	{ 
+		{ MapData.x                       , MapData.y                        , 0.0f, 1.0f,0xffffffff, cv          , cu           },
+		{ MapData.x + MapData.MapChipWidht, MapData.y                        , 0.0f, 1.0f,0xffffffff, cv + cv_size, cu           },
+		{ MapData.x + MapData.MapChipWidht, MapData.y + MapData.MapChipHeight, 0.0f, 1.0f,0xffffffff, cv + cv_size, cu + cu_size },
+		{ MapData.x                       , MapData.y + MapData.MapChipHeight, 0.0f, 1.0f,0xffffffff, cv          , cu + cu_size },
 	};
 
-	point.pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
-	point.pDevice->SetTexture(0, Texture->m_pTexture);
-	point.pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, sprite, sizeof(CUSTOMVERTEX));
+	point->pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
+	point->pDevice->SetTexture(0, *Texture);
+	point->pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, sprite, sizeof(CUSTOMVERTEX));
 }
-*/
+
+void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture)
+{
+	for (int i = 0; i < MapData.Map_HeigjtNumber; i++)
+	{
+		for (int j = 0; j < MapData.Map_WidhtNumber; j++)
+		{
+			int chip_id = MapChipList[i][j];
+			if (chip_id == 0)
+			{
+				continue;
+			}
+			int width_num = MapData.Texture_Height / MapData.MapChipHeight;
+
+			int height_num = MapData.Texture_Widht / MapData.MapChipWidht;
+			
+			float chip_pos_x = (float)((chip_id % width_num) * MapData.MapChipWidht) + 16;
+			float chip_pos_y = (float)((chip_id / height_num) * MapData.MapChipHeight) + 16;
+			
+			MapData.chip_x = chip_pos_x;
+			MapData.chip_y = chip_pos_y;
+			MapData.x = MapData.MapChipWidht * j;
+			MapData.y = MapData.MapChipHeight * i;
+
+			DrawMap(MapData, point, Texture);
+		}
+	}
+}
+
