@@ -19,9 +19,6 @@ typedef struct
 	float   // 除算数
 		rhw;
 
-	DWORD
-		dwColor; // 頂点の色
-
 	float   // テクスチャ座標
 		tu,  // 幅
 		tv;	// 高さ
@@ -148,8 +145,8 @@ class MapChipData
 public:
 	int Map_HeigjtNumber = 22;
 	int Map_WidhtNumber = 19;
-	int MapChipHeight = 40;
-	int MapChipWidht = 40;
+	float MapChipHeight = 40;
+	float MapChipWidht = 40;
 	float Texture_Height = 512;
 	float Texture_Widht = 512;
 	float x;
