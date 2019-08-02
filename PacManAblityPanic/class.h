@@ -49,12 +49,6 @@ public:
 	
 };
 
-class Count
-{
-public:
-	int count = 0;
-};
-
 // テクスチャデータ
 struct TEXTUREDATA
 {
@@ -73,12 +67,24 @@ enum MAPCHIP_TEXTURE_ID
 	MaxTextureId	// 最大数
 };
 
-class Variable
+class VariableNumber
 {
 public:
 	int SceneSelect;
-
+	int count = 0;
+	int Keystate = 0;
 };
+
+class Count
+{
+public:
+	int Frame = 0;
+	int Frame2 = 0;
+	int Frame3 = 0;
+	int Frame4 = 0;
+};
+
+// extern VariableNumber var;
 
 // SceneId の数
 enum SceneId
