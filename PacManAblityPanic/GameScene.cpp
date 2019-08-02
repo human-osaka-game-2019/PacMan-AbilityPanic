@@ -10,10 +10,41 @@ extern int g_SceneStep;
 void DrawGameScene(Pointa* point, MapChipData MapData);
 void InitGameScene(Pointa*point);
 void UpdateGameScene();
+void MainGameScene();
 SceneId FinisGameScene();
 
-
 TEXTUREDATA GameTextureData;
+
+#define MAP_SIZE_WIDTH (19)	
+#define MAP_SIZE_HEIGHT (22)
+
+int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
+{
+	{  5, 23, 23, 23, 23, 23, 23, 23, 23, 34, 23, 23, 23, 23, 23, 23, 23, 23,  4},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{ 18, 12, 19, 21, 12, 19, 26, 21, 12, 18, 12, 19, 26, 21, 12, 19, 21, 12, 18},
+	{ 18, 12, 22, 20, 12, 22, 25, 20, 12, 14, 12, 22, 25, 20, 12, 22, 20, 12, 18},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{ 18, 12, 17, 15, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 17, 15, 12, 18},
+	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
+	{ 18, 12, 19, 21, 12, 33, 23, 15,  0, 14,  0, 17, 23, 32, 12, 19, 21, 12, 18},
+	{ 18, 12, 24, 27, 12, 18,  0,  0,  0, 77,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+	{ 18, 12, 22, 20, 12, 14,  0,  6,  2,  1,  3,  9,  0, 14, 12, 22, 20, 12, 18},
+	{ 18, 12, 12, 12, 12,  0,  0, 11, 65, 41, 89, 11,  0,  0, 12, 12, 12, 12, 18},
+	{ 18, 12, 19, 21, 12, 16,  0,  8, 10, 10, 10,  7,  0, 16, 12, 19, 21, 12, 18},
+	{ 18, 12, 24, 27, 12, 18,  0,  0,  0,  0,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+	{ 18, 12, 22, 20, 12, 14,  0, 17, 23, 34, 23, 15,  0, 14, 12, 22, 20, 12, 18},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{ 18, 12, 17,  4, 12, 17, 23, 15, 12, 14, 12, 17, 23, 15, 12,  5, 15, 12, 18},
+	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 40, 12, 12, 12, 12, 12, 18, 12, 12, 18},
+	{ 33, 15, 12, 14, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 14, 12, 17, 32},
+	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
+	{ 18, 12, 17, 23, 23, 28, 23, 15, 12, 14, 12, 17, 23, 28, 23, 23, 15, 12, 18},
+	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+	{  8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  7},
+};
+
+
 
 SceneId GameSceneMain(Pointa* point)
 {
@@ -25,6 +56,7 @@ SceneId GameSceneMain(Pointa* point)
 		break;
 		// 本編
 	case SceneStep::MainStep:
+		MainGameScene();
 		UpdateGameScene();
 		break;
 		// 終了
@@ -38,7 +70,7 @@ SceneId GameSceneMain(Pointa* point)
 void DrawGameScene(Pointa* point, MapChipData MapData)
 {
 
-	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture]);
+	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], MapChipList);
 	//DrawEx(0, 0, 1920, 1080, &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], *point);
 	
 }
@@ -76,3 +108,7 @@ SceneId FinisGameScene()
 
 }
 
+void MainGameScene()
+{
+
+}

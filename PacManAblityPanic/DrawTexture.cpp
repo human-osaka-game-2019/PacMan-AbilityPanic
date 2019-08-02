@@ -80,31 +80,31 @@ void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture
 #define MAP_SIZE_WIDTH (19)	
 #define MAP_SIZE_HEIGHT (22)
 
-int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
-{
-	{  5, 23, 23, 23, 23, 23, 23, 23, 23, 34, 23, 23, 23, 23, 23, 23, 23, 23,  4},
-	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
-	{ 18, 12, 19, 21, 12, 19, 26, 21, 12, 18, 12, 19, 26, 21, 12, 19, 21, 12, 18},
-	{ 18, 12, 22, 20, 12, 22, 25, 20, 12, 14, 12, 22, 25, 20, 12, 22, 20, 12, 18},
-	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
-	{ 18, 12, 17, 15, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 17, 15, 12, 18},
-	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
-	{ 18, 12, 19, 21, 12, 33, 23, 15,  0, 14,  0, 17, 23, 32, 12, 19, 21, 12, 18},
-	{ 18, 12, 24, 27, 12, 18,  0,  0,  0, 77,  0,  0,  0, 18, 12, 24, 27, 12, 18},
-	{ 18, 12, 22, 20, 12, 14,  0,  6,  2,  1,  3,  9,  0, 14, 12, 22, 20, 12, 18},
-	{ 18, 12, 12, 12, 12,  0,  0, 11, 65, 41, 89, 11,  0,  0, 12, 12, 12, 12, 18},
-	{ 18, 12, 19, 21, 12, 16,  0,  8, 10, 10, 10,  7,  0, 16, 12, 19, 21, 12, 18},
-	{ 18, 12, 24, 27, 12, 18,  0,  0,  0,  0,  0,  0,  0, 18, 12, 24, 27, 12, 18},
-	{ 18, 12, 22, 20, 12, 14,  0, 17, 23, 34, 23, 15,  0, 14, 12, 22, 20, 12, 18},
-	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
-	{ 18, 12, 17,  4, 12, 17, 23, 15, 12, 14, 12, 17, 23, 15, 12,  5, 15, 12, 18},
-	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 40, 12, 12, 12, 12, 12, 18, 12, 12, 18},
-	{ 33, 15, 12, 14, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 14, 12, 17, 32},
-	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
-	{ 18, 12, 17, 23, 23, 28, 23, 15, 12, 14, 12, 17, 23, 28, 23, 23, 15, 12, 18},
-	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
-	{  8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  7},
-};
+//int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
+//{
+//	{  5, 23, 23, 23, 23, 23, 23, 23, 23, 34, 23, 23, 23, 23, 23, 23, 23, 23,  4},
+//	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+//	{ 18, 12, 19, 21, 12, 19, 26, 21, 12, 18, 12, 19, 26, 21, 12, 19, 21, 12, 18},
+//	{ 18, 12, 22, 20, 12, 22, 25, 20, 12, 14, 12, 22, 25, 20, 12, 22, 20, 12, 18},
+//	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+//	{ 18, 12, 17, 15, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 17, 15, 12, 18},
+//	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
+//	{ 18, 12, 19, 21, 12, 33, 23, 15,  0, 14,  0, 17, 23, 32, 12, 19, 21, 12, 18},
+//	{ 18, 12, 24, 27, 12, 18,  0,  0,  0, 77,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+//	{ 18, 12, 22, 20, 12, 14,  0,  6,  2,  1,  3,  9,  0, 14, 12, 22, 20, 12, 18},
+//	{ 18, 12, 12, 12, 12,  0,  0, 11, 65, 41, 89, 11,  0,  0, 12, 12, 12, 12, 18},
+//	{ 18, 12, 19, 21, 12, 16,  0,  8, 10, 10, 10,  7,  0, 16, 12, 19, 21, 12, 18},
+//	{ 18, 12, 24, 27, 12, 18,  0,  0,  0,  0,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+//	{ 18, 12, 22, 20, 12, 14,  0, 17, 23, 34, 23, 15,  0, 14, 12, 22, 20, 12, 18},
+//	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+//	{ 18, 12, 17,  4, 12, 17, 23, 15, 12, 14, 12, 17, 23, 15, 12,  5, 15, 12, 18},
+//	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 40, 12, 12, 12, 12, 12, 18, 12, 12, 18},
+//	{ 33, 15, 12, 14, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 14, 12, 17, 32},
+//	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
+//	{ 18, 12, 17, 23, 23, 28, 23, 15, 12, 14, 12, 17, 23, 28, 23, 23, 15, 12, 18},
+//	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 18},
+//	{  8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  7},
+//};
 
 
 
@@ -120,10 +120,10 @@ void DrawMap(MapChipData MapData,Pointa* point, LPDIRECT3DTEXTURE9* Texture)
 	
 	CUSTOMVERTEX sprite[] =
 	{ 
-		{ MapData.x                        + 598, MapData.y                         + 120 , 0.0f, 1.0f,cx      ,cy      },
-		{ MapData.x + MapData.MapChipWidht + 598, MapData.y                         + 120 , 0.0f, 1.0f,cu_add  ,cy      },
-		{ MapData.x + MapData.MapChipWidht + 598, MapData.y + MapData.MapChipHeight + 120 , 0.0f, 1.0f,cu_add  ,cv_add  },
-		{ MapData.x                        + 598, MapData.y + MapData.MapChipHeight + 120 , 0.0f, 1.0f,cx      ,cv_add  },
+		{ MapData.x                       , MapData.y                        , 0.0f, 1.0f,cx      ,cy      },
+		{ MapData.x + MapData.MapChipWidht, MapData.y                        , 0.0f, 1.0f,cu_add  ,cy      },
+		{ MapData.x + MapData.MapChipWidht, MapData.y + MapData.MapChipHeight, 0.0f, 1.0f,cu_add  ,cv_add  },
+		{ MapData.x                       , MapData.y + MapData.MapChipHeight, 0.0f, 1.0f,cx      ,cv_add  },
 	};																										  	   
 																												   
 	point->pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
@@ -131,7 +131,7 @@ void DrawMap(MapChipData MapData,Pointa* point, LPDIRECT3DTEXTURE9* Texture)
 	point->pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, sprite, sizeof(CUSTOMVERTEX));
 }
 
-void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture)
+void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture,int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH])
 {
 	for (int i = 0; i < MapData.Map_HeigjtNumber; i++)
 	{
@@ -142,8 +142,8 @@ void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture)
 			{
 				continue;
 			}
-			int width_num = MapData.Texture_Widht/*512*/ / MapData.MapChipWidht/*40*/;
 
+			int width_num = MapData.Texture_Widht/*512*/ / MapData.MapChipWidht/*40*/;
 			int height_num = MapData.Texture_Height/*512*/ / MapData.MapChipHeight/*40*/;
 			
 			float chip_pos_x = (float)((chip_id % width_num) * MapData.MapChipWidht/*40*/) + 16;
@@ -153,8 +153,8 @@ void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture)
 			MapData.chip_x = chip_pos_x;
 			MapData.chip_y = chip_pos_y;
 			// チップ指定 //
-			MapData.x = MapData.MapChipWidht * j;
-			MapData.y = MapData.MapChipHeight * i;
+			MapData.x = MapData.MapChipWidht  * j + 598;
+			MapData.y = MapData.MapChipHeight * i + 120;
 
 			DrawMap(MapData, point, Texture);
 		}

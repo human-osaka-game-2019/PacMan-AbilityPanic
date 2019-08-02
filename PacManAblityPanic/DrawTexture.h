@@ -15,7 +15,7 @@ void DrawEx(float x, float y,float width, float height, LPDIRECT3DTEXTURE9* Text
 
 void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture_number, Pointa* point);
 
-void DrawMapChip(Pointa* point,MapChipData MapData, LPDIRECT3DTEXTURE9* Texture);
+void DrawMapChip(Pointa* point,MapChipData MapData, LPDIRECT3DTEXTURE9* Texture,int apChipList[][19]);
 
 void DrawMap(MapChipData MapData, Pointa* point, LPDIRECT3DTEXTURE9* Texture);
 
