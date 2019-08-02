@@ -4,13 +4,17 @@
 #include"class.h"
 #include"DrawTexture.h"
 #include"Device.h"
+#include"GameScene.h"
+#include"GameSystem.h"
 // #include"MapLoader.h"
 
 extern int g_SceneStep;
 void DrawGameScene(Pointa* point, MapChipData MapData);
 void InitGameScene(Pointa*point);
 void UpdateGameScene();
-void MainGameScene();
+void ResetGameScene(Count* count);
+void MainGameScene( Count* count,VariableNumber* var);
+void KeyCondition( Count* count,VariableNumber* var);
 SceneId FinisGameScene();
 
 TEXTUREDATA GameTextureData;
@@ -36,7 +40,7 @@ int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
 	{ 18, 12, 22, 20, 12, 14,  0, 17, 23, 34, 23, 15,  0, 14, 12, 22, 20, 12, 18},
 	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
 	{ 18, 12, 17,  4, 12, 17, 23, 15, 12, 14, 12, 17, 23, 15, 12,  5, 15, 12, 18},
-	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 40, 12, 12, 12, 12, 12, 18, 12, 12, 18},
+	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 36, 12, 12, 12, 12, 12, 18, 12, 12, 18},
 	{ 33, 15, 12, 14, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 14, 12, 17, 32},
 	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
 	{ 18, 12, 17, 23, 23, 28, 23, 15, 12, 14, 12, 17, 23, 28, 23, 23, 15, 12, 18},
@@ -46,7 +50,7 @@ int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
 
 
 
-SceneId GameSceneMain(Pointa* point)
+SceneId GameSceneMain(Pointa* point, VariableNumber* var,Count* count)
 {
 	switch (GetCurrentSceneStep())
 	{
@@ -56,11 +60,13 @@ SceneId GameSceneMain(Pointa* point)
 		break;
 		// 本編
 	case SceneStep::MainStep:
-		MainGameScene();
+		KeyCondition(count,var);
+		MainGameScene(count, var);
 		UpdateGameScene();
 		break;
 		// 終了
 	case SceneStep::EndStep:
+		ResetGameScene(count);
 		return FinisGameScene();
 	}
 	return SceneId::GameScene;
@@ -108,7 +114,41 @@ SceneId FinisGameScene()
 
 }
 
-void MainGameScene()
+// ゲーム内で使用した変数のリセット
+void ResetGameScene(Count* count)
+{
+
+}
+
+// 各行動時のテクスチャ切り替え
+void KeyCondition(Count* count, VariableNumber* var)
+{
+	if (GetKeyStatus(DIK_UP))
+	{
+		var->Keystate = UP;
+	}else
+		if (GetKeyStatus(DIK_DOWN))
+		{
+			var->Keystate = DOWN;
+		}else
+			if (GetKeyStatus(DIK_RIGHT))
+			{
+				var->Keystate = RIGHT;
+			}else
+				if (GetKeyStatus(DIK_LEFT))
+				{
+					var->Keystate = LEFT;
+				}
+
+			CharTextureMove(count, var, MapChipList);
+
+			if (count->Frame >= 20)
+			{
+				count->Frame = 0;
+			}
+}
+
+void MainGameScene(Count* count, VariableNumber* var)
 {
 
 }
