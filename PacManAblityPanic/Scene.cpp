@@ -23,6 +23,7 @@ Title -> Set -> Option -> Set -> Game -> Result -> Set
 
 //Pointa point;
 
+void FrameCount(Count* count);
 static SceneId g_CurrentSceneId = SceneId::TitleScene;		// 動作中シーンID
 static SceneStep g_CurrentSceneStep = SceneStep::InitStep;	// 動作中シーンのステップ
 
@@ -41,7 +42,7 @@ void ChangeSceneStep(SceneStep next_step)
 	g_CurrentSceneStep = next_step;
 }
 
-void UpdateScene(Pointa *point, MapChipData MapData)
+void UpdateScene(Pointa *point, MapChipData MapData, VariableNumber* var,Count* count)
 {
 	int current_scene_id = SceneId::TitleScene;
 
@@ -67,7 +68,7 @@ void UpdateScene(Pointa *point, MapChipData MapData)
 			break;
 			// メインゲームシーン
 		case SceneId::GameScene:
-			result_id = GameSceneMain(point);
+			result_id = GameSceneMain(point,var,count);
 			break;
 			// リザルトシーン
 		case SceneId::ResultScene:
@@ -77,6 +78,8 @@ void UpdateScene(Pointa *point, MapChipData MapData)
 		}
 
 		DrawScene(point,MapData);
+
+		FrameCount(count);
 
 		if (result_id != g_CurrentSceneId)
 		{
@@ -118,3 +121,12 @@ void DrawScene(Pointa* point, MapChipData MapData)
 	point->pDevice->EndScene();
 	point->pDevice->Present(NULL, NULL, NULL, NULL);
 }
+
+void FrameCount(Count* count)
+{
+	count->Frame  = count->Frame  + 1;
+	count->Frame2 = count->Frame2 + 1;
+	count->Frame3 = count->Frame3 + 1;
+	count->Frame4 = count->Frame4 + 1;
+}
+		

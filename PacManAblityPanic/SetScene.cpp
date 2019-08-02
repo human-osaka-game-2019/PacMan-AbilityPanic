@@ -11,7 +11,7 @@ void InitSetScene(Pointa* point);
 void UpdateSetScene();
 SceneId FinisSetScene();
 
-Variable var;
+VariableNumber var;
 static bool KeyFlag = false;
 
 TEXTUREDATA SetTextureData;

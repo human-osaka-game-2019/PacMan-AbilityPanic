@@ -8,6 +8,8 @@
 
 #include "class.h"
 
+#define MAP_SIZE_WIDTH (19)	
+#define MAP_SIZE_HEIGHT (22)
 
 void Draw(float x, float y, float width, float height, float tu, float tv, float tu_width, float tv_height, LPDIRECT3DTEXTURE9* Texture, Pointa point);
 
@@ -15,7 +17,7 @@ void DrawEx(float x, float y,float width, float height, LPDIRECT3DTEXTURE9* Text
 
 void LoadTexture(const char* file_name, LPDIRECT3DTEXTURE9* Texture, int texture_number, Pointa* point);
 
-void DrawMapChip(Pointa* point,MapChipData MapData, LPDIRECT3DTEXTURE9* Texture,int apChipList[][19]);
+void DrawMapChip(Pointa* point, MapChipData MapData, LPDIRECT3DTEXTURE9* Texture, int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]);
 
 void DrawMap(MapChipData MapData, Pointa* point, LPDIRECT3DTEXTURE9* Texture);
 

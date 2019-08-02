@@ -10,6 +10,9 @@ int WINAPI WinMain(HINSTANCE hInst,HINSTANCE hPrevInstance,
 {
 Pointa point;
 MapChipData MapData;
+VariableNumber variable;
+Count count;
+
 // MapChipData MapData;
 	if (InitEngine(1920, 1080, hInst, &point) == false)
 	{
@@ -32,7 +35,7 @@ MapChipData MapData;
 			else
 			{
 
-			UpdateScene(&point,MapData);
+				UpdateScene(&point, MapData, &variable,&count);
 
 			}
 		}
