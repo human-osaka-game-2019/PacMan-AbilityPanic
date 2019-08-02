@@ -57,6 +57,9 @@
     <ClCompile Include="Engine.cpp">
       <Filter>lib</Filter>
     </ClCompile>
+    <ClCompile Include="GameSystem.cpp">
+      <Filter>Scenefile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSystem.h">
+      <Filter>Scenefile</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

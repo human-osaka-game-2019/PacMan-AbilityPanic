@@ -153,6 +153,7 @@
     <ClCompile Include="SetScene.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameSystem.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="class.h" />
     <ClInclude Include="Device.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameSystem.h" />
     <ClInclude Include="MapLoader.h" />
     <ClInclude Include="SetScene.h" />
     <ClInclude Include="Option.h" />
