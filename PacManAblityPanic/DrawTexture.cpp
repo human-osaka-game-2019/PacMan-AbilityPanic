@@ -94,13 +94,13 @@ void DrawMap(MapChipData MapData,Pointa* point, LPDIRECT3DTEXTURE9* Texture)
 		{ MapData.x + MapData.MapChipWidht, MapData.y + MapData.MapChipHeight, 0.0f, 1.0f,cu_add  ,cv_add  },
 		{ MapData.x                       , MapData.y + MapData.MapChipHeight, 0.0f, 1.0f,cx      ,cv_add  },
 	};																										  	   
-																												   
+	
 	point->pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
 	point->pDevice->SetTexture(0, *Texture);
 	point->pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, sprite, sizeof(CUSTOMVERTEX));
 }
 
-void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture,int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH])
+void DrawMapChip(Pointa* point, MapChipData MapData, LPDIRECT3DTEXTURE9* Texture, int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH])
 {
 	for (int i = 0; i < MapData.Map_HeigjtNumber; i++)
 	{
@@ -114,19 +114,19 @@ void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture,
 
 			int width_num = MapData.Texture_Widht/*512*/ / MapData.MapChipWidht/*40*/;
 			int height_num = MapData.Texture_Height/*512*/ / MapData.MapChipHeight/*40*/;
-			
+
 			float chip_pos_x = (float)((chip_id % width_num) * MapData.MapChipWidht/*40*/) + 16;
 			float chip_pos_y = (float)((chip_id / height_num) * MapData.MapChipHeight/*40*/) + 16;
-			
+
 			// 描画する場所の指定 // 
 			MapData.chip_x = chip_pos_x;
 			MapData.chip_y = chip_pos_y;
 			// チップ指定 //
-			MapData.x = MapData.MapChipWidht  * j + 598;
+			MapData.x = MapData.MapChipWidht * j + 598;
 			MapData.y = MapData.MapChipHeight * i + 120;
 
-
 			DrawMap(MapData, point, Texture);
+			
 		}
 	}
 }
