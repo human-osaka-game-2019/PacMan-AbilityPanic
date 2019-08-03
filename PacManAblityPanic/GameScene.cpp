@@ -14,13 +14,16 @@ WATERY_GHOST watery;
 PINK_GHOST pink;
 ORANGE_GHOST orange;
 RED_GHOST red;
+// 描画設定等
+PLAYER Pac_man;
 
 extern int g_SceneStep;
 void DrawGameScene(Pointa* point, MapChipData MapData);
 void InitGameScene(Pointa*point);
+void AllCoordinatesInput();
 void UpdateGameScene();
 void ResetGameScene(Count* count);
-void MainGameScene( Count* count,VariableNumber* var);
+void MainGameScene( Count* count,VariableNumber* var,PLAYER* Pac_man);
 void KeyCondition( Count* count,VariableNumber* var);
 SceneId FinisGameScene();
 
@@ -39,15 +42,15 @@ int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]
 	{ 18, 12, 17, 15, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 17, 15, 12, 18},
 	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
 	{ 18, 12, 19, 21, 12, 33, 23, 15,  0, 14,  0, 17, 23, 32, 12, 19, 21, 12, 18},
-	{ 18, 12, 24, 27, 12, 18,  0,  0,  0, 77,  0,  0,  0, 18, 12, 24, 27, 12, 18},
+	{ 18, 12, 24, 27, 12, 18,  0,  0,  0,  0,  0,  0,  0, 18, 12, 24, 27, 12, 18},
 	{ 18, 12, 22, 20, 12, 14,  0,  6,  2,  1,  3,  9,  0, 14, 12, 22, 20, 12, 18},
-	{ 18, 12, 12, 12, 12,  0,  0, 11, 65, 41, 89, 11,  0,  0, 12, 12, 12, 12, 18},
+	{ 18, 12, 12, 12, 12,  0,  0, 11,  0,  0,  0, 11,  0,  0, 12, 12, 12, 12, 18},
 	{ 18, 12, 19, 21, 12, 16,  0,  8, 10, 10, 10,  7,  0, 16, 12, 19, 21, 12, 18},
 	{ 18, 12, 24, 27, 12, 18,  0,  0,  0,  0,  0,  0,  0, 18, 12, 24, 27, 12, 18},
 	{ 18, 12, 22, 20, 12, 14,  0, 17, 23, 34, 23, 15,  0, 14, 12, 22, 20, 12, 18},
 	{ 18, 12, 12, 12, 12, 12, 12, 12, 12, 18, 12, 12, 12, 12, 12, 12, 12, 12, 18},
 	{ 18, 12, 17,  4, 12, 17, 23, 15, 12, 14, 12, 17, 23, 15, 12,  5, 15, 12, 18},
-	{ 18, 12, 12, 18, 12, 12, 12, 12, 12, 36, 12, 12, 12, 12, 12, 18, 12, 12, 18},
+	{ 18, 12, 12, 18, 12, 12, 12, 12, 12,  0, 12, 12, 12, 12, 12, 18, 12, 12, 18},
 	{ 33, 15, 12, 14, 12, 16, 12, 17, 23, 34, 23, 15, 12, 16, 12, 14, 12, 17, 32},
 	{ 18, 12, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 18, 12, 12, 12, 12, 18},
 	{ 18, 12, 17, 23, 23, 28, 23, 15, 12, 14, 12, 17, 23, 28, 23, 23, 15, 12, 18},
@@ -63,12 +66,13 @@ SceneId GameSceneMain(Pointa* point, VariableNumber* var,Count* count)
 	{
 		// 初期化
 	case SceneStep::InitStep :
+		AllCoordinatesInput();
 		InitGameScene(point);
 		break;
 		// 本編
 	case SceneStep::MainStep:
 		KeyCondition(count,var);
-		MainGameScene(count, var);
+		MainGameScene(count, var,&Pac_man);
 		UpdateGameScene();
 		break;
 		// 終了
@@ -79,8 +83,7 @@ SceneId GameSceneMain(Pointa* point, VariableNumber* var,Count* count)
 	return SceneId::GameScene;
 }
 
-// 描画設定等
-PLAYER Pac_man;
+
 
 
 
@@ -89,7 +92,7 @@ void DrawGameScene(Pointa* point, MapChipData MapData)
 
 
 	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], MapChipList);
-	Draw(Pac_man.pos_X, Pac_man.pos_Y, 40, 40, 0.0312500000, 0.265625000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);//パックマン
+	Draw(Pac_man.pos_X, Pac_man.pos_Y, Pac_man.TextureSize, Pac_man.TextureSize, Pac_man.pos_Tu, Pac_man.pos_Tv, Pac_man.TuTvSize, Pac_man.TuTvSize, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);//パックマン
 	Draw(red.pos_X, red.pos_Y, 40, 40, 0.4218750000, 0.500000000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
 	Draw(watery.pos_X, watery.pos_Y, 40, 40, 0.4218750000, 0.578125000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
 	Draw(orange.pos_X, orange.pos_Y, 40, 40, 0.4218750000, 0.421875000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
@@ -98,20 +101,33 @@ void DrawGameScene(Pointa* point, MapChipData MapData)
 	//DrawEx(0, 0, 1920, 1080, &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], *point);
 	
 }
+// 77  958 998 440 480
+// 65  918 958 520 560
+// 41  958 998 520 560
+// 89  998 1038 520 560
+// 36  958 998 760 800
+void AllCoordinatesInput()
+{
+	Pac_man.Initialize();
+	red.CoordinatesInput(958, 440);
+	watery.CoordinatesInput(998, 520);
+	orange.CoordinatesInput(918, 520);
+	pink.CoordinatesInput(958, 520);
+}
 
 // テクスチャ読み込み
 void InitGameScene(Pointa* point)
 {
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
-	red.pos_X = 40;
+	/*red.pos_X = 40;
 	red.pos_Y = 0;
 	watery.pos_X = 80;
 	watery.pos_Y = 0;
 	orange.pos_X = 120;
 	orange.pos_Y = 0;
 	pink.pos_X = 160;
-	pink.pos_Y = 0;
+	pink.pos_Y = 0;*/
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
@@ -190,7 +206,7 @@ void KeyCondition(Count* count, VariableNumber* var)
 					var->Keystate = LEFT;
 				}
 
-			CharTextureMove(count, var, MapChipList);
+			CharTextureMove(count, var, MapChipList,&Pac_man);
 
 			if (count->Frame >= 20)
 			{
@@ -198,9 +214,9 @@ void KeyCondition(Count* count, VariableNumber* var)
 			}
 }
 
-void MainGameScene(Count* count, VariableNumber* var)
+void MainGameScene(Count* count, VariableNumber* var,PLAYER * Pac_man)
 {
-
+	Pac_Mon_Move(var, Pac_man);
 	
 
 }
