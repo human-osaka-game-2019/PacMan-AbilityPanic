@@ -39,7 +39,12 @@ public:
 	// いるかわからないが取り敢えず書いておく
 	float	pos_X, pos_Y;			//! ゴーストのXY座標
 	float	Width, Height;	//! ゴーストの幅、高さ
-	
+
+	void CoordinatesInput(int x, int y)
+	{
+		pos_X = x;
+		pos_Y = y;
+	}
 	
 };
 
