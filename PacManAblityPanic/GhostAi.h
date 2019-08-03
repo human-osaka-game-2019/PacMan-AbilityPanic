@@ -4,8 +4,9 @@
 */
 #ifndef GHOST_AI_H_
 #define GHOST_AI_H_
+#include"GhostStatus.h"
 
-TERRITORY GHOST_TERRITORY[4];
+//TERRITORY GHOST_TERRITORY[4];
 
 /**
 * @brief ブリンキー（赤いゴースト）のAI作成用クラス

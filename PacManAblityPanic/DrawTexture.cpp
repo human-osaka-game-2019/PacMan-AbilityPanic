@@ -125,6 +125,7 @@ void DrawMapChip(Pointa* point, MapChipData MapData,LPDIRECT3DTEXTURE9* Texture,
 			MapData.x = MapData.MapChipWidht  * j + 598;
 			MapData.y = MapData.MapChipHeight * i + 120;
 
+
 			DrawMap(MapData, point, Texture);
 		}
 	}

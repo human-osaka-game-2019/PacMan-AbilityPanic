@@ -18,7 +18,21 @@ void RED_GHOST::RedGhostUpdate () {
 
 void RED_GHOST::RedNormalMoving()
 {
+	switch(RED_GHOST::Direction_of_travel)
+	{
+	case DIRECTION_OF_TRAVEL::up:
 
+		break;
+	case DIRECTION_OF_TRAVEL::left:
+
+		break;
+	case DIRECTION_OF_TRAVEL::right:
+
+		break;
+	case DIRECTION_OF_TRAVEL::down:
+
+		break;
+	}
 };
 
 void PINK_GHOST::PinkGhostUpdate () {
@@ -38,7 +52,21 @@ void PINK_GHOST::PinkGhostUpdate () {
 
 void PINK_GHOST::PinkNormalMoving()
 {
+	switch(PINK_GHOST::Direction_of_travel)
+	{
+	case DIRECTION_OF_TRAVEL::up:
 
+		break;
+	case DIRECTION_OF_TRAVEL::left:
+
+		break;
+	case DIRECTION_OF_TRAVEL::right:
+
+		break;
+	case DIRECTION_OF_TRAVEL::down:
+
+		break;
+	}
 };
 
 void WATERY_GHOST::WateryGhostUpdate () {
@@ -58,7 +86,21 @@ void WATERY_GHOST::WateryGhostUpdate () {
 
 void WATERY_GHOST::WateryNormalMoving()
 {
+	switch (WATERY_GHOST::Direction_of_travel)
+	{
+	case DIRECTION_OF_TRAVEL::up:
 
+		break;
+	case DIRECTION_OF_TRAVEL::left:
+
+		break;
+	case DIRECTION_OF_TRAVEL::right:
+
+		break;
+	case DIRECTION_OF_TRAVEL::down:
+
+		break;
+	}
 };
 
 void ORANGE_GHOST::OrangeGhostUpdate() {
@@ -78,7 +120,21 @@ void ORANGE_GHOST::OrangeGhostUpdate() {
 
 void ORANGE_GHOST::OrangeNormalMoving()
 {
+	switch (ORANGE_GHOST::Direction_of_travel)
+	{
+	case DIRECTION_OF_TRAVEL::up:
 
+		break;
+	case DIRECTION_OF_TRAVEL::left:
+
+		break;
+	case DIRECTION_OF_TRAVEL::right:
+
+		break;
+	case DIRECTION_OF_TRAVEL::down:
+
+		break;
+	}
 };
 
 void ScatterMoving ()

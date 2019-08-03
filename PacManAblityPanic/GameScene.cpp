@@ -6,7 +6,14 @@
 #include"Device.h"
 #include"GameScene.h"
 #include"GameSystem.h"
+#include"GhostAi.h"
+
+
 // #include"MapLoader.h"
+WATERY_GHOST watery;
+PINK_GHOST pink;
+ORANGE_GHOST orange;
+RED_GHOST red;
 
 extern int g_SceneStep;
 void DrawGameScene(Pointa* point, MapChipData MapData);
@@ -73,10 +80,21 @@ SceneId GameSceneMain(Pointa* point, VariableNumber* var,Count* count)
 }
 
 // 描画設定等
+PLAYER Pac_man;
+
+
+
 void DrawGameScene(Pointa* point, MapChipData MapData)
 {
 
+
 	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], MapChipList);
+	Draw(Pac_man.pos_X, Pac_man.pos_Y, 40, 40, 0.0312500000, 0.265625000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);//パックマン
+	Draw(red.pos_X, red.pos_Y, 40, 40, 0.4218750000, 0.500000000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
+	Draw(watery.pos_X, watery.pos_Y, 40, 40, 0.4218750000, 0.578125000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
+	Draw(orange.pos_X, orange.pos_Y, 40, 40, 0.4218750000, 0.421875000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
+	Draw(pink.pos_X, pink.pos_Y, 40, 40, 0.4218750000, 0.265625000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
+
 	//DrawEx(0, 0, 1920, 1080, &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], *point);
 	
 }
@@ -86,7 +104,14 @@ void InitGameScene(Pointa* point)
 {
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
-
+	red.pos_X = 40;
+	red.pos_Y = 0;
+	watery.pos_X = 80;
+	watery.pos_Y = 0;
+	orange.pos_X = 120;
+	orange.pos_Y = 0;
+	pink.pos_X = 160;
+	pink.pos_Y = 0;
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
@@ -94,6 +119,31 @@ void InitGameScene(Pointa* point)
 // ゲーム設定記入
 void UpdateGameScene()
 {
+	if (GetKeyStatus(DIK_W))
+	{
+
+		red.pos_Y -= 5;
+
+	}
+	if (GetKeyStatus(DIK_S))
+	{
+
+		red.pos_Y += 5;
+		
+	}
+	if (GetKeyStatus(DIK_A))
+	{
+
+		red.pos_X -= 5;
+
+	}
+	if (GetKeyStatus(DIK_D))
+	{
+
+		red.pos_X += 5;
+
+	}
+
 	if (GetKeyStatus(DIK_RETURN))
 	{
 		ChangeSceneStep(SceneStep::EndStep);
@@ -150,5 +200,7 @@ void KeyCondition(Count* count, VariableNumber* var)
 
 void MainGameScene(Count* count, VariableNumber* var)
 {
+
+	
 
 }

@@ -15,4 +15,19 @@ enum
 	LEFT,
 };
 
+class PLAYER
+{
+public:
+
+	float pos_X;
+	float pos_Y;
+
+};
+
+class ENEMY : public PLAYER 
+{
+public:
+
+};
+
 #endif

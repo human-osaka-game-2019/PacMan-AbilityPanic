@@ -35,12 +35,20 @@ public:
 	int		Mode;			//! ゴーストの現在のモード
 	float	Speed;			//! ゴーストの移動速度
 	bool	Is_dead;		//! ゴーストの生存フラグ
-
+	int Direction_of_travel;
 	// いるかわからないが取り敢えず書いておく
-	float	X, Y;			//! ゴーストのXY座標
+	float	pos_X, pos_Y;			//! ゴーストのXY座標
 	float	Width, Height;	//! ゴーストの幅、高さ
 	
 	
+};
+
+enum DIRECTION_OF_TRAVEL
+{
+	up,
+	down,
+	right,
+	left
 };
 
 #endif
