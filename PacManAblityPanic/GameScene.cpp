@@ -144,6 +144,7 @@ void UpdateGameScene()
 	if (0 > red.pos_Y )
 	{
 		red.pos_Y += 1.2;
+
 		MODE = rand() % 4;
 	}
 	if (1900 < red.pos_X)
@@ -189,10 +190,20 @@ void UpdateGameScene()
 		ChangeSceneStep(SceneStep::EndStep);
 	}
 
-	red.Direction_of_travel = MODE;
+	//red.Direction_of_travel = MODE;
 
-	red.RedGhostUpdate(&red);
-	red.RedNormalMoving(&red);
+	//red.RedGhostUpdate(&red);
+	//red.RedNormalMoving(&red);
+
+	/*if (Pac_man.pos_X <= red.pos_X && Pac_man.pos_Y <= red.pos_Y && Pac_man.pos_X + 40 >= red.pos_X + 40 && Pac_man.pos_Y + 40 >= red.pos_Y + 40)
+	{
+		ChangeSceneStep(SceneStep::EndStep);
+
+	}*/
+	if (red.pos_X <= Pac_man.pos_X + 40&& red.pos_Y < Pac_man.pos_Y + 40&& red.pos_X + 40  >= Pac_man.pos_X  && red.pos_Y + 40 >= Pac_man.pos_Y )
+	{
+		ChangeSceneStep(SceneStep::EndStep);
+	}
 	
 	
 }
