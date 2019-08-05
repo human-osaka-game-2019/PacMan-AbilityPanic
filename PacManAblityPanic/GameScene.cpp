@@ -27,7 +27,7 @@ void AllCoordinatesInput();
 void UpdateGameScene();
 void ResetGameScene(Count* count);
 void MainGameScene( Count* count,VariableNumber* var,PLAYER* Pac_man);
-void KeyCondition( Count* count,VariableNumber* var);
+void KeyCondition( Count* count,VariableNumber* var, PLAYER* Pac_man);
 SceneId FinisGameScene();
 
 TEXTUREDATA GameTextureData;
@@ -74,7 +74,7 @@ SceneId GameSceneMain(Pointa* point, VariableNumber* var,Count* count)
 		break;
 		// 本編
 	case SceneStep::MainStep:
-		KeyCondition(count,var);
+		KeyCondition(count,var,&Pac_man);
 		MainGameScene(count, var,&Pac_man);
 		UpdateGameScene();
 		break;
@@ -224,56 +224,58 @@ void ResetGameScene(Count* count)
 }
 
 // 各行動時のテクスチャ切り替え
-void KeyCondition(Count* count, VariableNumber* var)
+void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 {
-
-	if (GetKeyStatus(DIK_UP))
+	if ((int)(pac_man->pos_X - 598) % WIDTH_POS == 0 && (int)(pac_man->pos_Y - 120) % HEIGHT_POS == 0)
 	{
-		if(CollisionDetectionMapChip(Pac_man.pos_X,Pac_man.pos_Y,Up, MapChipList) == Null)
+
+
+		if (GetKeyStatus(DIK_UP))
 		{
-		var->Keystate = UP;
-		
+
+
+			var->Keystate = UP;
+
+
 		}
+		else
+			if (GetKeyStatus(DIK_DOWN))
+			{
 
-	}else
-		if (GetKeyStatus(DIK_DOWN))
-		{
-			if (CollisionDetectionMapChip(Pac_man.pos_X, Pac_man.pos_Y, Down, MapChipList) == Null) {
 				var->Keystate = DOWN;
+
 			}
-		}else
-			if (GetKeyStatus(DIK_RIGHT))
-			{
-				if (CollisionDetectionMapChip(Pac_man.pos_X, Pac_man.pos_Y, Right, MapChipList) == Null)
+			else
+				if (GetKeyStatus(DIK_RIGHT))
 				{
+
+
 					var->Keystate = RIGHT;
+
 				}
-			}else
-				if (GetKeyStatus(DIK_LEFT))
-				{
-					if (CollisionDetectionMapChip(Pac_man.pos_X, Pac_man.pos_Y, Left, MapChipList) == Null)
+				else
+					if (GetKeyStatus(DIK_LEFT))
 					{
+
 						var->Keystate = LEFT;
+
 					}
-				}
+	}
+		CharTextureMove(count, var, MapChipList, &Pac_man);
 
-			CharTextureMove(count, var, MapChipList,&Pac_man);
+		int a = (Pac_man.pos_X - 598) / 40;
+		int b = ((Pac_man.pos_Y - 120) / 40);
 
-			int a = (Pac_man.pos_X - 598) / 40;
-			int b = ((Pac_man.pos_Y - 120) / 40);
-
-			if (count->Frame >= 20)
-			{
-				count->Frame = 0;
-			}
-			598;
-			120;
-
+		if (count->Frame >= 20)
+		{
+			count->Frame = 0;
+		}
+	
 }
 
 void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 {
-	Pac_Mon_Move(var, pac_man);
+	Pac_Mon_Move(var, pac_man, MapChipList);
 
 	if (red.pos_X <= Pac_man.pos_X + 40 && red.pos_Y < Pac_man.pos_Y + 40 && red.pos_X + 40 >= Pac_man.pos_X && red.pos_Y + 40 >= Pac_man.pos_Y)
 	{
