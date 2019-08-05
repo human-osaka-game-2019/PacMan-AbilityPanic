@@ -270,6 +270,7 @@ void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 
 					}
 	}
+	EatCookie(var, &Pac_man, MapChipList);
 		CharTextureMove(count, var, MapChipList, &Pac_man);
 		/*
 		int a = (Pac_man.pos_X - 598) / 40;
