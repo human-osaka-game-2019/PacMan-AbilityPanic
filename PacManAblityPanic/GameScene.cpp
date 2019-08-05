@@ -1,4 +1,6 @@
 ﻿#include<stdio.h>
+#include<time.h>
+#include<random>
 #include"Main.h"
 #include"Scene.h"
 #include"class.h"
@@ -120,21 +122,43 @@ void InitGameScene(Pointa* point)
 {
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
-	/*red.pos_X = 40;
-	red.pos_Y = 0;
-	watery.pos_X = 80;
-	watery.pos_Y = 0;
-	orange.pos_X = 120;
-	orange.pos_Y = 0;
-	pink.pos_X = 160;
-	pink.pos_Y = 0;*/
+
+	srand((unsigned)time(NULL));
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 // ゲーム設定記入
+
+int MODE = 3;
 void UpdateGameScene()
 {
+
+	if (0 > red.pos_X )
+	{
+		red.pos_X += 1.2;
+		MODE = rand() % 4;
+
+	}
+
+	if (0 > red.pos_Y )
+	{
+		red.pos_Y += 1.2;
+		MODE = rand() % 4;
+	}
+	if (1900 < red.pos_X)
+	{
+		red.pos_X -= 1.2;
+		MODE = rand() % 4;
+
+	}
+
+	if (1060 < red.pos_Y)
+	{
+		red.pos_Y -= 1.2;
+		MODE = rand() % 4;
+	}
+
 	if (GetKeyStatus(DIK_W))
 	{
 
@@ -164,6 +188,12 @@ void UpdateGameScene()
 	{
 		ChangeSceneStep(SceneStep::EndStep);
 	}
+
+	red.Direction_of_travel = MODE;
+
+	red.RedGhostUpdate(&red);
+	red.RedNormalMoving(&red);
+	
 	
 }
 

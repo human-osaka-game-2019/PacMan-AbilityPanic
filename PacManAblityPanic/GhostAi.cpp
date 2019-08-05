@@ -1,11 +1,11 @@
 ﻿#include"GhostStatus.h"
 #include"GhostAi.h"
 
-void RED_GHOST::RedGhostUpdate () {
+void RED_GHOST::RedGhostUpdate (RED_GHOST* red) {
 	switch ( RED_GHOST::Mode)
 	{
 	case NormalMode:
-		RedNormalMoving ();
+		RedNormalMoving (red);
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -16,20 +16,28 @@ void RED_GHOST::RedGhostUpdate () {
 	}
 }
 
-void RED_GHOST::RedNormalMoving()
+void RED_GHOST::RedNormalMoving(RED_GHOST* red)
 {
 	switch(RED_GHOST::Direction_of_travel)
 	{
 	case DIRECTION_OF_TRAVEL::up:
 
+		red->pos_Y -= 1.2;
+	
 		break;
 	case DIRECTION_OF_TRAVEL::left:
+
+		red->pos_X -= 1.2;
 
 		break;
 	case DIRECTION_OF_TRAVEL::right:
 
+		red->pos_X += 1.2;
+
 		break;
 	case DIRECTION_OF_TRAVEL::down:
+
+		red->pos_Y += 1.2;
 
 		break;
 	}
