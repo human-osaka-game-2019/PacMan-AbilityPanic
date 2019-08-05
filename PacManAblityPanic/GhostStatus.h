@@ -40,7 +40,7 @@ public:
 	float	pos_X, pos_Y;			//! ゴーストのXY座標
 	float	Width, Height;	//! ゴーストの幅、高さ
 
-	void CoordinatesInput(int x, int y)
+	void CoordinatesInput(float x, float y)
 	{
 		pos_X = x;
 		pos_Y = y;

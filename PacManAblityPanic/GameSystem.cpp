@@ -108,8 +108,8 @@ NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int
 
 	if ((int)(now_x - 598) % WIDTH_POS == 0 && (int)(now_y - 120) % HEIGHT_POS == 0)
 	{
-		int x = (now_x - 598) / WIDTH_POS;
-		int y = (now_y - 120) / HEIGHT_POS;
+		int x = (int)(now_x - 598) / WIDTH_POS;
+		int y = (int)(now_y - 120) / HEIGHT_POS;
 
 		switch (push_key)
 		{
@@ -143,6 +143,7 @@ NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int
 	else return NowMove;
 }
 
+// パックマンの操作先座標指定
 void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man,int MapChipList[22][19])
 {
 	switch (var->Keystate)
@@ -150,27 +151,38 @@ void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man,int MapChipList[22][19])
 	case 0:
 		break;
 	case 1:
-		if(CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList)==Appulse) {
+		if(CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList)==Appulse)
+		{
 			break;
 		}
+
 		Pac_man->pos_Y = Pac_man->pos_Y - var->MoveSpeed;
 		break;
+
 	case 2:
-		if (CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList) == Appulse) {
+		if (CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList) == Appulse)
+		{
 			break;
 		}
+
 		Pac_man->pos_Y = Pac_man->pos_Y + var->MoveSpeed;
 		break;
+
 	case 3:
-		if (CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList) == Appulse) {
+		if (CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList) == Appulse) 
+		{
 			break;
 		}
+
 		Pac_man->pos_X = Pac_man->pos_X + var->MoveSpeed;
 		break;
+
 	case 4:
-		if (CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList) == Appulse) {
+		if (CollisionDetectionMapChip(Pac_man->pos_X, Pac_man->pos_Y, var->Keystate, MapChipList) == Appulse) 
+		{
 			break;
 		}
+
 		Pac_man->pos_X = Pac_man->pos_X - var->MoveSpeed;
 		break;
 	}
