@@ -9,6 +9,7 @@
 #include"GameScene.h"
 #include"GameSystem.h"
 #include"GhostAi.h"
+#include"CollisionDetection.h"
 
 
 // #include"MapLoader.h"
@@ -133,7 +134,7 @@ void InitGameScene(Pointa* point)
 int MODE = 3;
 void UpdateGameScene()
 {
-
+	/*
 	if (0 > red.pos_X )
 	{
 		red.pos_X += 1.2;
@@ -191,19 +192,14 @@ void UpdateGameScene()
 	}
 
 	//red.Direction_of_travel = MODE;
-
 	//red.RedGhostUpdate(&red);
 	//red.RedNormalMoving(&red);
-
-	/*if (Pac_man.pos_X <= red.pos_X && Pac_man.pos_Y <= red.pos_Y && Pac_man.pos_X + 40 >= red.pos_X + 40 && Pac_man.pos_Y + 40 >= red.pos_Y + 40)
+	if (Pac_man.pos_X <= red.pos_X && Pac_man.pos_Y <= red.pos_Y && Pac_man.pos_X + 40 >= red.pos_X + 40 && Pac_man.pos_Y + 40 >= red.pos_Y + 40)
 	{
 		ChangeSceneStep(SceneStep::EndStep);
 
 	}*/
-	if (red.pos_X <= Pac_man.pos_X + 40&& red.pos_Y < Pac_man.pos_Y + 40&& red.pos_X + 40  >= Pac_man.pos_X  && red.pos_Y + 40 >= Pac_man.pos_Y )
-	{
-		ChangeSceneStep(SceneStep::EndStep);
-	}
+	
 	
 	
 }
@@ -230,34 +226,58 @@ void ResetGameScene(Count* count)
 // 各行動時のテクスチャ切り替え
 void KeyCondition(Count* count, VariableNumber* var)
 {
+
 	if (GetKeyStatus(DIK_UP))
 	{
+		if(CollisionDetectionMapChip(Pac_man.pos_X,Pac_man.pos_Y,Up, MapChipList) == Null)
+		{
 		var->Keystate = UP;
+		
+		}
+
 	}else
 		if (GetKeyStatus(DIK_DOWN))
 		{
-			var->Keystate = DOWN;
+			if (CollisionDetectionMapChip(Pac_man.pos_X, Pac_man.pos_Y, Down, MapChipList) == Null) {
+				var->Keystate = DOWN;
+			}
 		}else
 			if (GetKeyStatus(DIK_RIGHT))
 			{
-				var->Keystate = RIGHT;
+				if (CollisionDetectionMapChip(Pac_man.pos_X, Pac_man.pos_Y, Right, MapChipList) == Null)
+				{
+					var->Keystate = RIGHT;
+				}
 			}else
 				if (GetKeyStatus(DIK_LEFT))
 				{
-					var->Keystate = LEFT;
+					if (CollisionDetectionMapChip(Pac_man.pos_X, Pac_man.pos_Y, Left, MapChipList) == Null)
+					{
+						var->Keystate = LEFT;
+					}
 				}
 
 			CharTextureMove(count, var, MapChipList,&Pac_man);
+
+			int a = (Pac_man.pos_X - 598) / 40;
+			int b = ((Pac_man.pos_Y - 120) / 40);
 
 			if (count->Frame >= 20)
 			{
 				count->Frame = 0;
 			}
+			598;
+			120;
+
 }
 
-void MainGameScene(Count* count, VariableNumber* var,PLAYER * Pac_man)
+void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 {
-	Pac_Mon_Move(var, Pac_man);
-	
+	Pac_Mon_Move(var, pac_man);
+
+	if (red.pos_X <= Pac_man.pos_X + 40 && red.pos_Y < Pac_man.pos_Y + 40 && red.pos_X + 40 >= Pac_man.pos_X && red.pos_Y + 40 >= Pac_man.pos_Y)
+	{
+		ChangeSceneStep(SceneStep::EndStep);
+	}
 
 }

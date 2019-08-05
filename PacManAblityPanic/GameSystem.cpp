@@ -23,8 +23,6 @@ void CharTextureMove(Count* count, VariableNumber* var,int MapChipList[22][19], 
 
 		case 2:
 
-			
-
 			Pac_man->pos_Tu = (float)0.03125 + Pac_man->TuTvSize * 3;
 
 			if (10 < count->Frame && count->Frame < 20)
@@ -34,8 +32,6 @@ void CharTextureMove(Count* count, VariableNumber* var,int MapChipList[22][19], 
 			break;
 		case 3:
 
-			
-
 			Pac_man->pos_Tu = (float)0.03125 + Pac_man->TuTvSize * 4;
 
 			if (10 < count->Frame && count->Frame < 20)
@@ -44,8 +40,6 @@ void CharTextureMove(Count* count, VariableNumber* var,int MapChipList[22][19], 
 			}
 			break;
 		case 4:
-
-			
 
 			Pac_man->pos_Tu = (float)0.03125 + Pac_man->TuTvSize * 1;
 

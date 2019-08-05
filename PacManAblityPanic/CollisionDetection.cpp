@@ -1,13 +1,13 @@
 ﻿#include"class.h"
 #include"CollisionDetection.h"
 
-NowStateId CollisionDetectionMapChip (MapChipData mapchip,float now_x, float now_y, int push_key,int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH])
+NowStateId CollisionDetectionMapChip (float now_x, float now_y, int push_key,int MapChipList[MAP_SIZE_HEIGHT_POS][MAP_SIZE_WIDTH_POS])
 {
 
-	if ((int)now_x % (int)mapchip.MapChipWidht == 0 && (int)now_y % (int)mapchip.MapChipHeight == 0) 
+	if ((int)(now_x - 598) % WIDTH_POS == 0 && (int)(now_y - 120) % HEIGHT_POS == 0)
 	{
-		int x = now_x / mapchip.MapChipWidht;
-		int y = now_y / mapchip.MapChipHeight;
+		int x = (now_x - 598) / WIDTH_POS;
+		int y = (now_y - 120) / HEIGHT_POS;
 
 		switch (push_key)
 		{
@@ -17,6 +17,7 @@ NowStateId CollisionDetectionMapChip (MapChipData mapchip,float now_x, float now
 				return Appulse;
 			}
 			else return Null;
+
 		case Key::Left:
 			if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12) 
 			{

@@ -1,8 +1,8 @@
 ﻿#ifndef COLLISON_DETECTION_H_
 #define COLLISON_DETECTION_H_
 
-const int MAP_SIZE_WIDTH = 19;
-const int MAP_SIZE_HEIGHT = 22;
+const int MAP_SIZE_WIDTH_POS =  19;
+const int MAP_SIZE_HEIGHT_POS = 22;
 
 enum Key 
 {
@@ -15,6 +15,9 @@ enum Key
 * @enum NowStateId
 * 当たり判定でのキャラクターの状態(クッキーは無視する)
 */
+const int WIDTH_POS = 40;
+const int HEIGHT_POS = 40;
+
 enum NowStateId
 {
 	//! キャラクターと衝突した
@@ -32,7 +35,7 @@ enum NowStateId
 * @param (int push_key) キャラクターがどの方向を見ているか（進もうとしているか）
 * @param (int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]) マップチップの二次元配列
 */
-NowStateId CollisionDetectionMapChip(MapChipData mapchip, float now_x, float now_y, int push_key, int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]);
+NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[MAP_SIZE_HEIGHT_POS][MAP_SIZE_WIDTH_POS]);
 
 #endif // !COLLISON_DETECTION_H_
 
