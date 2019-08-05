@@ -122,6 +122,7 @@ void AllCoordinatesInput()
 // テクスチャ読み込み
 void InitGameScene(Pointa* point)
 {
+	srand((unsigned int)time(NULL));
 	
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
@@ -207,6 +208,7 @@ void UpdateGameScene()
 		
 	}*/
 	
+	int RAMD = rand() % 4 + 1;
 	
 }
 
@@ -284,7 +286,8 @@ void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 {
 	Pac_Mon_Move(var, pac_man, MapChipList);
 	
-	red.RedGhostUpdate(&red, MAPR);
+	int RAMD = rand() % 4 + 1;
+	red.RedGhostUpdate(&red, MAPR, RAMD);
 	
 	if (red.pos_X <= Pac_man.pos_X + 40 && red.pos_Y < Pac_man.pos_Y + 40 && red.pos_X + 40 >= Pac_man.pos_X && red.pos_Y + 40 >= Pac_man.pos_Y)
 	{

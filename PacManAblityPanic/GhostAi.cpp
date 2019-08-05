@@ -4,17 +4,17 @@
 #include<time.h>
 
 
-#define random srand((unsigned int)time(NULL));
 
 
 
 
-void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList) {
+void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList,int randm) {
+
 	switch ( RED_GHOST::Mode)
 	{
 	case NormalMode:
 		
-		RedNormalMoving (red,MapChipList);
+		RedNormalMoving (red,MapChipList,randm);
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -25,12 +25,8 @@ void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList) {
 	}
 }
 
-void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList)
+void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 {
-#ifndef RAND
-#define RAND
-	srand((unsigned int)time(NULL));
-#endif // !RAND
 
 
 	
@@ -39,7 +35,7 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList)
 	case DIRECTION_OF_TRAVEL::up:
 		if (CollisionDetectionMapChipZ(red->pos_X,red->pos_Y,up, MapChipList) == Appulse)
 		{
-			red->Direction_of_travel = (rand() % 4) + 1;
+			red->Direction_of_travel = randm;
 			
 			break;
 		}
@@ -48,7 +44,7 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList)
 	case DIRECTION_OF_TRAVEL::left:
 		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, left, MapChipList) == Appulse)
 		{
-			red->Direction_of_travel = (rand() % 4);
+			red->Direction_of_travel = randm;
 			
 			break;
 		}
@@ -57,7 +53,7 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList)
 	case DIRECTION_OF_TRAVEL::right:
 		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, right, MapChipList) == Appulse)
 		{
-			red->Direction_of_travel = (rand() % 4) + 1;
+			red->Direction_of_travel = randm;
 			
 			break;
 		}
@@ -66,13 +62,15 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList)
 	case DIRECTION_OF_TRAVEL::down:
 		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, down, MapChipList) == Appulse)
 		{
-			red->Direction_of_travel = (rand() % 4) + 1;
+			red->Direction_of_travel = randm;
 			
 			break;
 		}
 			red->pos_Y = red->pos_Y + red->Speed;
 		break;
 	}
+
+	
 };
 
 void PINK_GHOST::PinkGhostUpdate () {
