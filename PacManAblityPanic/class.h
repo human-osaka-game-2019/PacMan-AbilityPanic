@@ -40,7 +40,7 @@ class Pointa
 {
 public:
 	
-
+	int a = 0; 
 	LPDIRECT3D9 pDirect3d;
 	LPDIRECT3DDEVICE9 pDevice;
 	LPDIRECTINPUT8 pDinput;
@@ -111,6 +111,7 @@ enum SceneStep
 enum TitleTextureList
 {
 	MainTitleTexture,
+	SabTitletexture,
 	MaxTitleTexture,
 
 };
