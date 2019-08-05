@@ -22,22 +22,22 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red)
 	{
 	case DIRECTION_OF_TRAVEL::up:
 
-		red->pos_Y -= 1.2;
+		red->pos_Y = (float)red->pos_Y - 1.2;
 	
 		break;
 	case DIRECTION_OF_TRAVEL::left:
 
-		red->pos_X -= 1.2;
+		red->pos_X = (float)red->pos_X - 1.2;
 
 		break;
 	case DIRECTION_OF_TRAVEL::right:
 
-		red->pos_X += 1.2;
+		red->pos_X = (float)red->pos_X + 1.2;
 
 		break;
 	case DIRECTION_OF_TRAVEL::down:
 
-		red->pos_Y += 1.2;
+		red->pos_Y = (float)red->pos_Y + 1.2;
 
 		break;
 	}
