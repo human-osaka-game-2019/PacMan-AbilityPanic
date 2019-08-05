@@ -60,6 +60,9 @@
     <ClCompile Include="GameSystem.cpp">
       <Filter>Scenefile</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionDetection.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="GameSystem.h">
       <Filter>Scenefile</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDetection.h">
+      <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
