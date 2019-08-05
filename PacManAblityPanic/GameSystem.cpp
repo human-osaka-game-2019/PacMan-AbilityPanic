@@ -228,3 +228,62 @@ NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, in
 	}
 	else return NowMove;
 }
+
+class answer
+{
+public:
+	int Pos_x;
+	int Pos_y;
+	int Pos_rx;
+	int Pos_lx;
+	int Pos_uy;
+	int Pos_dy;
+};
+answer ans;
+void EatCookie(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19])
+{
+	ans.Pos_x = (int)(Pac_man->pos_X - 598) / 40;
+	ans.Pos_y = (int)(Pac_man->pos_Y - 120) / 40;
+	ans.Pos_lx  = (int)(Pac_man->pos_X - 618) / 40;
+	ans.Pos_rx = (int)(Pac_man->pos_X - 578) / 40;
+	ans.Pos_uy  = (int)(Pac_man->pos_Y - 140) / 40;
+	ans.Pos_dy = (int)(Pac_man->pos_Y - 100) / 40;
+	int ax = (int)(Pac_man->pos_X - 598) % 40;
+	int ay = (int)(Pac_man->pos_Y - 120) % 40;
+
+	if (ax == 20 || ay == 20)
+	{
+		switch (var->Keystate)
+		{
+		case 0:
+			break;
+		case UP:
+			MapChipList[ans.Pos_uy][ans.Pos_x ] = 0;
+			break;
+		case DOWN:
+			MapChipList[ans.Pos_dy][ans.Pos_x ] = 0;
+			break;
+		case RIGHT:
+			MapChipList[ans.Pos_y ][ans.Pos_rx] = 0;
+			break;
+		case LEFT:
+			MapChipList[ans.Pos_y ][ans.Pos_lx] = 0;
+			break;
+		}
+
+	}
+	else
+	{
+		MapChipList[ans.Pos_y][ans.Pos_y];
+	}
+}
+
+
+
+ 
+
+
+ 
+
+
+ 

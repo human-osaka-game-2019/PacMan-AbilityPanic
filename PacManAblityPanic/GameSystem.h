@@ -33,4 +33,8 @@ NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, in
 
 
 void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19]);
+void EatCookie(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19]);
+
+
+
 #endif // !1
