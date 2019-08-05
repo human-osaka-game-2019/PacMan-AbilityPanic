@@ -18,12 +18,12 @@ public:
 	* @fn void RedNormalMoving ()
 	* @ brief ブリンキーのノーマルモード時の挙動
 	*/
-	void RedNormalMoving (RED_GHOST* red);
+	void RedNormalMoving (RED_GHOST* red, int** MapChipList);
 	/**
 	* @fn void RedGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
 	*/
-	void RedGhostUpdate (RED_GHOST* red);
+	void RedGhostUpdate (RED_GHOST* red, int** MapChipList);
 };
 
 /**
@@ -87,5 +87,7 @@ void ScatterMoving ();
 * @brief イジケモード時の処理
 */
 void IzikeMoving ();
+
+void randm();
 #endif
 

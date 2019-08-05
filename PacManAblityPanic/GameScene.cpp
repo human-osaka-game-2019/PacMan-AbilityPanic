@@ -29,6 +29,7 @@ void ResetGameScene(Count* count, VariableNumber* var);
 void MainGameScene( Count* count,VariableNumber* var,PLAYER* Pac_man);
 void KeyCondition( Count* count,VariableNumber* var, PLAYER* Pac_man);
 SceneId FinisGameScene();
+int* MAPR[22];
 
 TEXTUREDATA GameTextureData;
 
@@ -121,17 +122,23 @@ void AllCoordinatesInput()
 // テクスチャ読み込み
 void InitGameScene(Pointa* point)
 {
+	
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
+	red.Direction_of_travel = 4;
 
-	srand((unsigned)time(NULL));
+	for (int i = 0; i < 22; i++)
+	{
+		MAPR[i] = MapChipList[i];
+	}
+	
 	ChangeSceneStep(SceneStep::MainStep);
 }
 
 // 次のシーンに行くための条件記入
 // ゲーム設定記入
 
-int MODE = 3;
+
 void UpdateGameScene()
 {
 	/*
@@ -197,9 +204,8 @@ void UpdateGameScene()
 	if (Pac_man.pos_X <= red.pos_X && Pac_man.pos_Y <= red.pos_Y && Pac_man.pos_X + 40 >= red.pos_X + 40 && Pac_man.pos_Y + 40 >= red.pos_Y + 40)
 	{
 		ChangeSceneStep(SceneStep::EndStep);
-
+		
 	}*/
-	
 	
 	
 }
@@ -220,7 +226,9 @@ SceneId FinisGameScene()
 // ゲーム内で使用した変数のリセット
 void ResetGameScene(Count* count, VariableNumber* var)
 {
+
 	var->Keystate = 0;
+
 }
 
 // 各行動時のテクスチャ切り替え
@@ -275,7 +283,9 @@ void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 {
 	Pac_Mon_Move(var, pac_man, MapChipList);
-
+	
+	red.RedGhostUpdate(&red, MAPR);
+	
 	if (red.pos_X <= Pac_man.pos_X + 40 && red.pos_Y < Pac_man.pos_Y + 40 && red.pos_X + 40 >= Pac_man.pos_X && red.pos_Y + 40 >= Pac_man.pos_Y)
 	{
 		ChangeSceneStep(SceneStep::EndStep);

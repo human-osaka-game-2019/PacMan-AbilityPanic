@@ -1,11 +1,20 @@
 ﻿#include"GhostStatus.h"
 #include"GhostAi.h"
+#include"GameSystem.h"
+#include<time.h>
 
-void RED_GHOST::RedGhostUpdate (RED_GHOST* red) {
+
+#define random srand((unsigned int)time(NULL));
+
+
+
+
+void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList) {
 	switch ( RED_GHOST::Mode)
 	{
 	case NormalMode:
-		RedNormalMoving (red);
+		
+		RedNormalMoving (red,MapChipList);
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -16,29 +25,52 @@ void RED_GHOST::RedGhostUpdate (RED_GHOST* red) {
 	}
 }
 
-void RED_GHOST::RedNormalMoving(RED_GHOST* red)
+void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList)
 {
-	switch(RED_GHOST::Direction_of_travel)
+#ifndef RAND
+#define RAND
+	srand((unsigned int)time(NULL));
+#endif // !RAND
+
+
+	
+	switch(red->Direction_of_travel)
 	{
 	case DIRECTION_OF_TRAVEL::up:
-
-		red->pos_Y = (float)red->pos_Y - 1.2;
-	
+		if (CollisionDetectionMapChipZ(red->pos_X,red->pos_Y,up, MapChipList) == Appulse)
+		{
+			red->Direction_of_travel = (rand() % 4) + 1;
+			
+			break;
+		}
+			red->pos_Y = red->pos_Y - red->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::left:
-
-		red->pos_X = (float)red->pos_X - 1.2;
-
+		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, left, MapChipList) == Appulse)
+		{
+			red->Direction_of_travel = (rand() % 4);
+			
+			break;
+		}
+			red->pos_X = red->pos_X - red->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::right:
-
-		red->pos_X = (float)red->pos_X + 1.2;
-
+		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, right, MapChipList) == Appulse)
+		{
+			red->Direction_of_travel = (rand() % 4) + 1;
+			
+			break;
+		}
+			red->pos_X = red->pos_X + red->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::down:
-
-		red->pos_Y = (float)red->pos_Y + 1.2;
-
+		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, down, MapChipList) == Appulse)
+		{
+			red->Direction_of_travel = (rand() % 4) + 1;
+			
+			break;
+		}
+			red->pos_Y = red->pos_Y + red->Speed;
 		break;
 	}
 };

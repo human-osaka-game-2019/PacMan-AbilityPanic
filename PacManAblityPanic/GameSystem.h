@@ -29,5 +29,8 @@ void CharTextureMove(Count* count, VariableNumber* var, int MapChipList[22][19],
 */
 NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19]);
 
+NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, int** MapChipList);
+
+
 void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19]);
 #endif // !1

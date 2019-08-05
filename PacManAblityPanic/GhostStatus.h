@@ -33,9 +33,9 @@ class GHOST_BASE
 {
 public:
 	int		Mode;			//! ゴーストの現在のモード
-	float	Speed;			//! ゴーストの移動速度
+	float	Speed = 2.0f;			//! ゴーストの移動速度
 	bool	Is_dead;		//! ゴーストの生存フラグ
-	int Direction_of_travel;
+	int Direction_of_travel ;
 	// いるかわからないが取り敢えず書いておく
 	float	pos_X, pos_Y;			//! ゴーストのXY座標
 	float	Width, Height;	//! ゴーストの幅、高さ
@@ -50,7 +50,7 @@ public:
 
 enum DIRECTION_OF_TRAVEL
 {
-	up,
+	up = 1,
 	down,
 	right,
 	left
