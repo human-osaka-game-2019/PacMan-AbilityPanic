@@ -28,7 +28,7 @@ public:
 	float TextureSize; // テクスチャの大きさ
 	float TuTvSize  = 0.078125;    // 統合画像から切り取った時の大きさ
 
-	void CoordinatesInput(int x, int y)
+	void CoordinatesInput(float x, float y)
 	{
 		pos_X = x;
 		pos_Y = y;

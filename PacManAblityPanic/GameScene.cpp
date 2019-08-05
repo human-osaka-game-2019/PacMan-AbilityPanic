@@ -25,7 +25,7 @@ void DrawGameScene(Pointa* point, MapChipData MapData);
 void InitGameScene(Pointa*point);
 void AllCoordinatesInput();
 void UpdateGameScene();
-void ResetGameScene(Count* count);
+void ResetGameScene(Count* count, VariableNumber* var);
 void MainGameScene( Count* count,VariableNumber* var,PLAYER* Pac_man);
 void KeyCondition( Count* count,VariableNumber* var, PLAYER* Pac_man);
 SceneId FinisGameScene();
@@ -80,7 +80,7 @@ SceneId GameSceneMain(Pointa* point, VariableNumber* var,Count* count)
 		break;
 		// 終了
 	case SceneStep::EndStep:
-		ResetGameScene(count);
+		ResetGameScene(count,var);
 		return FinisGameScene();
 	}
 	return SceneId::GameScene;
@@ -218,9 +218,9 @@ SceneId FinisGameScene()
 }
 
 // ゲーム内で使用した変数のリセット
-void ResetGameScene(Count* count)
+void ResetGameScene(Count* count, VariableNumber* var)
 {
-
+	var->Keystate = 0;
 }
 
 // 各行動時のテクスチャ切り替え
@@ -228,12 +228,10 @@ void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 {
 	if ((int)(pac_man->pos_X - 598) % WIDTH_POS == 0 && (int)(pac_man->pos_Y - 120) % HEIGHT_POS == 0)
 	{
-
-
 		if (GetKeyStatus(DIK_UP))
 		{
 
-
+			var->PreviousKeyState = var->Keystate;
 			var->Keystate = UP;
 
 
@@ -242,6 +240,7 @@ void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 			if (GetKeyStatus(DIK_DOWN))
 			{
 
+				var->PreviousKeyState = var->Keystate;
 				var->Keystate = DOWN;
 
 			}
@@ -249,23 +248,23 @@ void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 				if (GetKeyStatus(DIK_RIGHT))
 				{
 
-
+					var->PreviousKeyState = var->Keystate;
 					var->Keystate = RIGHT;
 
 				}
 				else
 					if (GetKeyStatus(DIK_LEFT))
 					{
-
+						var->PreviousKeyState = var->Keystate;
 						var->Keystate = LEFT;
 
 					}
 	}
 		CharTextureMove(count, var, MapChipList, &Pac_man);
-
+		/*
 		int a = (Pac_man.pos_X - 598) / 40;
 		int b = ((Pac_man.pos_Y - 120) / 40);
-
+		*/
 		if (count->Frame >= 20)
 		{
 			count->Frame = 0;
