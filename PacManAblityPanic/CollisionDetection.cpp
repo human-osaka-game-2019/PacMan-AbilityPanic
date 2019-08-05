@@ -37,5 +37,5 @@ NowStateId CollisionDetectionMapChip (MapChipData mapchip,float now_x, float now
 			else return Null;
 		}
 	}
-	else return NowMovw;
+	else return NowMove;
 }

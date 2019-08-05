@@ -20,7 +20,7 @@ enum NowStateId
 	//! キャラクターと衝突した
 	Appulse,
 	//! 現在移動中
-	NowMovw,
+	NowMove,
 	//! 目の前に何もない
 	Null
 };
