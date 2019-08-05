@@ -73,6 +73,7 @@ public:
 	int SceneSelect;
 	int count = 0;
 	int Keystate = 0;
+	int PreviousKeyState = 0;
 	int temp;
 	float MoveSpeed = 2;
 };
