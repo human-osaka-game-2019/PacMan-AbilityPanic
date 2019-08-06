@@ -26,7 +26,6 @@ SceneId TitleSceneMain(Pointa* point)
 	case SceneStep::MainStep:
 		
 			UpdateTitleScene(point);
-		
 		break;
 		// 終了
 	case SceneStep::EndStep:
@@ -37,28 +36,32 @@ SceneId TitleSceneMain(Pointa* point)
 	return SceneId::TitleScene;
 }
 
-void DrawTitleScene(Pointa* point)
+void DrawTitleScene(Pointa* point,Count* count)
 {
-
-	// Draw(0, 0, 0, 1, 0xffffffff, 0.0f, 0.0f, 1920, 1080, 0.2f, 0.2f, &point->pTexture[0], 0, *point);
-	if (point->a == 0)
+	if (count->Frame < 10)
 	{
 		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], *point);
 	}
-
-	if (point->a == 1)
+	if (10 < count->Frame && count->Frame < 20)
 	{
-		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::SabTitletexture], *point);
-
+		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::SabTitleTexture], *point);
 	}
+
+	if (20 < count->Frame)
+	{
+		count->Frame = 0;
+	}
+		
 }
 
 // 描画設定等
-void InitTitleScene(Pointa* point)
+void InitTitleScene(Pointa* point,Count* count)
 {
 
-	LoadTexture("Texture/TitleScene.png", &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], 0, point );
-	LoadTexture("Texture/test.png", &TitleTextureData.m_pTexture[TitleTextureList::SabTitletexture], 0, point);
+	LoadTexture("Texture/taitorunasi.png", &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], 0, point );
+	LoadTexture("Texture/Title.png", &TitleTextureData.m_pTexture[TitleTextureList::SabTitleTexture], 0, point);
+
+	count->Frame = 0;
 
 	ChangeSceneStep(SceneStep::MainStep);
 
