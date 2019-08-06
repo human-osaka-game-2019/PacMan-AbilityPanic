@@ -14,6 +14,7 @@
 class RED_GHOST : public GHOST_BASE
 {
 public:
+	void RedAbilityUse();
 	/**
 	* @fn void RedNormalMoving ()
 	* @ brief ブリンキーのノーマルモード時の挙動
@@ -32,6 +33,7 @@ public:
 class PINK_GHOST : public GHOST_BASE
 {
 public:
+
 	/**
 	* @fn void PinkNormalMoving ()
 	* @ brief ピンキーのノーマルモード時の挙動

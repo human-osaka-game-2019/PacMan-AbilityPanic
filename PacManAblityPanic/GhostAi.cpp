@@ -6,9 +6,13 @@
 
 
 
+void RED_GHOST::RedAbilityUse() 
+{
 
+}
 
-void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList,int randm) {
+void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList,int randm) 
+{
 
 	switch ( RED_GHOST::Mode)
 	{
