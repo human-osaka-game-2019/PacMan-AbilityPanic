@@ -73,6 +73,7 @@ public:
 	* @ brief クライドのノーマルモード時の挙動
 	*/
 	void OrangeNormalMoving(ORANGE_GHOST* orange, int** MapChipList, int randm);
+
 	/**
 	* @fn void OrangeGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
