@@ -25,12 +25,19 @@ void CharTextureMove(Count* count, VariableNumber* var, int MapChipList[22][19],
 * @param (float now_x) キャラクターの現在のX座標
 * @param (float now_z) キャラクターの現在のY座標
 * @param (int push_key) キャラクターがどの方向を見ているか（進もうとしているか）
-* @param (int MapChipList[MAP_SIZE_HEIGHT][MAP_SIZE_WIDTH]) マップチップの二次元配列
+* @param (int MapChipList[22][19]) マップチップの二次元配列
 */
 NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19]);
 
 NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, int** MapChipList);
 
+/**
+* @brief ゴーストが分かれ道にいるかどうか判断する用の関数
+* @param (float char_x) キャラクターの現在のX座標
+* @param (float char_z) キャラクターの現在のY座標
+* @param (int** MapChipList) マップチップの二次元配列
+*/
+bool BifurcatioCheck(float char_x, float char_y, int** MapChipList);
 
 void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19]);
 void EatCookie(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19]);

@@ -28,8 +28,6 @@ void RED_GHOST::RedGhostUpdate (RED_GHOST* red,int** MapChipList,int randm) {
 void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 {
 
-
-	
 	switch(red->Direction_of_travel)
 	{
 	case DIRECTION_OF_TRAVEL::up:
@@ -174,6 +172,8 @@ void ORANGE_GHOST::OrangeNormalMoving()
 		break;
 	}
 };
+
+
 
 void ScatterMoving ()
 {

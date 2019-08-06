@@ -53,56 +53,6 @@ void CharTextureMove(Count* count, VariableNumber* var,int MapChipList[22][19], 
 
 }
 
-/*NowStateId CollisionDetectionMapChip(float now_x, float now_y, float x, float y, int MapChipList[22][19])
-{
-
-	if ((int)(now_x - 598) % WIDTH_POS == 0 && (int)(now_y - 120) % HEIGHT_POS == 0)
-	{
-		int x = (now_x - 598) / WIDTH_POS;
-		int y = (now_y - 120) / HEIGHT_POS;
-
-		if (now_x < x&&now_y==y)
-		{
-			if (MapChipList[y][x + 1] != 0 && MapChipList[y][x + 1] != 12)
-			{
-				return Appulse;
-			}
-			else return Null;
-		}
-
-		if (now_x > x&&now_y==y)
-		{
-			if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12)
-			{
-				return Appulse;
-			}
-			else return Null;
-		}
-
-		if (now_y < y&&now_x==x)
-		{
-			if (MapChipList[y + 1][x] != 0 && MapChipList[y + 1][x] != 12)
-			{
-				return Appulse;
-			}
-			else return Null;
-		}
-
-		if (now_y > y==now_x==x)
-		{
-			if (MapChipList[y - 1][x] != 0 && MapChipList[y - 1][x] != 12)
-			{
-				return Appulse;
-			}
-			else return Null;
-		}
-		if (now_x == x && now_y == y) {
-			return Null;
-		}
-	}
-	else return NowMove;
-}*/
-
 NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19])
 {
 
@@ -227,6 +177,44 @@ NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, in
 		}
 	}
 	else return NowMove;
+}
+
+bool BifurcatioCheck(float char_x, float char_y, int** MapChipList) 
+{
+	if ((int)(char_x - 598) % WIDTH_POS == 0 && (int)(char_y - 120) % HEIGHT_POS == 0)
+	{
+		int x = (int)(char_x - 598) / WIDTH_POS;
+		int y = (int)(char_y - 120) / HEIGHT_POS;
+		int bifurcatio_count = 0; //! 道を数えている
+
+		if (MapChipList[y - 1][x] != 0 && MapChipList[y - 1][x] != 12) 
+		{
+			bifurcatio_count++;
+		}
+
+		if (MapChipList[y + 1][x] != 0 && MapChipList[y + 1][x] != 12)
+		{
+			bifurcatio_count++;
+		}
+
+		if (MapChipList[y][x + 1] != 0 && MapChipList[y][x + 1] != 12)
+		{
+			bifurcatio_count++;
+		}
+
+		if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12) 
+		{
+			bifurcatio_count++;
+		}
+		// 3つ以上分かれ道があるかどうかをここで判断
+		if (bifurcatio_count >= 3)
+		{
+			return true;
+		}
+		else return false;
+
+	}
+	return false;
 }
 
 class answer
