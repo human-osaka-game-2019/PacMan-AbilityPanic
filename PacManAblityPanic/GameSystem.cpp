@@ -53,7 +53,7 @@ void CharTextureMove(Count* count, VariableNumber* var,int MapChipList[22][19], 
 
 }
 
-NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19])
+NOW_STATE_ID CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19])
 {
 
 	if ((int)(now_x - 598) % WIDTH_POS == 0 && (int)(now_y - 120) % HEIGHT_POS == 0)
@@ -64,26 +64,26 @@ NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int
 		switch (push_key)
 		{
 		case 1:
-			if (MapChipList[y - 1][x] != 0 && MapChipList[y - 1][x] != 12)
+			if (MapChipList[y - 1][x] != MAP_CHIP_ID::Road && MapChipList[y - 1][x] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
 			else return Null;
 
 		case 2:
-			if (MapChipList[y + 1][x] != 0 && MapChipList[y + 1][x] != 12)
+			if (MapChipList[y + 1][x] != MAP_CHIP_ID::Road && MapChipList[y + 1][x] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
 			else return Null;
 		case 3:
-			if (MapChipList[y][x + 1] != 0 && MapChipList[y][x + 1] != 12)
+			if (MapChipList[y][x + 1] != MAP_CHIP_ID::Road && MapChipList[y][x + 1] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
 			else return Null;
 		case 4:
-			if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12)
+			if (MapChipList[y][x - 1] != MAP_CHIP_ID::Road && MapChipList[y][x - 1] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
@@ -139,10 +139,10 @@ void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man,int MapChipList[22][19])
 	
 }
 
-NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, int** MapChipList)
+NOW_STATE_ID CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, int** MapChipList)
 {
 
-	if ((int)(now_x - 598) % WIDTH_POS == 0 && (int)(now_y - 120) % HEIGHT_POS == 0)
+	if ((int)(now_x - 598) % WIDTH_POS == 0 && (int)(now_y - 120) % HEIGHT_POS == MAP_CHIP_ID::Cookie)
 	{
 		int x = (int)(now_x - 598) / WIDTH_POS;
 		int y = (int)(now_y - 120) / HEIGHT_POS;
@@ -150,26 +150,26 @@ NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, in
 		switch (push_key)
 		{
 		case UP:
-			if (MapChipList[y - 1][x] != 0 && MapChipList[y - 1][x] != 12)
+			if (MapChipList[y - 1][x] != MAP_CHIP_ID::Road && MapChipList[y - 1][x] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
 			else return Null;
 
 		case DOWN:
-			if (MapChipList[y + 1][x] != 0 && MapChipList[y + 1][x] != 12)
+			if (MapChipList[y + 1][x] != MAP_CHIP_ID::Road && MapChipList[y + 1][x] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
 			else return Null;
 		case RIGHT:
-			if (MapChipList[y][x + 1] != 0 && MapChipList[y][x + 1] != 12)
+			if (MapChipList[y][x + 1] != MAP_CHIP_ID::Road && MapChipList[y][x + 1] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
 			else return Null;
 		case LEFT:
-			if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12)
+			if (MapChipList[y][x - 1] != MAP_CHIP_ID::Road && MapChipList[y][x - 1] != MAP_CHIP_ID::Cookie)
 			{
 				return Appulse;
 			}
@@ -187,22 +187,22 @@ bool BifurcatioCheck(float char_x, float char_y, int** MapChipList)
 		int y = (int)(char_y - 120) / HEIGHT_POS;
 		int bifurcatio_count = 0; //! 道を数えている
 
-		if (MapChipList[y - 1][x] != 0 && MapChipList[y - 1][x] != 12) 
+		if (MapChipList[y - 1][x] != MAP_CHIP_ID::Road && MapChipList[y - 1][x] != MAP_CHIP_ID::Cookie)
 		{
 			bifurcatio_count++;
 		}
 
-		if (MapChipList[y + 1][x] != 0 && MapChipList[y + 1][x] != 12)
+		if (MapChipList[y + 1][x] != MAP_CHIP_ID::Road && MapChipList[y + 1][x] != MAP_CHIP_ID::Cookie)
 		{
 			bifurcatio_count++;
 		}
 
-		if (MapChipList[y][x + 1] != 0 && MapChipList[y][x + 1] != 12)
+		if (MapChipList[y][x + 1] != MAP_CHIP_ID::Road && MapChipList[y][x + 1] != MAP_CHIP_ID::Cookie)
 		{
 			bifurcatio_count++;
 		}
 
-		if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12) 
+		if (MapChipList[y][x - 1] != MAP_CHIP_ID::Road && MapChipList[y][x - 1] != MAP_CHIP_ID::Cookie)
 		{
 			bifurcatio_count++;
 		}
