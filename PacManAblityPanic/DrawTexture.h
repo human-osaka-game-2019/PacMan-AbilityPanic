@@ -21,6 +21,6 @@ void DrawMapChip(Pointa* point, MapChipData MapData, LPDIRECT3DTEXTURE9* Texture
 
 void DrawMap(MapChipData MapData, Pointa* point, LPDIRECT3DTEXTURE9* Texture);
 
-
+void DrawTest(float x, float y, float width, float height, float tu, float tv, float tu_width, float tv_height, LPDIRECT3DTEXTURE9* Texture, Pointa point);
 #endif // !1
 
