@@ -35,13 +35,18 @@ SceneId OptionSceneMain(Pointa* point)
 // 描画設定等
 void DrawOptionScene(Pointa* point)
 {
-	DrawEx(0, 0, 1920, 1080, &OptionTextureData.m_pTexture[OptionTextureList::MainOptionTexture], *point);
+	DrawEx(0, 0, 1920, 1080, &OptionTextureData.m_pTexture[OptionTextureList::BackOptionTexture], *point);
+	DrawTest( 148, 163, 179, 179, 0, 0, 0.25, 1, &OptionTextureData.m_pTexture[OptionTextureList::SabOptionTexture], *point);
+	DrawTest( 148, 643, 179, 179, 0.5, 0, 0.75, 1, &OptionTextureData.m_pTexture[OptionTextureList::SabOptionTexture], *point);
+	DrawTest(1045, 163, 179, 179, 0.75, 0, 1, 1, &OptionTextureData.m_pTexture[OptionTextureList::SabOptionTexture], *point);
+	DrawTest(1045, 643, 179, 179, 0.25, 0, 0.5, 1, &OptionTextureData.m_pTexture[OptionTextureList::SabOptionTexture], *point);
 }
 
 // テクスチャ読み込み
 void InitOptionScene(Pointa* point)
 {
-	LoadTexture("Texture/OptionScene.png", &OptionTextureData.m_pTexture[SetTextureList::BackTexture], 0, point);
+	LoadTexture("Texture/OptionBack.png", &OptionTextureData.m_pTexture[OptionTextureList::BackOptionTexture], 0, point);
+	LoadTexture("Texture/OptionChar.png", &OptionTextureData.m_pTexture[OptionTextureList::SabOptionTexture], 0, point);
 
 	ChangeSceneStep(SceneStep::MainStep);
 }
