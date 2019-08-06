@@ -141,7 +141,8 @@ enum SetTextureList
 
 enum OptionTextureList
 {
-	MainOptionTexture,
+	BackOptionTexture,
+	SabOptionTexture,
 	MaxOptionTexture,
 
 };
@@ -150,6 +151,7 @@ enum GameTextureList
 {
 	MainGameTexture,
 	MapChipTexture,
+	UITexture,
 	MaxGameTexture,
 
 };
