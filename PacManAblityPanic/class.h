@@ -82,10 +82,25 @@ class Count
 {
 public:
 	int Frame = 0;
+	void FrameReset() { Frame = 0; }
+
 	int Frame2 = 0;
+	void Flame2Reset() { Frame2 = 0; }
+
 	int Frame3 = 0;
+	void Frame3Reset() {Frame3 = 0; }
+
 	int Frame4 = 0;
-};
+	void Frame4Reset() { Frame4 = 0; }
+
+	void AllReset()
+	{
+		Frame  = 0;
+		Frame2 = 0;
+		Frame3 = 0;
+		Frame4 = 0;
+	}
+}; 
 
 // extern VariableNumber var;
 
@@ -111,7 +126,7 @@ enum SceneStep
 enum TitleTextureList
 {
 	MainTitleTexture,
-	SabTitletexture,
+	SabTitleTexture,
 	MaxTitleTexture,
 
 };
