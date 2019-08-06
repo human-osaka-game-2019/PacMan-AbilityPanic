@@ -55,4 +55,63 @@ public:
 
 };
 
+class GameTextureSize
+{
+public:
+	////////////////////////////////////////////
+	float AbilityFlame_s_tu = (float)   0 / 1024;
+	float AbilityFlame_e_tu = (float) 296 / 1024;
+	float AbilityFlame_s_tv = (float) 415 / 1024;
+	float AbilityFlame_e_tv = (float) 711 / 1024;
+	////////////////////////////////////////////
+	float AbilityRog_s_tu   = (float)   0 / 1024;
+	float AbilityRog_e_tu   = (float) 120 / 1024;
+	float AbilityRog_s_tv   = (float) 725 / 1024;
+	float AbilityRog_e_tv   = (float) 845 / 1024;
+	float AbilityRog_s_tu2  = (float) 120 / 1024;
+	float AbilityRog_e_tu2  = (float) 240 / 1024;
+	////////////////////////////////////////////
+	float move_s_tu         = (float)   0 / 1024;
+	float move_e_tu         = (float) 402 / 1024;
+	float move_s_tv         = (float)   0 / 1024;
+	float move_e_tv         = (float) 402 / 1024;
+	////////////////////////////////////////////
+	float InitAbility_s_tu  = (float) 410 / 1024;
+	float InitAbility_e_tu  = (float) 512 / 1024;
+	float InitAbility_s_tv  = (float)   0 / 1024;
+	float InitAbility_e_tv  = (float) 102 / 1024;
+	////////////////////////////////////////////
+	float Up_s_tu           = (float) 535 / 1024;
+	float Up_e_tu           = (float) 655 / 1024;
+	float Up_s_tv           = (float) 360 / 1024;
+	float Up_e_tv           = (float) 480 / 1024;
+	float Up_s_tu2          = (float) 655 / 1024;
+	float Up_e_tu2          = (float) 775 / 1024;
+	////////////////////////////////////////////
+	float Down_s_tu         = (float) 535 / 1024;
+	float Down_e_tu         = (float) 655 / 1024;
+	float Down_s_tv         = (float) 120 / 1024;
+	float Down_e_tv         = (float) 240 / 1024;
+	float Down_s_tu2        = (float) 655 / 1024;
+	float Down_e_tu2        = (float) 775 / 1024;
+	////////////////////////////////////////////
+	float Right_s_tu        = (float) 535 / 1024; 
+	float Right_e_tu        = (float) 655 / 1024; 
+	float Right_s_tv        = (float)   0 / 1024; 
+	float Right_e_tv        = (float) 120 / 1024; 
+	float Right_s_tu2       = (float) 655 / 1024;
+	float Right_e_tu2       = (float) 775 / 1024;
+	////////////////////////////////////////////
+	float Left_s_tu         = (float) 535 / 1024;
+	float Left_e_tu         = (float) 655 / 1024;
+	float Left_s_tv         = (float) 240 / 1024;
+	float Left_e_tv         = (float) 360 / 1024;
+	float Left_s_tu2        = (float) 655 / 1024;
+	float Left_e_tu2        = (float) 775 / 1024;
+	////////////////////////////////////////////
+	float Test_s_tu         = (float) 900 / 1024;
+	float Test_e_tu         = (float) 900 / 1024;
+	float Test_s_tv         = (float) 900 / 1024;
+	float Test_e_tv         = (float) 900 / 1024;
+};
 #endif
