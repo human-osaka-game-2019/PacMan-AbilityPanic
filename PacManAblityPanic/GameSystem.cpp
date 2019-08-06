@@ -199,26 +199,26 @@ NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, in
 
 		switch (push_key)
 		{
-		case 1:
+		case UP:
 			if (MapChipList[y - 1][x] != 0 && MapChipList[y - 1][x] != 12)
 			{
 				return Appulse;
 			}
 			else return Null;
 
-		case 2:
+		case DOWN:
 			if (MapChipList[y + 1][x] != 0 && MapChipList[y + 1][x] != 12)
 			{
 				return Appulse;
 			}
 			else return Null;
-		case 3:
+		case RIGHT:
 			if (MapChipList[y][x + 1] != 0 && MapChipList[y][x + 1] != 12)
 			{
 				return Appulse;
 			}
 			else return Null;
-		case 4:
+		case LEFT:
 			if (MapChipList[y][x - 1] != 0 && MapChipList[y][x - 1] != 12)
 			{
 				return Appulse;
@@ -234,20 +234,21 @@ class answer
 public:
 	int Pos_x;
 	int Pos_y;
-	int Pos_rx;
-	int Pos_lx;
-	int Pos_uy;
-	int Pos_dy;
+	int Pos_RIGHTx;
+	int Pos_LEFTx;
+	int Pos_UPy;
+	int Pos_DOWNy;
 };
+
 answer ans;
 void EatCookie(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19])
 {
 	ans.Pos_x = (int)(Pac_man->pos_X - 598) / 40;
 	ans.Pos_y = (int)(Pac_man->pos_Y - 120) / 40;
-	ans.Pos_lx  = (int)(Pac_man->pos_X - 618) / 40;
-	ans.Pos_rx = (int)(Pac_man->pos_X - 578) / 40;
-	ans.Pos_uy  = (int)(Pac_man->pos_Y - 140) / 40;
-	ans.Pos_dy = (int)(Pac_man->pos_Y - 100) / 40;
+	ans.Pos_LEFTx  = (int)(Pac_man->pos_X - 618) / 40;
+	ans.Pos_RIGHTx = (int)(Pac_man->pos_X - 578) / 40;
+	ans.Pos_UPy  = (int)(Pac_man->pos_Y - 140) / 40;
+	ans.Pos_DOWNy = (int)(Pac_man->pos_Y - 100) / 40;
 	int ax = (int)(Pac_man->pos_X - 598) % 40;
 	int ay = (int)(Pac_man->pos_Y - 120) % 40;
 
@@ -258,16 +259,16 @@ void EatCookie(VariableNumber* var, PLAYER* Pac_man, int MapChipList[22][19])
 		case 0:
 			break;
 		case UP:
-			MapChipList[ans.Pos_uy][ans.Pos_x ] = 0;
+			MapChipList[ans.Pos_UPy][ans.Pos_x ] = 0;
 			break;
 		case DOWN:
-			MapChipList[ans.Pos_dy][ans.Pos_x ] = 0;
+			MapChipList[ans.Pos_DOWNy][ans.Pos_x ] = 0;
 			break;
 		case RIGHT:
-			MapChipList[ans.Pos_y ][ans.Pos_rx] = 0;
+			MapChipList[ans.Pos_y ][ans.Pos_RIGHTx] = 0;
 			break;
 		case LEFT:
-			MapChipList[ans.Pos_y ][ans.Pos_lx] = 0;
+			MapChipList[ans.Pos_y ][ans.Pos_LEFTx] = 0;
 			break;
 		}
 
