@@ -36,12 +36,12 @@ public:
 	* @fn void PinkNormalMoving ()
 	* @ brief ピンキーのノーマルモード時の挙動
 	*/
-	void PinkNormalMoving();
+	void PinkNormalMoving(PINK_GHOST* pink, int** MapChipList, int randm);
 	/**
 	* @fn void RedGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
 	*/
-	void PinkGhostUpdate ();
+	void PinkGhostUpdate (PINK_GHOST* pink, int** MapChipList, int randm);
 };
 
 /**
@@ -54,12 +54,12 @@ public:
 	* @fn void WateryNormalMoving ()
 	* @ brief インキーのノーマルモード時の挙動
 	*/
-	void WateryNormalMoving();
+	void WateryNormalMoving(WATERY_GHOST* watery, int** MapChipList, int randm);
 	/**
 	* @fn void WateryGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
 	*/
-	void WateryGhostUpdate ();
+	void WateryGhostUpdate (WATERY_GHOST* watery, int** MapChipList, int randm);
 };
 
 /**
@@ -72,12 +72,12 @@ public:
 	* @fn void OrangeNormalMoving ()
 	* @ brief クライドのノーマルモード時の挙動
 	*/
-	void OrangeNormalMoving();
+	void OrangeNormalMoving(ORANGE_GHOST* orange, int** MapChipList, int randm);
 	/**
 	* @fn void OrangeGhostUpdate ()
 	* @brief 現在のモードによって対応する関数を実行する関数
 	*/
-	void OrangeGhostUpdate ();
+	void OrangeGhostUpdate (ORANGE_GHOST* orange, int** MapChipList, int randm);
 };
 /**
 * @brief スキャッターモード時の処理
