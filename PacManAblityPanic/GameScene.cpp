@@ -300,4 +300,8 @@ void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 		ChangeSceneStep(SceneStep::EndStep);
 	}
 
+	if(GetKeyStatus(DIK_UP))
+	{
+		ChangeSceneStep(SceneStep::EndStep);
+	}
 }
