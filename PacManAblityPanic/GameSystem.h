@@ -4,7 +4,7 @@
 #include"class.h"
 #include"GameScene.h"
 
-enum NowStateId
+enum NOW_STATE_ID
 {
 	//! キャラクターと衝突した
 	Appulse,
@@ -12,6 +12,11 @@ enum NowStateId
 	NowMove,
 	//! 目の前に何もない
 	Null
+};
+
+enum MAP_CHIP_ID
+{
+	Road, Cookie = 12
 };
 
 
@@ -27,9 +32,9 @@ void CharTextureMove(Count* count, VariableNumber* var, int MapChipList[22][19],
 * @param (int push_key) キャラクターがどの方向を見ているか（進もうとしているか）
 * @param (int MapChipList[22][19]) マップチップの二次元配列
 */
-NowStateId CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19]);
+NOW_STATE_ID CollisionDetectionMapChip(float now_x, float now_y, int push_key, int MapChipList[22][19]);
 
-NowStateId CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, int** MapChipList);
+NOW_STATE_ID CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, int** MapChipList);
 
 /**
 * @brief ゴーストが分かれ道にいるかどうか判断する用の関数
