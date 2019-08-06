@@ -5,8 +5,8 @@
 #include"DrawTexture.h"
 #include"Device.h"
 
-void DrawTitleScene(Pointa* point);
-void InitTitleScene(Pointa* point);
+void DrawTitleScene(Pointa* point,Count* count);
+void InitTitleScene(Pointa* point,Count* count);
 void UpdateTitleScene(Pointa* n);
 SceneId FinisTitleScene();
 
@@ -14,13 +14,13 @@ TEXTUREDATA TitleTextureData;
 
 
 
-SceneId TitleSceneMain(Pointa* point)
+SceneId TitleSceneMain(Pointa* point,Count* count)
 {
 	switch (GetCurrentSceneStep())
 	{
 		// 初期化
 	case SceneStep::InitStep:
-		InitTitleScene(point);
+		InitTitleScene(point,count);
 		break;
 		// 本編
 	case SceneStep::MainStep:
@@ -38,20 +38,29 @@ SceneId TitleSceneMain(Pointa* point)
 
 void DrawTitleScene(Pointa* point,Count* count)
 {
-	if (count->Frame < 10)
-	{
-		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], *point);
-	}
-	if (10 < count->Frame && count->Frame < 20)
-	{
-		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::SabTitleTexture], *point);
-	}
-
-	if (20 < count->Frame)
+	if (60 < count->Frame)
 	{
 		count->Frame = 0;
 	}
-		
+
+	if (count->Frame < 30)
+	{
+		point->a = 1;
+	}
+	if (30 < count->Frame && count->Frame < 60)
+	{
+		point->a = 0;
+	}
+
+	if (point->a == 0)
+	{
+		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::MainTitleTexture], *point);
+	}
+	if (point->a == 1)
+	{
+		DrawEx(0, 0, 1920, 1080, &TitleTextureData.m_pTexture[TitleTextureList::SabTitleTexture], *point);
+	}
+	
 }
 
 // 描画設定等
