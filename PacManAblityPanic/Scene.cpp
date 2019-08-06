@@ -60,7 +60,7 @@ void UpdateScene(Pointa *point, MapChipData MapData, VariableNumber* var,Count* 
 			break;
 			// 難易度設定シーン
 		case SceneId::SetScene:
-			result_id = SetSceneMain(point);
+			result_id = SetSceneMain(point,count,var);
 			break;
 			// 設定、ヘルプシーン
 		case SceneId::OptionScene:
@@ -77,7 +77,7 @@ void UpdateScene(Pointa *point, MapChipData MapData, VariableNumber* var,Count* 
 
 		}
 
-		DrawScene(point,MapData,count);
+		DrawScene(point,MapData,count,var);
 
 		FrameCount(count);
 
@@ -89,7 +89,7 @@ void UpdateScene(Pointa *point, MapChipData MapData, VariableNumber* var,Count* 
 	}
 }
 
-void DrawScene(Pointa* point, MapChipData MapData,Count* count)
+void DrawScene(Pointa* point, MapChipData MapData,Count* count,VariableNumber* var)
 {
 	if (DrawStart(point) == false)
 	{
@@ -103,7 +103,7 @@ void DrawScene(Pointa* point, MapChipData MapData,Count* count)
 			DrawTitleScene(point,count);
 			break;
 		case SceneId::SetScene:
-			DrawSetScene(point);
+			DrawSetScene(point,count,var);
 			break;
 		case SceneId::OptionScene:
 			DrawOptionScene(point);
@@ -112,7 +112,7 @@ void DrawScene(Pointa* point, MapChipData MapData,Count* count)
 			DrawGameScene(point,MapData);
 			break;
 		case SceneId::ResultScene:
-			DrawResultScene(point);
+			DrawResultScene(point,count);
 			break;
 		}
 	}

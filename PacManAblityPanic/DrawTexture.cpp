@@ -35,6 +35,21 @@ void Draw(float x ,float y,float width,float height,float tu ,float tv , float t
 
 }
 
+void DrawTest(float x, float y, float width, float height, float tu, float tv, float tu_width, float tv_height, LPDIRECT3DTEXTURE9* Texture, Pointa point)
+{
+
+	CUSTOMVERTEX customvertex[4] = {
+	{x        ,y         ,0,1,tu      ,tv            },
+	{x + width,y         ,0,1,tu_width,tv            },
+	{x + width,y + height,0,1,tu_width,tv_height},
+	{x        ,y + height,0,1,tu      ,tv_height},
+	};
+
+	point.pDevice->SetFVF(D3DFVF_CUSTOMVERTEX);
+	point.pDevice->SetTexture(0, *Texture);
+	point.pDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, 2, customvertex, sizeof(CUSTOMVERTEX));
+
+}
 
 void DrawEx(float x, float y,float width, float height, LPDIRECT3DTEXTURE9* Texture ,Pointa point)
 {

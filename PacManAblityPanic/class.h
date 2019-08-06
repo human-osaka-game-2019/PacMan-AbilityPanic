@@ -156,7 +156,9 @@ enum GameTextureList
 
 enum ResultTextureList
 {
-	MainResultTexture,
+	BackResultTexture,
+	Sabtexture,
+	SelectTexture,
 	MaxResultTexture,
 
 };
