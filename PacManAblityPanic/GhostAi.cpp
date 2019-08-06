@@ -35,10 +35,19 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 	switch(red->Direction_of_travel)
 	{
 	case DIRECTION_OF_TRAVEL::up:
+	
 		if (CollisionDetectionMapChipZ(red->pos_X,red->pos_Y,up, MapChipList) == Appulse)
 		{
 			red->Direction_of_travel = randm;
 			
+			break;
+		}
+		else 
+
+		if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
+		{
+
+			red->Direction_of_travel = left;
 			break;
 		}
 			red->pos_Y = red->pos_Y - red->Speed;
@@ -49,14 +58,26 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 			red->Direction_of_travel = randm;
 			
 			break;
+		}else
+		if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
+		{
+			red->Direction_of_travel = up;
+			break;
 		}
+		
 			red->pos_X = red->pos_X - red->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::right:
+		
 		if (CollisionDetectionMapChipZ(red->pos_X, red->pos_Y, right, MapChipList) == Appulse)
 		{
 			red->Direction_of_travel = randm;
 			
+			break;
+		}else
+		if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
+		{
+			red->Direction_of_travel = randm;
 			break;
 		}
 			red->pos_X = red->pos_X + red->Speed;
@@ -67,7 +88,13 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 			red->Direction_of_travel = randm;
 			
 			break;
+		}else
+		if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
+		{
+			red->Direction_of_travel = randm;
+			break;
 		}
+		
 			red->pos_Y = red->pos_Y + red->Speed;
 		break;
 	}

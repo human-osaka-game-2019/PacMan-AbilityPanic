@@ -187,22 +187,22 @@ bool BifurcatioCheck(float char_x, float char_y, int** MapChipList)
 		int y = (int)(char_y - 120) / HEIGHT_POS;
 		int bifurcatio_count = 0; //! 道を数えている
 
-		if (MapChipList[y - 1][x] != Road && MapChipList[y - 1][x] != Cookie)
+		if (MapChipList[y - 1][x] == Road || MapChipList[y - 1][x] == Cookie)
 		{
 			bifurcatio_count++;
 		}
 
-		if (MapChipList[y + 1][x] != Road && MapChipList[y + 1][x] != Cookie)
+		if (MapChipList[y + 1][x] == Road || MapChipList[y + 1][x] == Cookie)
 		{
 			bifurcatio_count++;
 		}
 
-		if (MapChipList[y][x + 1] != Road && MapChipList[y][x + 1] != Cookie)
+		if (MapChipList[y][x + 1] == Road || MapChipList[y][x + 1] == Cookie)
 		{
 			bifurcatio_count++;
 		}
 
-		if (MapChipList[y][x - 1] != Road && MapChipList[y][x - 1] != Cookie)
+		if (MapChipList[y][x - 1] == Road || MapChipList[y][x - 1] == Cookie)
 		{
 			bifurcatio_count++;
 		}
