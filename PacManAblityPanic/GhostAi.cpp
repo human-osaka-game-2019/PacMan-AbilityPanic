@@ -71,11 +71,11 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 	
 };
 
-void PINK_GHOST::PinkGhostUpdate () {
+void PINK_GHOST::PinkGhostUpdate (PINK_GHOST* pink, int** MapChipList, int randm) {
 	switch (PINK_GHOST::Mode)
 	{
 	case NormalMode:
-		PinkNormalMoving ();
+		PinkNormalMoving (pink,MapChipList,randm);
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -86,30 +86,54 @@ void PINK_GHOST::PinkGhostUpdate () {
 	}
 }
 
-void PINK_GHOST::PinkNormalMoving()
+void PINK_GHOST::PinkNormalMoving(PINK_GHOST* pink, int** MapChipList, int randm)
 {
-	switch(PINK_GHOST::Direction_of_travel)
+	switch(pink->Direction_of_travel)
 	{
 	case DIRECTION_OF_TRAVEL::up:
+		if (CollisionDetectionMapChipZ(pink->pos_X, pink->pos_Y, up, MapChipList) == Appulse)
+		{
+			pink->Direction_of_travel = randm;
 
+			break;
+		}
+		pink->pos_Y = pink->pos_Y - pink->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::left:
+		if (CollisionDetectionMapChipZ(pink->pos_X, pink->pos_Y, left, MapChipList) == Appulse)
+		{
+			pink->Direction_of_travel = randm;
 
+			break;
+		}
+		pink->pos_X = pink->pos_X - pink->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::right:
+		if (CollisionDetectionMapChipZ(pink->pos_X, pink->pos_Y, right, MapChipList) == Appulse)
+		{
+			pink->Direction_of_travel = randm;
 
+			break;
+		}
+		pink->pos_X = pink->pos_X + pink->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::down:
+		if (CollisionDetectionMapChipZ(pink->pos_X, pink->pos_Y, down, MapChipList) == Appulse)
+		{
+			pink->Direction_of_travel = randm;
 
+			break;
+		}
+		pink->pos_Y = pink->pos_Y + pink->Speed;
 		break;
 	}
 };
 
-void WATERY_GHOST::WateryGhostUpdate () {
+void WATERY_GHOST::WateryGhostUpdate (WATERY_GHOST* watery, int** MapChipList, int randm) {
 	switch (WATERY_GHOST::Mode)
 	{
 	case NormalMode:
-		WateryNormalMoving ();
+		WateryNormalMoving (watery,MapChipList,randm);
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -120,30 +144,54 @@ void WATERY_GHOST::WateryGhostUpdate () {
 	}
 }
 
-void WATERY_GHOST::WateryNormalMoving()
+void WATERY_GHOST::WateryNormalMoving(WATERY_GHOST* watery, int** MapChipList, int randm)
 {
-	switch (WATERY_GHOST::Direction_of_travel)
+	switch (watery->Direction_of_travel)
 	{
 	case DIRECTION_OF_TRAVEL::up:
+		if (CollisionDetectionMapChipZ(watery->pos_X, watery->pos_Y, up, MapChipList) == Appulse)
+		{
+			watery->Direction_of_travel = randm;
 
+			break;
+		}
+		watery->pos_Y = watery->pos_Y - watery->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::left:
+		if (CollisionDetectionMapChipZ(watery->pos_X, watery->pos_Y, left, MapChipList) == Appulse)
+		{
+			watery->Direction_of_travel = randm;
 
+			break;
+		}
+		watery->pos_X = watery->pos_X - watery->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::right:
+		if (CollisionDetectionMapChipZ(watery->pos_X, watery->pos_Y, right, MapChipList) == Appulse)
+		{
+			watery->Direction_of_travel = randm;
 
+			break;
+		}
+		watery->pos_X = watery->pos_X + watery->Speed;
 		break;
 	case DIRECTION_OF_TRAVEL::down:
+		if (CollisionDetectionMapChipZ(watery->pos_X, watery->pos_Y, down, MapChipList) == Appulse)
+		{
+			watery->Direction_of_travel = randm;
 
+			break;
+		}
+		watery->pos_Y = watery->pos_Y + watery->Speed;
 		break;
 	}
 };
 
-void ORANGE_GHOST::OrangeGhostUpdate() {
+void ORANGE_GHOST::OrangeGhostUpdate(ORANGE_GHOST* orange, int** MapChipList, int randm) {
 	switch (ORANGE_GHOST::Mode)
 	{
 	case NormalMode:
-		OrangeNormalMoving ();
+		OrangeNormalMoving ( orange,MapChipList, randm);
 		break;
 	case ScatterMode:
 		ScatterMoving ();
@@ -154,22 +202,46 @@ void ORANGE_GHOST::OrangeGhostUpdate() {
 	}
 }
 
-void ORANGE_GHOST::OrangeNormalMoving()
+void ORANGE_GHOST::OrangeNormalMoving(ORANGE_GHOST* orange, int** MapChipList, int randm)
 {
-	switch (ORANGE_GHOST::Direction_of_travel)
+	switch (orange->Direction_of_travel)
 	{
-	case DIRECTION_OF_TRAVEL::up:
+			case DIRECTION_OF_TRAVEL::up:
+				if (CollisionDetectionMapChipZ(orange->pos_X, orange->pos_Y, up, MapChipList) == Appulse)
+				{
+					orange->Direction_of_travel = randm;
 
-		break;
-	case DIRECTION_OF_TRAVEL::left:
+					break;
+				}
+				orange->pos_Y = orange->pos_Y - orange->Speed;
+				break;
+			case DIRECTION_OF_TRAVEL::left:
+				if (CollisionDetectionMapChipZ(orange->pos_X, orange->pos_Y, left, MapChipList) == Appulse)
+				{
+					orange->Direction_of_travel = randm;
 
-		break;
-	case DIRECTION_OF_TRAVEL::right:
+					break;
+				}
+				orange->pos_X = orange->pos_X - orange->Speed;
+				break;
+			case DIRECTION_OF_TRAVEL::right:
+				if (CollisionDetectionMapChipZ(orange->pos_X, orange->pos_Y, right, MapChipList) == Appulse)
+				{
+					orange->Direction_of_travel = randm;
 
-		break;
-	case DIRECTION_OF_TRAVEL::down:
+					break;
+				}
+				orange->pos_X = orange->pos_X + orange->Speed;
+				break;
+			case DIRECTION_OF_TRAVEL::down:
+				if (CollisionDetectionMapChipZ(orange->pos_X, orange->pos_Y, down, MapChipList) == Appulse)
+				{
+					orange->Direction_of_travel = randm;
 
-		break;
+					break;
+				}
+				orange->pos_Y = orange->pos_Y + orange->Speed;
+				break;
 	}
 };
 

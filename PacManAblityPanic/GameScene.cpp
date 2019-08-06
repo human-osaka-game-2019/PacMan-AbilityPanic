@@ -127,7 +127,9 @@ void InitGameScene(Pointa* point)
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
 	red.Direction_of_travel = 4;
-
+	pink.Direction_of_travel = 3;
+	watery.Direction_of_travel = 3;
+	orange.Direction_of_travel = 4;
 	for (int i = 0; i < 22; i++)
 	{
 		MAPR[i] = MapChipList[i];
@@ -289,8 +291,11 @@ void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 	
 	int RAMD = rand() % 4 + 1;
 	red.RedGhostUpdate(&red, MAPR, RAMD);
+	pink.PinkGhostUpdate(&pink, MAPR, RAMD);
+	watery.WateryGhostUpdate(&watery, MAPR, RAMD);
+	orange.OrangeGhostUpdate(&orange, MAPR, RAMD);
 	
-	if (red.pos_X <= Pac_man.pos_X + 40 && red.pos_Y < Pac_man.pos_Y + 40 && red.pos_X + 40 >= Pac_man.pos_X && red.pos_Y + 40 >= Pac_man.pos_Y)
+	if (red.pos_X + 10 <= Pac_man.pos_X + 30 && red.pos_Y - 10 < Pac_man.pos_Y + 30 && red.pos_X + 30 >= Pac_man.pos_X +10 && red.pos_Y + 30 >= Pac_man.pos_Y - 10)
 	{
 		ChangeSceneStep(SceneStep::EndStep);
 	}
