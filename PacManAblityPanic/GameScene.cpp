@@ -96,13 +96,13 @@ void DrawGameScene(Pointa* point, MapChipData MapData)
 
 	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], MapChipList);
 	Draw(Pac_man.pos_X, Pac_man.pos_Y, Pac_man.TextureSize, Pac_man.TextureSize, Pac_man.pos_Tu, Pac_man.pos_Tv, Pac_man.TuTvSize, Pac_man.TuTvSize, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);//パックマン
-	Draw(red.pos_X, red.pos_Y, 40, 40, 0, 1, 0, 0.25, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
-	Draw(watery.pos_X, watery.pos_Y, 40, 40, 0, 1, 0.25, 0.5, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
-	Draw(orange.pos_X, orange.pos_Y, 40, 40, 0, 1, 0.5, 0.75, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
-	Draw(pink.pos_X, pink.pos_Y, 40, 40, 0, 1, 0.75, 1, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	DrawTest(red.pos_X, red.pos_Y,       40, 40, 0,    0, 0.25,    1, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	DrawTest(watery.pos_X, watery.pos_Y, 40, 40, 0.5,  0, 0.75, 1, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	DrawTest(orange.pos_X, orange.pos_Y, 40, 40, 0.75,0, 1,  1, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	DrawTest(pink.pos_X, pink.pos_Y,     40, 40, 0.25, 0, 0.5, 1, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
 
 }
-  
+
 
 void AllCoordinatesInput()
 {
