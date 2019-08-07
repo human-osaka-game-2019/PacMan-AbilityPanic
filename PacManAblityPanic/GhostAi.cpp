@@ -45,7 +45,10 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 
 			if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
 			{
-				red->Direction_of_travel = randm;
+				if (randm != down) 
+				{
+					red->Direction_of_travel = randm;
+				}
 				break;
 			}
 
@@ -61,7 +64,9 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 
 			if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
 			{
-				red->Direction_of_travel = randm;
+				if (randm != right) {
+					red->Direction_of_travel = randm;
+				}
 				break;
 			}
 
@@ -77,7 +82,10 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 
 			if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
 			{
-				red->Direction_of_travel = randm;
+				if (randm != left) 
+				{
+					red->Direction_of_travel = randm;
+				}
 				break;
 			}
 
@@ -93,7 +101,10 @@ void RED_GHOST::RedNormalMoving(RED_GHOST* red,int** MapChipList,int randm)
 
 			if (BifurcatioCheck(red->pos_X, red->pos_Y, MapChipList) == true)
 			{
-				red->Direction_of_travel = randm;
+				if (randm != up) 
+				{
+					red->Direction_of_travel = randm;
+				}
 				break;
 			}
 
