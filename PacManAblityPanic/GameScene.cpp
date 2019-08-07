@@ -96,26 +96,10 @@ void DrawGameScene(Pointa* point, MapChipData MapData)
 
 	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], MapChipList);
 	Draw(Pac_man.pos_X, Pac_man.pos_Y, Pac_man.TextureSize, Pac_man.TextureSize, Pac_man.pos_Tu, Pac_man.pos_Tv, Pac_man.TuTvSize, Pac_man.TuTvSize, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);//パックマン
-	Draw(red.pos_X, red.pos_Y, 40, 40, 0.4218750000, 0.500000000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
-	Draw(watery.pos_X, watery.pos_Y, 40, 40, 0.4218750000, 0.578125000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
-	Draw(orange.pos_X, orange.pos_Y, 40, 40, 0.4218750000, 0.421875000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
-	Draw(pink.pos_X, pink.pos_Y, 40, 40, 0.4218750000, 0.265625000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
-	
-	DrawTest( 104, 290, 300, 300,gts.AbilityFlame_s_tu, gts.AbilityFlame_s_tv, gts.AbilityFlame_e_tu, gts.AbilityFlame_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest( 194, 380, 120, 120,  gts.AbilityRog_s_tu,   gts.AbilityRog_s_tv,   gts.AbilityRog_e_tu,   gts.AbilityRog_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest( 458, 856, 102, 102, gts.InitAbility_s_tu,  gts.InitAbility_s_tv,  gts.InitAbility_e_tu,  gts.InitAbility_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1458, 206, 400, 400,        gts.move_s_tu,         gts.move_s_tv,         gts.move_e_tu,         gts.move_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(  32,  32, 540, 146,        gts.Test_s_tu,         gts.Test_s_tv,         gts.Test_e_tu,         gts.Test_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest( 660,  30, 254,  52,        gts.Test_s_tu,         gts.Test_s_tv,         gts.Test_e_tu,         gts.Test_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1554,  20, 346,  70,        gts.Test_s_tu,         gts.Test_s_tv,         gts.Test_e_tu,         gts.Test_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(  64, 802, 356,  70,        gts.Test_s_tu,         gts.Test_s_tv,         gts.Test_e_tu,         gts.Test_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(  64, 918, 356,  70,        gts.Test_s_tu,         gts.Test_s_tv,         gts.Test_e_tu,         gts.Test_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1458, 666, 398, 398,        gts.Test_s_tu,         gts.Test_s_tv,         gts.Test_e_tu,         gts.Test_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-
-	DrawTest(1598, 266, 120, 120,    gts.Up_s_tu,    gts.Up_s_tv,    gts.Up_e_tu,    gts.Up_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1598, 386, 120, 120,  gts.Down_s_tu,  gts.Down_s_tv,  gts.Down_e_tu,  gts.Down_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1718, 386, 120, 120, gts.Right_s_tu, gts.Right_s_tv, gts.Right_e_tu, gts.Right_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1478, 386, 120, 120,  gts.Left_s_tu,  gts.Left_s_tv,  gts.Left_e_tu,  gts.Left_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
+	Draw(red.pos_X, red.pos_Y, 40, 40, 0, 1, 0, 0.25, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	Draw(watery.pos_X, watery.pos_Y, 40, 40, 0, 1, 0.25, 0.5, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	Draw(orange.pos_X, orange.pos_Y, 40, 40, 0, 1, 0.5, 0.75, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
+	Draw(pink.pos_X, pink.pos_Y, 40, 40, 0, 1, 0.75, 1, &GameTextureData.m_pTexture[GameTextureList::CharTexture], *point);
 
 }
   
@@ -137,6 +121,7 @@ void InitGameScene(Pointa* point)
 	LoadTexture("Texture/MapChipTEST2.png", &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], 0, point);
 	LoadTexture("Texture/GameScene.png", &GameTextureData.m_pTexture[GameTextureList::MainGameTexture], 0, point);
 	LoadTexture("Texture/maingame.png", &GameTextureData.m_pTexture[GameTextureList::UITexture], 0, point);
+	LoadTexture("Texture/OptionChar.png", &GameTextureData.m_pTexture[GameTextureList::CharTexture], 0, point);
 
 	red.Direction_of_travel = 4;
 	pink.Direction_of_travel = 3;

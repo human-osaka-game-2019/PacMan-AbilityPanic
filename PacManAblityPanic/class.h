@@ -152,6 +152,7 @@ enum GameTextureList
 	MainGameTexture,
 	MapChipTexture,
 	UITexture,
+	CharTexture,
 	MaxGameTexture,
 
 };
