@@ -93,6 +93,45 @@ NOW_STATE_ID CollisionDetectionMapChip(float now_x, float now_y, int push_key, i
 	else return NowMove;
 }
 
+bool BifurcatioCheck(float char_x, float char_y, int** MapChipList)
+{
+	if ((int)(char_x - 598) % WIDTH_POS == 0 && (int)(char_y - 120) % HEIGHT_POS == 0)
+	{
+		int x = (int)(char_x - 598) / WIDTH_POS;
+		int y = (int)(char_y - 120) / HEIGHT_POS;
+		int bifurcatio_count = 0; //! 道を数えている
+
+		if (MapChipList[y - 1][x] == Road || MapChipList[y - 1][x] == Cookie)
+		{
+			bifurcatio_count++;
+		}
+
+		if (MapChipList[y + 1][x] == Road || MapChipList[y + 1][x] == Cookie)
+		{
+			bifurcatio_count++;
+		}
+
+		if (MapChipList[y][x + 1] == Road || MapChipList[y][x + 1] == Cookie)
+		{
+			bifurcatio_count++;
+		}
+
+		if (MapChipList[y][x - 1] == Road || MapChipList[y][x - 1] == Cookie)
+		{
+			bifurcatio_count++;
+		}
+
+		// 3つ以上分かれ道があるかどうかをここで判断
+		if (bifurcatio_count >= 3)
+		{
+			return true;
+		}
+		else return false;
+
+	}
+	return false;
+}
+
 // パックマンの操作先座標指定
 void Pac_Mon_Move(VariableNumber* var, PLAYER* Pac_man,int MapChipList[22][19])
 {
@@ -179,43 +218,6 @@ NOW_STATE_ID CollisionDetectionMapChipZ(float now_x, float now_y, int push_key, 
 	else return NowMove;
 }
 
-bool BifurcatioCheck(float char_x, float char_y, int** MapChipList) 
-{
-	if ((int)(char_x - 598) % WIDTH_POS == 0 && (int)(char_y - 120) % HEIGHT_POS == 0)
-	{
-		int x = (int)(char_x - 598) / WIDTH_POS;
-		int y = (int)(char_y - 120) / HEIGHT_POS;
-		int bifurcatio_count = 0; //! 道を数えている
-
-		if (MapChipList[y - 1][x] != Road && MapChipList[y - 1][x] != Cookie)
-		{
-			bifurcatio_count++;
-		}
-
-		if (MapChipList[y + 1][x] != Road && MapChipList[y + 1][x] != Cookie)
-		{
-			bifurcatio_count++;
-		}
-
-		if (MapChipList[y][x + 1] != Road && MapChipList[y][x + 1] != Cookie)
-		{
-			bifurcatio_count++;
-		}
-
-		if (MapChipList[y][x - 1] != Road && MapChipList[y][x - 1] != Cookie)
-		{
-			bifurcatio_count++;
-		}
-		// 3つ以上分かれ道があるかどうかをここで判断
-		if (bifurcatio_count >= 3)
-		{
-			return true;
-		}
-		else return false;
-
-	}
-	return false;
-}
 
 class answer
 {

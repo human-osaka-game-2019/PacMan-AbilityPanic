@@ -94,7 +94,6 @@ GameTextureSize gts;
 void DrawGameScene(Pointa* point, MapChipData MapData)
 {
 
-
 	DrawMapChip(point, MapData, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], MapChipList);
 	Draw(Pac_man.pos_X, Pac_man.pos_Y, Pac_man.TextureSize, Pac_man.TextureSize, Pac_man.pos_Tu, Pac_man.pos_Tv, Pac_man.TuTvSize, Pac_man.TuTvSize, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);//パックマン
 	Draw(red.pos_X, red.pos_Y, 40, 40, 0.4218750000, 0.500000000, 0.0781250000, 0.0781250000, &GameTextureData.m_pTexture[GameTextureList::MapChipTexture], *point);
@@ -300,9 +299,9 @@ void KeyCondition(Count* count, VariableNumber* var, PLAYER* pac_man)
 
 void MainGameScene(Count* count, VariableNumber* var,PLAYER * pac_man)
 {
-	Pac_Mon_Move(var, pac_man, MapChipList);
-	
 	int RAMD = rand() % 4 + 1;
+
+	Pac_Mon_Move(var, pac_man, MapChipList);
 	red.RedGhostUpdate(&red, MAPR, RAMD);
 	pink.PinkGhostUpdate(&pink, MAPR, RAMD);
 	watery.WateryGhostUpdate(&watery, MAPR, RAMD);
