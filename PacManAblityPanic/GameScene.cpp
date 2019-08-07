@@ -114,8 +114,8 @@ void DrawGameScene(Pointa* point, MapChipData MapData)
 
 	DrawTest(1598, 266, 120, 120,    gts.Up_s_tu,    gts.Up_s_tv,    gts.Up_e_tu,    gts.Up_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
 	DrawTest(1598, 386, 120, 120,  gts.Down_s_tu,  gts.Down_s_tv,  gts.Down_e_tu,  gts.Down_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1478, 386, 120, 120, gts.Right_s_tu, gts.Right_s_tv, gts.Right_e_tu, gts.Right_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
-	DrawTest(1718, 386, 120, 120,  gts.Left_s_tu,  gts.Left_s_tv,  gts.Left_e_tu,  gts.Left_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
+	DrawTest(1718, 386, 120, 120, gts.Right_s_tu, gts.Right_s_tv, gts.Right_e_tu, gts.Right_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
+	DrawTest(1478, 386, 120, 120,  gts.Left_s_tu,  gts.Left_s_tv,  gts.Left_e_tu,  gts.Left_e_tv, &GameTextureData.m_pTexture[GameTextureList::UITexture], *point);
 
 }
   
